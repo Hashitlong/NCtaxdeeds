@@ -41,15 +41,7 @@ async function startServer() {
     app.use(express.json({ limit: "50mb" }));
     app.use(express.urlencoded({ limit: "50mb", extended: true }));
     
-    // Health check endpoint
-    app.get("/", (req, res) => {
-      res.json({
-        status: "ok",
-        timestamp: new Date().toISOString(),
-        env: process.env.NODE_ENV
-      });
-    });
-    
+    // Health check endpoint (Railway will use this for health checks)
     app.get("/health", (req, res) => {
       res.json({
         status: "healthy",
