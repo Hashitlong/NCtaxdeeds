@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { useAuth } from "@/_core/hooks/useAuth";
 import Home from "./pages/Home";
 import Statistics from "./pages/Statistics";
 import Calendar from "./pages/Calendar";
@@ -16,9 +17,9 @@ import RecentlySold from "./pages/RecentlySold";
 import NotificationSettings from "./pages/NotificationSettings";
 import NotificationHistory from "./pages/NotificationHistory";
 import AccessDenied from "./pages/AccessDenied";
+import Login from "./pages/Login";
 
-function Router() {
-  // make sure to consider if you need authentication for certain routes
+function AuthenticatedRoutes() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
@@ -38,6 +39,33 @@ function Router() {
       <Route component={NotFound} />
     </Switch>
   );
+}
+
+function Router() {
+  const { isAuthenticated, loading } = useAuth();
+
+  // Show loading spinner while checking authentication
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  // If not authenticated, only show login page
+  if (!isAuthenticated) {
+    return (
+      <Switch>
+        <Route path={"/login"} component={Login} />
+        {/* All other routes redirect to login */}
+        <Route component={Login} />
+      </Switch>
+    );
+  }
+
+  // If authenticated, show all protected routes
+  return <AuthenticatedRoutes />;
 }
 
 // NOTE: About Theme

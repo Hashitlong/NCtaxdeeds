@@ -2,7 +2,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building2, Settings, Database, MapPin, TrendingUp, Star, Bookmark, History, Bell } from "lucide-react";
-import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
+import { APP_LOGO, APP_TITLE } from "@/const";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 
@@ -12,8 +12,7 @@ import { trpc } from "@/lib/trpc";
  */
 export default function Home() {
   // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
+  let { user, logout } = useAuth();
   
   // Fetch system statistics
   const { data: stats } = trpc.stats.overview.useQuery();
@@ -33,16 +32,8 @@ export default function Home() {
             <h1 className="text-xl font-bold">{APP_TITLE}</h1>
           </div>
           <div className="flex items-center gap-4">
-            {isAuthenticated ? (
-              <>
-                <span className="text-sm text-muted-foreground">Welcome, {user?.name}</span>
-                <Button onClick={logout} variant="outline" size="sm">Logout</Button>
-              </>
-            ) : (
-              <Button asChild size="sm">
-                <a href={getLoginUrl()}>Login</a>
-              </Button>
-            )}
+            <span className="text-sm text-muted-foreground">Welcome, {user?.name}</span>
+            <Button onClick={logout} variant="outline" size="sm">Logout</Button>
           </div>
         </div>
       </header>
@@ -76,45 +67,41 @@ export default function Home() {
                 Statistics
               </Link>
             </Button>
-            {isAuthenticated && (
-              <Button asChild variant="outline" size="lg">
-                <Link href="/admin">
-                  <Settings className="mr-2 h-5 w-5" />
-                  Admin Panel
-                </Link>
-              </Button>
-            )}
+            <Button asChild variant="outline" size="lg">
+              <Link href="/admin">
+                <Settings className="mr-2 h-5 w-5" />
+                Admin Panel
+              </Link>
+            </Button>
           </div>
           
           {/* Secondary Actions */}
-          {isAuthenticated && (
-            <div className="flex gap-3 justify-center flex-wrap mt-4">
-              <Button asChild variant="ghost" size="sm">
-                <Link href="/saved-searches">
-                  <Bookmark className="mr-2 h-4 w-4" />
-                  Saved Searches
-                </Link>
-              </Button>
-              <Button asChild variant="ghost" size="sm">
-                <Link href="/favorites">
-                  <Star className="mr-2 h-4 w-4" />
-                  Favorites
-                </Link>
-              </Button>
-              <Button asChild variant="ghost" size="sm">
-                <Link href="/recently-sold">
-                  <History className="mr-2 h-4 w-4" />
-                  Recently Sold
-                </Link>
-              </Button>
-              <Button asChild variant="ghost" size="sm">
-                <Link href="/notification-settings">
-                  <Bell className="mr-2 h-4 w-4" />
-                  Notifications
-                </Link>
-              </Button>
-            </div>
-          )}
+          <div className="flex gap-3 justify-center flex-wrap mt-4">
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/saved-searches">
+                <Bookmark className="mr-2 h-4 w-4" />
+                Saved Searches
+              </Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/favorites">
+                <Star className="mr-2 h-4 w-4" />
+                Favorites
+              </Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/recently-sold">
+                <History className="mr-2 h-4 w-4" />
+                Recently Sold
+              </Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/notification-settings">
+                <Bell className="mr-2 h-4 w-4" />
+                Notifications
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
