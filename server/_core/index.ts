@@ -5,6 +5,7 @@ import net from "net";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "./oauth";
 import { registerAuthRoutes } from "./auth";
+import { registerSetupRoutes } from "./setup-team";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
@@ -53,6 +54,10 @@ async function startServer() {
     // Authentication routes
     console.log("[Server] Registering authentication routes...");
     registerAuthRoutes(app);
+    
+    // Setup routes for team member creation
+    console.log("[Server] Registering setup routes...");
+    registerSetupRoutes(app);
     
     // OAuth callback under /api/oauth/callback (legacy)
     console.log("[Server] Registering OAuth routes...");
