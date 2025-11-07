@@ -28,13 +28,38 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 }
 
 async function startServer() {
-  const app = express();
-  const server = createServer(app);
-  // Configure body parser with larger size limit for file uploads
-  app.use(express.json({ limit: "50mb" }));
-  app.use(express.urlencoded({ limit: "50mb", extended: true }));
-  // OAuth callback under /api/oauth/callback
-  registerOAuthRoutes(app);
+  try {
+    console.log("[Server] Starting server...");
+    console.log("[Server] NODE_ENV:", process.env.NODE_ENV);
+    console.log("[Server] PORT:", process.env.PORT);
+    console.log("[Server] DATABASE_URL:", process.env.DATABASE_URL ? "Set" : "Not set");
+    
+    const app = express();
+    const server = createServer(app);
+    
+    // Configure body parser with larger size limit for file uploads
+    app.use(express.json({ limit: "50mb" }));
+    app.use(express.urlencoded({ limit: "50mb", extended: true }));
+    
+    // Health check endpoint
+    app.get("/", (req, res) => {
+      res.json({
+        status: "ok",
+        timestamp: new Date().toISOString(),
+        env: process.env.NODE_ENV
+      });
+    });
+    
+    app.get("/health", (req, res) => {
+      res.json({
+        status: "healthy",
+        timestamp: new Date().toISOString()
+      });
+    });
+    
+    // OAuth callback under /api/oauth/callback
+    console.log("[Server] Registering OAuth routes...");
+    registerOAuthRoutes(app);
   
   // Internal cron endpoint for automated scraping (no auth required)
   app.post("/api/internal/cron/scrape", async (req, res) => {
@@ -65,38 +90,48 @@ async function startServer() {
         timestamp: new Date().toISOString(),
       });
     }
-  });
-  // tRPC API
-  app.use(
-    "/api/trpc",
-    createExpressMiddleware({
-      router: appRouter,
-      createContext,
-    })
-  );
-  // development mode uses Vite, production mode uses static files
-  if (process.env.NODE_ENV === "development") {
-    await setupVite(app, server);
-  } else {
-    serveStatic(app);
-  }
-
-  const port = parseInt(process.env.PORT || "3000");
-  
-  // In production (Railway), use the exact PORT provided and bind to all interfaces
-  if (process.env.NODE_ENV === "production") {
-    server.listen(port, "0.0.0.0", () => {
-      console.log(`Server running on port ${port}`);
     });
-  } else {
-    // In development, find available port
-    const availablePort = await findAvailablePort(port);
-    if (availablePort !== port) {
-      console.log(`Port ${port} is busy, using port ${availablePort} instead`);
+    
+    // tRPC API
+    console.log("[Server] Setting up tRPC API...");
+    app.use(
+      "/api/trpc",
+      createExpressMiddleware({
+        router: appRouter,
+        createContext,
+      })
+    );
+    
+    // development mode uses Vite, production mode uses static files
+    console.log("[Server] Setting up static files...");
+    if (process.env.NODE_ENV === "development") {
+      await setupVite(app, server);
+    } else {
+      serveStatic(app);
     }
-    server.listen(availablePort, () => {
-      console.log(`Server running on http://localhost:${availablePort}/`);
-    });
+
+    const port = parseInt(process.env.PORT || "3000");
+    console.log("[Server] Using port:", port);
+    
+    // In production (Railway), use the exact PORT provided and bind to all interfaces
+    if (process.env.NODE_ENV === "production") {
+      server.listen(port, "0.0.0.0", () => {
+        console.log(`[Server] Server running on port ${port}`);
+        console.log(`[Server] Health check available at http://0.0.0.0:${port}/health`);
+      });
+    } else {
+      // In development, find available port
+      const availablePort = await findAvailablePort(port);
+      if (availablePort !== port) {
+        console.log(`[Server] Port ${port} is busy, using port ${availablePort} instead`);
+      }
+      server.listen(availablePort, () => {
+        console.log(`[Server] Server running on http://localhost:${availablePort}/`);
+      });
+    }
+  } catch (error) {
+    console.error("[Server] Failed to start server:", error);
+    process.exit(1);
   }
 }
 

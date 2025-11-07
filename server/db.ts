@@ -18,10 +18,21 @@ let _db: ReturnType<typeof drizzle> | null = null;
 export async function getDb() {
   if (!_db && process.env.DATABASE_URL) {
     try {
+      console.log("[Database] Creating connection pool...");
       const connection = mysql.createPool(process.env.DATABASE_URL);
       _db = drizzle(connection);
+      console.log("[Database] Connection pool created successfully");
+      
+      // Test the connection
+      try {
+        await _db.execute(sql`SELECT 1`);
+        console.log("[Database] Connection test successful");
+      } catch (testError) {
+        console.warn("[Database] Connection test failed:", testError);
+        // Don't fail startup, just log the warning
+      }
     } catch (error) {
-      console.warn("[Database] Failed to connect:", error);
+      console.warn("[Database] Failed to create connection pool:", error);
       _db = null;
     }
   }
