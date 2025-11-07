@@ -51,11 +51,24 @@ export function serveStatic(app: Express) {
   const distPath =
     process.env.NODE_ENV === "development"
       ? path.resolve(import.meta.dirname, "../..", "dist", "public")
-      : path.resolve(import.meta.dirname, "public");
+      : path.resolve(import.meta.dirname, "../..", "dist", "public");
+  
+  console.log("[Static] Looking for static files in:", distPath);
+  console.log("[Static] Directory exists:", fs.existsSync(distPath));
+  
   if (!fs.existsSync(distPath)) {
     console.error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`
     );
+    // List what's actually in the current directory for debugging
+    const currentDir = path.resolve(import.meta.dirname);
+    console.log("[Static] Current directory:", currentDir);
+    try {
+      const files = fs.readdirSync(currentDir);
+      console.log("[Static] Files in current directory:", files);
+    } catch (e) {
+      console.log("[Static] Could not read current directory");
+    }
   }
 
   app.use(express.static(distPath));
