@@ -46,6 +46,10 @@ const trpcClient = trpc.createClient({
         return globalThis.fetch(input, {
           ...(init ?? {}),
           credentials: "include",
+          headers: {
+            ...(init?.headers ?? {}),
+            "Connection": "keep-alive", // Force HTTP/1.1
+          },
         });
       },
     }),

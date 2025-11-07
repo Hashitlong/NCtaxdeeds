@@ -28,6 +28,7 @@ export default function Login() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Connection": "keep-alive", // Force HTTP/1.1
         },
         credentials: "include", // Include cookies in the request
         body: JSON.stringify({ email, password }),
