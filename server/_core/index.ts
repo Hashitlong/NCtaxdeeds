@@ -5,6 +5,7 @@ import net from "net";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "./oauth";
 import { registerAuthRoutes } from "./auth";
+import { registerDebugLoginRoutes } from "./debug-login"; // Temporary debug route
 // import { registerSetupRoutes } from "./setup-team"; // Temporary - removed after setup
 // import { registerDebugRoutes } from "./debug-auth"; // Temporary - removed after setup
 import { appRouter } from "../routers";
@@ -55,6 +56,10 @@ async function startServer() {
     // Authentication routes
     console.log("[Server] Registering authentication routes...");
     registerAuthRoutes(app);
+    
+    // Debug login route (temporary)
+    console.log("[Server] Registering debug login routes...");
+    registerDebugLoginRoutes(app);
     
     // Setup routes for team member creation (removed after initial setup)
     // registerSetupRoutes(app);
