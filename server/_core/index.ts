@@ -4,6 +4,7 @@ import { createServer } from "http";
 import net from "net";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "./oauth";
+import { registerAuthRoutes } from "./auth";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
@@ -49,7 +50,11 @@ async function startServer() {
       });
     });
     
-    // OAuth callback under /api/oauth/callback
+    // Authentication routes
+    console.log("[Server] Registering authentication routes...");
+    registerAuthRoutes(app);
+    
+    // OAuth callback under /api/oauth/callback (legacy)
     console.log("[Server] Registering OAuth routes...");
     registerOAuthRoutes(app);
   
