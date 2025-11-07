@@ -51,7 +51,7 @@ export function serveStatic(app: Express) {
   const distPath =
     process.env.NODE_ENV === "development"
       ? path.resolve(import.meta.dirname, "../..", "dist", "public")
-      : path.resolve(import.meta.dirname, "../..", "dist", "public");
+      : path.resolve(import.meta.dirname, "public");
   
   console.log("[Static] Looking for static files in:", distPath);
   console.log("[Static] Directory exists:", fs.existsSync(distPath));
