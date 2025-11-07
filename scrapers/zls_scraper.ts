@@ -28,6 +28,8 @@ export interface ScrapedProperty {
   depositRequired?: string | null;
   noticeText?: string | null;
   source: string;
+  sourceType?: string | null;
+  sourceUrl?: string | null;
   rawData?: string | null;
 }
 

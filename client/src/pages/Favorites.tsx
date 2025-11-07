@@ -89,10 +89,10 @@ export default function Favorites() {
                       `"${p.county}",`,
                       `"${p.propertyType || ''}",`,
                       `"${p.saleStatus || ''}",`,
-                      `"${formatCurrency(p.openingBidCents)}",`,
-                      `"${formatCurrency(p.currentBidCents)}",`,
+                      `"${formatCurrency((p as any).openingBidCents || p.openingBid)}",`,
+                      `"${formatCurrency((p as any).currentBidCents || p.currentBid)}",`,
                       `"${p.saleDate ? format(new Date(p.saleDate), 'yyyy-MM-dd') : ''}",`,
-                      `"${p.upsetBidDeadline ? format(new Date(p.upsetBidDeadline), 'yyyy-MM-dd') : ''}",`,
+                      `"${(p as any).upsetBidDeadline ? format(new Date((p as any).upsetBidDeadline), 'yyyy-MM-dd') : ''}",`,
                       `"${p.parcelId || ''}"`,
                     ].join(''))
                   ].join('\n');
@@ -220,7 +220,7 @@ export default function Favorites() {
                           size="sm"
                           onClick={(e) => {
                             e.stopPropagation();
-                            window.open(property.sourceUrl, '_blank');
+                            if (property.sourceUrl) window.open(property.sourceUrl, '_blank');
                           }}
                         >
                           <ExternalLink className="h-4 w-4 mr-2" />

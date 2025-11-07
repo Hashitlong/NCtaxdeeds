@@ -46,21 +46,22 @@ export class NotificationService {
     if (!db) return [];
 
     try {
-      let query = db
-        .select()
-        .from(properties)
-        .where(inArray(properties.id, propertyIds));
+      // Build where conditions array
+      let whereConditions = [inArray(properties.id, propertyIds)];
 
       // Filter by counties if specified
       if (pref.counties) {
         const counties = JSON.parse(pref.counties);
         if (counties.length > 0) {
-          query = query.where(inArray(properties.county, counties)) as any;
+          whereConditions.push(inArray(properties.county, counties));
         }
       }
 
-      // Filter by bid range if specified
-      const results = await query;
+      // Execute query with combined conditions
+      const results = await db
+        .select()
+        .from(properties)
+        .where(whereConditions.length > 1 ? and(...whereConditions) : whereConditions[0]);
       return results.filter((prop) => {
         if (pref.minBid && prop.openingBid && prop.openingBid < pref.minBid) {
           return false;

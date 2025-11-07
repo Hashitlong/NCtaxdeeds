@@ -134,15 +134,15 @@ export default function Properties() {
   // Load preferences on mount
   useEffect(() => {
     if (userPreferences && !preferencesLoaded) {
-      if (userPreferences.defaultCountyFilter) setCountyFilter(userPreferences.defaultCountyFilter);
-      if (userPreferences.defaultStatusFilter) setStatusFilter(userPreferences.defaultStatusFilter);
-      if (userPreferences.defaultSourceFilter) setSourceFilter(userPreferences.defaultSourceFilter);
-      if (userPreferences.defaultMinBid) setMinBid(userPreferences.defaultMinBid);
-      if (userPreferences.defaultMaxBid) setMaxBid(userPreferences.defaultMaxBid);
-      if (userPreferences.defaultStartDate) setStartDate(userPreferences.defaultStartDate);
-      if (userPreferences.defaultEndDate) setEndDate(userPreferences.defaultEndDate);
-      if (userPreferences.defaultSortColumn) setSortColumn(userPreferences.defaultSortColumn);
-      if (userPreferences.defaultSortDirection) setSortDirection(userPreferences.defaultSortDirection);
+      if ((userPreferences as any).defaultCountyFilter) setCountyFilter((userPreferences as any).defaultCountyFilter);
+      if ((userPreferences as any).defaultStatusFilter) setStatusFilter((userPreferences as any).defaultStatusFilter);
+      if ((userPreferences as any).defaultSourceFilter) setSourceFilter((userPreferences as any).defaultSourceFilter);
+      if ((userPreferences as any).defaultMinBid) setMinBid((userPreferences as any).defaultMinBid);
+      if ((userPreferences as any).defaultMaxBid) setMaxBid((userPreferences as any).defaultMaxBid);
+      if ((userPreferences as any).defaultStartDate) setStartDate((userPreferences as any).defaultStartDate);
+      if ((userPreferences as any).defaultEndDate) setEndDate((userPreferences as any).defaultEndDate);
+      if ((userPreferences as any).defaultSortColumn) setSortColumn((userPreferences as any).defaultSortColumn);
+      if ((userPreferences as any).defaultSortDirection) setSortDirection((userPreferences as any).defaultSortDirection);
       setPreferencesLoaded(true);
     }
   }, [userPreferences, preferencesLoaded]);
@@ -155,14 +155,13 @@ export default function Properties() {
       savePreferencesMutation.mutate({
         defaultCountyFilter: countyFilter !== 'all' ? countyFilter : undefined,
         defaultStatusFilter: statusFilter !== 'all' ? statusFilter : undefined,
-        defaultSourceFilter: sourceFilter !== 'all' ? sourceFilter : undefined,
         defaultMinBid: minBid || undefined,
         defaultMaxBid: maxBid || undefined,
         defaultStartDate: startDate || undefined,
         defaultEndDate: endDate || undefined,
         defaultSortColumn: sortColumn || undefined,
         defaultSortDirection: sortDirection,
-      });
+      } as any);
     }, 1000); // Save after 1 second of inactivity
 
     return () => clearTimeout(timeoutId);
@@ -312,7 +311,7 @@ export default function Properties() {
       const matchesStartDate = startDate === "" || !saleDate || saleDate >= new Date(startDate);
       const matchesEndDate = endDate === "" || !saleDate || saleDate <= new Date(endDate);
       
-      return matchesSearch && matchesCounty && matchesStatus && matchesSource && matchesRating && matchesMinBid && matchesMaxBid && matchesStartDate && matchesEndDate;atchesEndDate;
+      return matchesSearch && matchesCounty && matchesStatus && matchesSource && matchesRating && matchesMinBid && matchesMaxBid && matchesStartDate && matchesEndDate;
     });
 
     // Apply sorting
@@ -563,7 +562,7 @@ export default function Properties() {
               <CardDescription>New (Last 7 Days)</CardDescription>
               <CardTitle className="text-3xl flex items-center gap-2">
                 <Badge variant="default" className="text-lg px-2 py-1">
-                  {properties?.filter(p => p.createdAt && new Date(p.createdAt).getTime() > Date.now() - 7 * 86400000).length || 0}
+                  {properties?.filter(p => (p as any).createdAt && new Date((p as any).createdAt).getTime() > Date.now() - 7 * 86400000).length || 0}
                 </Badge>
               </CardTitle>
             </CardHeader>
@@ -851,7 +850,7 @@ export default function Properties() {
                       >
                         <TableCell className="px-1 py-1">
                 <button
-                  onClick={() => toggleFavorite(property.id)}
+                  onClick={(e) => toggleFavorite(property.id, e)}
                   className="p-1 hover:bg-muted rounded transition-colors"
                   title={
                     favoriteIds.has(property.id) 
@@ -884,7 +883,7 @@ export default function Properties() {
                         </TableCell>
                         <TableCell className="px-1 py-1 text-center text-[9px]">
                           {property.checkedOutBy ? (
-                            <span className="text-lg" title={`Checked out by ${property.checkedOutBy} at ${new Date(property.checkedOutAt).toLocaleString()}`}>
+                            <span className="text-lg" title={`Checked out by ${property.checkedOutBy} at ${property.checkedOutAt ? new Date(property.checkedOutAt).toLocaleString() : 'Unknown'}`}>
                               ✅
                             </span>
                           ) : "—"}

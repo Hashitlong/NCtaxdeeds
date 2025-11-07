@@ -105,7 +105,7 @@ export default function Admin() {
               <CardDescription>Last 24 Hours</CardDescription>
               <CardTitle className="text-3xl flex items-center gap-2">
                 <CheckCircle2 className="h-6 w-6 text-green-500" />
-                {scrapeHistory?.filter(h => h.status === 'success' && new Date(h.startedAt).getTime() > Date.now() - 86400000).length || 0}
+                {scrapeHistory?.filter(h => h.status === 'success' && new Date(h.scrapeStartedAt).getTime() > Date.now() - 86400000).length || 0}
               </CardTitle>
             </CardHeader>
             <CardContent>

@@ -19,5 +19,7 @@ export interface PropertyData {
   owner?: string | null;
   caseNumber?: string | null;
   source: string;
+  sourceType?: string | null;
+  sourceUrl?: string | null;
   rawData?: string | null;
 }
