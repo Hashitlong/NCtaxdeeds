@@ -101,8 +101,77 @@ export function registerSetupRoutes(app: Express) {
       
     } catch (error: any) {
       console.error('[Setup] Team setup failed:', error);
-      res.status(500).json({ 
-        success: false, 
+      res.status(500).json({
+        success: false,
+        error: error.message,
+        timestamp: new Date().toISOString(),
+      });
+    }
+  });
+
+  // Direct password update endpoint (bypasses upsertUser bug)
+  app.post("/api/internal/fix-passwords", async (req: Request, res: Response) => {
+    try {
+      const secret = req.headers['x-setup-secret'] || req.query.secret;
+      const expectedSecret = process.env.SETUP_SECRET || 'setup-team-2024';
+      
+      if (secret !== expectedSecret) {
+        return res.status(401).json({ error: 'Unauthorized' });
+      }
+
+      console.log('🔐 Direct password update starting...');
+      
+      // Import mysql2 and bcrypt directly
+      const mysql = await import('mysql2/promise');
+      
+      if (!process.env.DATABASE_URL) {
+        throw new Error('DATABASE_URL not available');
+      }
+
+      const connection = await mysql.createConnection(process.env.DATABASE_URL);
+      
+      // Hash the passwords
+      const rogerPasswordHash = await bcrypt.hash("Brady1018*", SALT_ROUNDS);
+      const treyPasswordHash = await bcrypt.hash("password123", SALT_ROUNDS);
+
+      // Update passwords directly in database
+      await connection.execute(
+        'UPDATE users SET passwordHash = ? WHERE email = ?',
+        [rogerPasswordHash, 'Rogerprw@gmail.com']
+      );
+
+      await connection.execute(
+        'UPDATE users SET passwordHash = ? WHERE email = ?',
+        [treyPasswordHash, 'trey@titanrealty.com']
+      );
+
+      // Verify the updates
+      const [rogerResult] = await connection.execute(
+        'SELECT email, passwordHash IS NOT NULL as hasPassword FROM users WHERE email = ?',
+        ['Rogerprw@gmail.com']
+      ) as any;
+      
+      const [treyResult] = await connection.execute(
+        'SELECT email, passwordHash IS NOT NULL as hasPassword FROM users WHERE email = ?',
+        ['trey@titanrealty.com']
+      ) as any;
+
+      await connection.end();
+
+      res.json({
+        success: true,
+        message: "Direct password update complete",
+        results: {
+          roger: rogerResult[0],
+          trey: treyResult[0]
+        },
+        timestamp: new Date().toISOString(),
+      });
+      
+    } catch (error: any) {
+      console.error('[Setup] Direct password update failed:', error);
+      res.status(500).json({
+        success: false,
         error: error.message,
         timestamp: new Date().toISOString(),
       });
