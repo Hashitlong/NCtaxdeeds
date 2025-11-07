@@ -9,53 +9,9 @@ import { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 const SALT_ROUNDS = 12;
 
 export function registerAuthRoutes(app: Express) {
-  // Register new user
+  // Registration disabled - users must be created by admin
   app.post("/api/auth/register", async (req: Request, res: Response) => {
-    try {
-      const { email, password, name } = req.body;
-
-      if (!email || !password) {
-        return res.status(400).json({ error: "Email and password are required" });
-      }
-
-      if (password.length < 6) {
-        return res.status(400).json({ error: "Password must be at least 6 characters" });
-      }
-
-      // Check if user already exists
-      const existingUser = await db.getUserByEmail(email);
-      if (existingUser) {
-        return res.status(400).json({ error: "User already exists with this email" });
-      }
-
-      // Hash password
-      const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
-
-      // Create user
-      const openId = nanoid(); // Generate unique ID for local users
-      await db.upsertUser({
-        openId,
-        email,
-        name: name || null,
-        passwordHash,
-        loginMethod: "email",
-        lastSignedIn: new Date(),
-      });
-
-      // Create session
-      const sessionToken = await sdk.createSessionToken(openId, {
-        name: name || email,
-        expiresInMs: ONE_YEAR_MS,
-      });
-
-      const cookieOptions = getSessionCookieOptions(req);
-      res.cookie(COOKIE_NAME, sessionToken, { ...cookieOptions, maxAge: ONE_YEAR_MS });
-
-      res.json({ success: true, user: { email, name: name || email } });
-    } catch (error) {
-      console.error("[Auth] Registration failed:", error);
-      res.status(500).json({ error: "Registration failed" });
-    }
+    res.status(403).json({ error: "Registration is disabled. Contact your administrator for access." });
   });
 
   // Login user
