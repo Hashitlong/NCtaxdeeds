@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS notificationPreferences (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  userId INT NOT NULL UNIQUE,\n  counties TEXT,\n  minBid INT,\n  maxBid INT,\n  emailEnabled INT DEFAULT 1 NOT NULL,\n  inAppEnabled INT DEFAULT 1 NOT NULL,\n  frequency VARCHAR(20) DEFAULT 'immediate' NOT NULL,\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL\n);\n\nCREATE TABLE IF NOT EXISTS notificationHistory (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  userId INT NOT NULL,\n  propertyId INT NOT NULL,\n  type VARCHAR(20) NOT NULL,\n  status VARCHAR(20) NOT NULL,\n  sentAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  readAt TIMESTAMP NULL\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute CREATE TABLE IF NOT EXISTS notificationPreferences (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  userId INT NOT NULL UNIQUE,\n  counties TEXT,\n  minBid INT,\n  maxBid INT,\n  emailEnabled INT DEFAULT 1 NOT NULL,\n  inAppEnabled INT DEFAULT 1 NOT NULL,\n  frequency VARCHAR(20) DEFAULT 'immediate' NOT NULL,\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL\n);\n\nCREATE TABLE IF NOT EXISTS notificationHistory (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  userId INT NOT NULL,\n  propertyId INT NOT NULL,\n  type VARCHAR(20) NOT NULL,\n  status VARCHAR(20) NOT NULL,\n  sentAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  readAt TIMESTAMP NULL\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 309
+}

@@ -1,0 +1,46 @@
+{
+  "query": "SELECT \n  sourceType,\n  COUNT(*) as total_without_url,\n  MIN(lastUpdatedAt) as oldest_update,\n  MAX(lastUpdatedAt) as newest_update\nFROM properties \nWHERE sourceUrl IS NULL OR sourceUrl = ''\nGROUP BY sourceType\nORDER BY total_without_url DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT \n  sourceType,\n  COUNT(*) as total_without_url,\n  MIN(lastUpdatedAt) as oldest_update,\n  MAX(lastUpdatedAt) as newest_update\nFROM properties \nWHERE sourceUrl IS NULL OR sourceUrl = ''\nGROUP BY sourceType\nORDER BY total_without_url DESC;",
+  "rows": [
+    {
+      "sourceType": "kania",
+      "total_without_url": "202",
+      "oldest_update": "2025-11-03 22:05:07",
+      "newest_update": "2025-11-03 22:05:10"
+    },
+    {
+      "sourceType": "alamance_county",
+      "total_without_url": "12",
+      "oldest_update": "2025-11-03 22:05:35",
+      "newest_update": "2025-11-03 22:05:35"
+    },
+    {
+      "sourceType": "Rutherford County",
+      "total_without_url": "8",
+      "oldest_update": "2025-11-03 18:06:46",
+      "newest_update": "2025-11-03 18:06:46"
+    },
+    {
+      "sourceType": "Yadkin County",
+      "total_without_url": "3",
+      "oldest_update": "2025-11-03 22:05:45",
+      "newest_update": "2025-11-03 22:05:45"
+    },
+    {
+      "sourceType": "McDowell County",
+      "total_without_url": "3",
+      "oldest_update": "2025-11-03 18:06:49",
+      "newest_update": "2025-11-03 18:06:49"
+    },
+    {
+      "sourceType": "hutchens",
+      "total_without_url": "2",
+      "oldest_update": "2025-11-03 00:55:37",
+      "newest_update": "2025-11-03 00:55:37"
+    }
+  ],
+  "messages": [],
+  "stdout": "sourceType\ttotal_without_url\toldest_update\tnewest_update\nkania\t202\t2025-11-03 22:05:07\t2025-11-03 22:05:10\nalamance_county\t12\t2025-11-03 22:05:35\t2025-11-03 22:05:35\nRutherford County\t8\t2025-11-03 18:06:46\t2025-11-03 18:06:46\nYadkin County\t3\t2025-11-03 22:05:45\t2025-11-03 22:05:45\nMcDowell County\t3\t2025-11-03 18:06:49\t2025-11-03 18:06:49\nhutchens\t2\t2025-11-03 00:55:37\t2025-11-03 00:55:37\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

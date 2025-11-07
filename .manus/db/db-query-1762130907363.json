@@ -1,0 +1,14 @@
+{
+  "query": "SELECT SUM(COALESCE(openingBid, 0)) / 100 as total_bid_dollars, COUNT(*) as property_count FROM properties WHERE isActive = 1",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT SUM(COALESCE(openingBid, 0)) / 100 as total_bid_dollars, COUNT(*) as property_count FROM properties WHERE isActive = 1",
+  "rows": [
+    {
+      "total_bid_dollars": "376632.6700",
+      "property_count": "533"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_bid_dollars\tproperty_count\n376632.6700\t533\n",
+  "stderr": "",
+  "execution_time_ms": 60
+}

@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE properties SET county = REPLACE(county, ', NC', '') WHERE county LIKE '%, NC'",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute UPDATE properties SET county = REPLACE(county, ', NC', '') WHERE county LIKE '%, NC'",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 68
+}

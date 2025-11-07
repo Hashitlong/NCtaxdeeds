@@ -1,0 +1,26 @@
+{
+  "query": "\nSELECT \n  county,\n  address,\n  saleDate,\n  openingBid,\n  currentBid,\n  sourceUrl\nFROM properties \nWHERE saleStatus = 'in_upset_period' \n  AND sourceType = 'rbcwb'\nLIMIT 5\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute \nSELECT \n  county,\n  address,\n  saleDate,\n  openingBid,\n  currentBid,\n  sourceUrl\nFROM properties \nWHERE saleStatus = 'in_upset_period' \n  AND sourceType = 'rbcwb'\nLIMIT 5\n",
+  "rows": [
+    {
+      "county": "Mecklenburg",
+      "address": "Landlocked Lot off Dawson Avenue in flood plain",
+      "saleDate": "NULL",
+      "openingBid": "NULL",
+      "currentBid": "925000",
+      "sourceUrl": "https://www.rbcwb.com/tax-foreclosure-listings/"
+    },
+    {
+      "county": "Mecklenburg",
+      "address": "7516 Carelock Circle",
+      "saleDate": "NULL",
+      "openingBid": "NULL",
+      "currentBid": "1550000",
+      "sourceUrl": "https://www.rbcwb.com/tax-foreclosure-listings/"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\taddress\tsaleDate\topeningBid\tcurrentBid\tsourceUrl\nMecklenburg\tLandlocked Lot off Dawson Avenue in flood plain\tNULL\tNULL\t925000\thttps://www.rbcwb.com/tax-foreclosure-listings/\nMecklenburg\t7516 Carelock Circle\tNULL\tNULL\t1550000\thttps://www.rbcwb.com/tax-foreclosure-listings/\n",
+  "stderr": "",
+  "execution_time_ms": 159
+}

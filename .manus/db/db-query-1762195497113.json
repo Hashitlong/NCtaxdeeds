@@ -1,0 +1,60 @@
+{
+  "query": "SELECT address, parcelId, COUNT(*) as duplicate_count FROM properties WHERE county = 'Scotland' GROUP BY address, parcelId HAVING COUNT(*) > 1 ORDER BY duplicate_count DESC, address",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT address, parcelId, COUNT(*) as duplicate_count FROM properties WHERE county = 'Scotland' GROUP BY address, parcelId HAVING COUNT(*) > 1 ORDER BY duplicate_count DESC, address",
+  "rows": [
+    {
+      "address": "NULL",
+      "parcelId": "010228A01070",
+      "duplicate_count": "3"
+    },
+    {
+      "address": "NULL",
+      "parcelId": "010029 04016 & 010029 04017",
+      "duplicate_count": "3"
+    },
+    {
+      "address": "NULL",
+      "parcelId": "010031 01028",
+      "duplicate_count": "3"
+    },
+    {
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "duplicate_count": "3"
+    },
+    {
+      "address": "⚠️ 16961 Jackson St, Laurinburg, NC 28352",
+      "parcelId": "010206 02009",
+      "duplicate_count": "3"
+    },
+    {
+      "address": "⚠️ 208 E Covington St, Laurinburg, NC 28352",
+      "parcelId": "010054 05011",
+      "duplicate_count": "3"
+    },
+    {
+      "address": "⚠️ 408 Park Dr, Laurinburg, NC 28352",
+      "parcelId": "010064 10046",
+      "duplicate_count": "3"
+    },
+    {
+      "address": "⚠️ 510 Raeford St, Laurinburg, NC 28352",
+      "parcelId": "010041 01009",
+      "duplicate_count": "3"
+    },
+    {
+      "address": "⚠️ 520 S Main St, Laurinburg, NC 28352",
+      "parcelId": "010054 06004",
+      "duplicate_count": "3"
+    },
+    {
+      "address": "⚠️ 626 E Vance St, Laurinburg, NC 28352",
+      "parcelId": "010073 13012",
+      "duplicate_count": "3"
+    }
+  ],
+  "messages": [],
+  "stdout": "address\tparcelId\tduplicate_count\nNULL\t010228A01070\t3\nNULL\t010029 04016 & 010029 04017\t3\nNULL\t010031 01028\t3\n⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\t3\n⚠️ 16961 Jackson St, Laurinburg, NC 28352\t010206 02009\t3\n⚠️ 208 E Covington St, Laurinburg, NC 28352\t010054 05011\t3\n⚠️ 408 Park Dr, Laurinburg, NC 28352\t010064 10046\t3\n⚠️ 510 Raeford St, Laurinburg, NC 28352\t010041 01009\t3\n⚠️ 520 S Main St, Laurinburg, NC 28352\t010054 06004\t3\n⚠️ 626 E Vance St, Laurinburg, NC 28352\t010073 13012\t3\n",
+  "stderr": "",
+  "execution_time_ms": 49
+}

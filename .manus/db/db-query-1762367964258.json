@@ -1,0 +1,100 @@
+{
+  "query": "\nSELECT \n  county,\n  address,\n  saleDate,\n  saleStatus,\n  upsetBidCloseDate,\n  openingBid,\n  currentBid\nFROM properties \nWHERE sourceType = 'hutchens' \n  AND upsetBidCloseDate IS NOT NULL\nLIMIT 10\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute \nSELECT \n  county,\n  address,\n  saleDate,\n  saleStatus,\n  upsetBidCloseDate,\n  openingBid,\n  currentBid\nFROM properties \nWHERE sourceType = 'hutchens' \n  AND upsetBidCloseDate IS NOT NULL\nLIMIT 10\n",
+  "rows": [
+    {
+      "county": "Orange",
+      "address": "2622 Neville Rd",
+      "saleDate": "2025-10-20 04:00:00",
+      "saleStatus": "sold",
+      "upsetBidCloseDate": "2025-10-30 04:00:00",
+      "openingBid": "NULL",
+      "currentBid": "26677165"
+    },
+    {
+      "county": "Cabarrus",
+      "address": "521 Hyde Street",
+      "saleDate": "2025-10-13 04:00:00",
+      "saleStatus": "sold",
+      "upsetBidCloseDate": "2025-10-29 04:00:00",
+      "openingBid": "NULL",
+      "currentBid": "16537500"
+    },
+    {
+      "county": "Forsyth",
+      "address": "165 River Crest Court",
+      "saleDate": "2025-09-24 04:00:00",
+      "saleStatus": "sold",
+      "upsetBidCloseDate": "2025-10-29 04:00:00",
+      "openingBid": "NULL",
+      "currentBid": "3000000"
+    },
+    {
+      "county": "Mecklenburg",
+      "address": "2927 Lasalle Street",
+      "saleDate": "2025-09-23 04:00:00",
+      "saleStatus": "sold",
+      "upsetBidCloseDate": "2025-10-27 04:00:00",
+      "openingBid": "NULL",
+      "currentBid": "14700000"
+    },
+    {
+      "county": "Cabarrus",
+      "address": "637 Nannyberry Lane",
+      "saleDate": "2025-10-27 04:00:00",
+      "saleStatus": "sold",
+      "upsetBidCloseDate": "2025-10-28 04:00:00",
+      "openingBid": "NULL",
+      "currentBid": "29778525"
+    },
+    {
+      "county": "Gaston",
+      "address": "3273  Yarmouth Lane #91",
+      "saleDate": "2025-10-22 04:00:00",
+      "saleStatus": "sold",
+      "upsetBidCloseDate": "2025-10-30 04:00:00",
+      "openingBid": "NULL",
+      "currentBid": "21201075"
+    },
+    {
+      "county": "Buncombe",
+      "address": "42 Eller Hollow Rd.",
+      "saleDate": "2025-10-13 04:00:00",
+      "saleStatus": "sold",
+      "upsetBidCloseDate": "2025-10-27 04:00:00",
+      "openingBid": "NULL",
+      "currentBid": "45517500"
+    },
+    {
+      "county": "Guilford",
+      "address": "2300 Phoenix Drive",
+      "saleDate": "2025-07-15 04:00:00",
+      "saleStatus": "sold",
+      "upsetBidCloseDate": "2025-10-30 04:00:00",
+      "openingBid": "NULL",
+      "currentBid": "12747000"
+    },
+    {
+      "county": "Johnston",
+      "address": "6651 US Highway 301 N",
+      "saleDate": "2025-10-07 04:00:00",
+      "saleStatus": "sold",
+      "upsetBidCloseDate": "2025-11-03 05:00:00",
+      "openingBid": "NULL",
+      "currentBid": "6077532"
+    },
+    {
+      "county": "Henderson",
+      "address": "176 Brickton Village Circle Unit 206",
+      "saleDate": "2025-10-27 04:00:00",
+      "saleStatus": "sold",
+      "upsetBidCloseDate": "2025-10-29 04:00:00",
+      "openingBid": "NULL",
+      "currentBid": "16800000"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\taddress\tsaleDate\tsaleStatus\tupsetBidCloseDate\topeningBid\tcurrentBid\nOrange\t2622 Neville Rd\t2025-10-20 04:00:00\tsold\t2025-10-30 04:00:00\tNULL\t26677165\nCabarrus\t521 Hyde Street\t2025-10-13 04:00:00\tsold\t2025-10-29 04:00:00\tNULL\t16537500\nForsyth\t165 River Crest Court\t2025-09-24 04:00:00\tsold\t2025-10-29 04:00:00\tNULL\t3000000\nMecklenburg\t2927 Lasalle Street\t2025-09-23 04:00:00\tsold\t2025-10-27 04:00:00\tNULL\t14700000\nCabarrus\t637 Nannyberry Lane\t2025-10-27 04:00:00\tsold\t2025-10-28 04:00:00\tNULL\t29778525\nGaston\t3273  Yarmouth Lane #91\t2025-10-22 04:00:00\tsold\t2025-10-30 04:00:00\tNULL\t21201075\nBuncombe\t42 Eller Hollow Rd.\t2025-10-13 04:00:00\tsold\t2025-10-27 04:00:00\tNULL\t45517500\nGuilford\t2300 Phoenix Drive\t2025-07-15 04:00:00\tsold\t2025-10-30 04:00:00\tNULL\t12747000\nJohnston\t6651 US Highway 301 N\t2025-10-07 04:00:00\tsold\t2025-11-03 05:00:00\tNULL\t6077532\nHenderson\t176 Brickton Village Circle Unit 206\t2025-10-27 04:00:00\tsold\t2025-10-29 04:00:00\tNULL\t16800000\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

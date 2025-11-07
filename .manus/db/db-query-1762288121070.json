@@ -1,0 +1,38 @@
+{
+  "query": "SELECT sourceType, COUNT(*) as count \nFROM properties \nGROUP BY sourceType \nORDER BY count DESC",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT sourceType, COUNT(*) as count \nFROM properties \nGROUP BY sourceType \nORDER BY count DESC",
+  "rows": [
+    {
+      "sourceType": "hutchens",
+      "count": "399"
+    },
+    {
+      "sourceType": "kania",
+      "count": "202"
+    },
+    {
+      "sourceType": "zls",
+      "count": "155"
+    },
+    {
+      "sourceType": "county_website",
+      "count": "133"
+    },
+    {
+      "sourceType": "rbcwb",
+      "count": "25"
+    },
+    {
+      "sourceType": "Rutherford County",
+      "count": "8"
+    },
+    {
+      "sourceType": "Wayne County",
+      "count": "3"
+    }
+  ],
+  "messages": [],
+  "stdout": "sourceType\tcount\nhutchens\t399\nkania\t202\nzls\t155\ncounty_website\t133\nrbcwb\t25\nRutherford County\t8\nWayne County\t3\n",
+  "stderr": "",
+  "execution_time_ms": 109
+}

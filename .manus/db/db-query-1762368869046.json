@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE `userPreferences` ADD `defaultSourceFilter` varchar(50)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute ALTER TABLE `userPreferences` ADD `defaultSourceFilter` varchar(50)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 499
+}

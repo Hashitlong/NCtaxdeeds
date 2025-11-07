@@ -1,0 +1,150 @@
+{
+  "query": "SELECT id, address, parcelId, sourceType, firstScrapedAt FROM properties WHERE county = 'Scotland' ORDER BY address, firstScrapedAt LIMIT 20",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT id, address, parcelId, sourceType, firstScrapedAt FROM properties WHERE county = 'Scotland' ORDER BY address, firstScrapedAt LIMIT 20",
+  "rows": [
+    {
+      "id": "90026",
+      "address": "NULL",
+      "parcelId": "010228A01070",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90007",
+      "address": "NULL",
+      "parcelId": "010029 04016 & 010029 04017",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90009",
+      "address": "NULL",
+      "parcelId": "010031 01028",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90021",
+      "address": "NULL",
+      "parcelId": "010071 04006",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90010",
+      "address": "NULL",
+      "parcelId": "010031 01028",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90008",
+      "address": "NULL",
+      "parcelId": "010029 04016 & 010029 04017",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90027",
+      "address": "NULL",
+      "parcelId": "010228A01070",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "270193",
+      "address": "NULL",
+      "parcelId": "010029 04016 & 010029 04017",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-03 18:08:06"
+    },
+    {
+      "id": "270202",
+      "address": "NULL",
+      "parcelId": "010228A01070",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-03 18:08:06"
+    },
+    {
+      "id": "270194",
+      "address": "NULL",
+      "parcelId": "010031 01028",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-03 18:08:06"
+    },
+    {
+      "id": "90011",
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90012",
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "270195",
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-03 18:08:06"
+    },
+    {
+      "id": "90037",
+      "address": "⚠️ 10781 McFarland Rd, Laurel Hill, NC 28351",
+      "parcelId": "040173 08024",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90024",
+      "address": "⚠️ 16961 Jackson St, Laurinburg, NC 28352",
+      "parcelId": "010206 02009",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90025",
+      "address": "⚠️ 16961 Jackson St, Laurinburg, NC 28352",
+      "parcelId": "010206 02009",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "270201",
+      "address": "⚠️ 16961 Jackson St, Laurinburg, NC 28352",
+      "parcelId": "010206 02009",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-03 18:08:06"
+    },
+    {
+      "id": "90028",
+      "address": "⚠️ 17600 Old Lumberton Rd, Laurinburg, NC 28352",
+      "parcelId": "010258 01002",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90015",
+      "address": "⚠️ 208 E Covington St, Laurinburg, NC 28352",
+      "parcelId": "010054 05011",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    },
+    {
+      "id": "90016",
+      "address": "⚠️ 208 E Covington St, Laurinburg, NC 28352",
+      "parcelId": "010054 05011",
+      "sourceType": "ZLS",
+      "firstScrapedAt": "2025-11-02 00:14:25"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\taddress\tparcelId\tsourceType\tfirstScrapedAt\n90026\tNULL\t010228A01070\tZLS\t2025-11-02 00:14:25\n90007\tNULL\t010029 04016 & 010029 04017\tZLS\t2025-11-02 00:14:25\n90009\tNULL\t010031 01028\tZLS\t2025-11-02 00:14:25\n90021\tNULL\t010071 04006\tZLS\t2025-11-02 00:14:25\n90010\tNULL\t010031 01028\tZLS\t2025-11-02 00:14:25\n90008\tNULL\t010029 04016 & 010029 04017\tZLS\t2025-11-02 00:14:25\n90027\tNULL\t010228A01070\tZLS\t2025-11-02 00:14:25\n270193\tNULL\t010029 04016 & 010029 04017\tZLS\t2025-11-03 18:08:06\n270202\tNULL\t010228A01070\tZLS\t2025-11-03 18:08:06\n270194\tNULL\t010031 01028\tZLS\t2025-11-03 18:08:06\n90011\t⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\tZLS\t2025-11-02 00:14:25\n90012\t⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\tZLS\t2025-11-02 00:14:25\n270195\t⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\tZLS\t2025-11-03 18:08:06\n90037\t⚠️ 10781 McFarland Rd, Laurel Hill, NC 28351\t040173 08024\tZLS\t2025-11-02 00:14:25\n90024\t⚠️ 16961 Jackson St, Laurinburg, NC 28352\t010206 02009\tZLS\t2025-11-02 00:14:25\n90025\t⚠️ 16961 Jackson St, Laurinburg, NC 28352\t010206 02009\tZLS\t2025-11-02 00:14:25\n270201\t⚠️ 16961 Jackson St, Laurinburg, NC 28352\t010206 02009\tZLS\t2025-11-03 18:08:06\n90028\t⚠️ 17600 Old Lumberton Rd, Laurinburg, NC 28352\t010258 01002\tZLS\t2025-11-02 00:14:25\n90015\t⚠️ 208 E Covington St, Laurinburg, NC 28352\t010054 05011\tZLS\t2025-11-02 00:14:25\n90016\t⚠️ 208 E Covington St, Laurinburg, NC 28352\t010054 05011\tZLS\t2025-11-02 00:14:25\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}

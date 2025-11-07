@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS allowedUsers (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  email VARCHAR(320) NOT NULL UNIQUE,\n  role ENUM('admin', 'user') NOT NULL DEFAULT 'user',\n  addedBy VARCHAR(320),\n  createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute CREATE TABLE IF NOT EXISTS allowedUsers (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  email VARCHAR(320) NOT NULL UNIQUE,\n  role ENUM('admin', 'user') NOT NULL DEFAULT 'user',\n  addedBy VARCHAR(320),\n  createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 174
+}

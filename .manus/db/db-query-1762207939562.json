@@ -1,0 +1,122 @@
+{
+  "query": "SELECT \n  sourceType,\n  COUNT(*) as total,\n  SUM(CASE WHEN sourceUrl IS NOT NULL AND sourceUrl != '' THEN 1 ELSE 0 END) as with_url,\n  SUM(CASE WHEN sourceUrl IS NULL OR sourceUrl = '' THEN 1 ELSE 0 END) as without_url,\n  ROUND(100.0 * SUM(CASE WHEN sourceUrl IS NOT NULL AND sourceUrl != '' THEN 1 ELSE 0 END) / COUNT(*), 1) as percent_with_url\nFROM properties \nGROUP BY sourceType\nORDER BY total DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT \n  sourceType,\n  COUNT(*) as total,\n  SUM(CASE WHEN sourceUrl IS NOT NULL AND sourceUrl != '' THEN 1 ELSE 0 END) as with_url,\n  SUM(CASE WHEN sourceUrl IS NULL OR sourceUrl = '' THEN 1 ELSE 0 END) as without_url,\n  ROUND(100.0 * SUM(CASE WHEN sourceUrl IS NOT NULL AND sourceUrl != '' THEN 1 ELSE 0 END) / COUNT(*), 1) as percent_with_url\nFROM properties \nGROUP BY sourceType\nORDER BY total DESC;",
+  "rows": [
+    {
+      "sourceType": "kania",
+      "total": "202",
+      "with_url": "0",
+      "without_url": "202",
+      "percent_with_url": "0.0"
+    },
+    {
+      "sourceType": "hutchens",
+      "total": "196",
+      "with_url": "194",
+      "without_url": "2",
+      "percent_with_url": "99.0"
+    },
+    {
+      "sourceType": "ZLS",
+      "total": "149",
+      "with_url": "149",
+      "without_url": "0",
+      "percent_with_url": "100.0"
+    },
+    {
+      "sourceType": "cabarrus_county",
+      "total": "37",
+      "with_url": "37",
+      "without_url": "0",
+      "percent_with_url": "100.0"
+    },
+    {
+      "sourceType": "rbcwb",
+      "total": "25",
+      "with_url": "25",
+      "without_url": "0",
+      "percent_with_url": "100.0"
+    },
+    {
+      "sourceType": "Edgecombe County",
+      "total": "21",
+      "with_url": "21",
+      "without_url": "0",
+      "percent_with_url": "100.0"
+    },
+    {
+      "sourceType": "forsyth_county",
+      "total": "17",
+      "with_url": "17",
+      "without_url": "0",
+      "percent_with_url": "100.0"
+    },
+    {
+      "sourceType": "Hoke County",
+      "total": "16",
+      "with_url": "16",
+      "without_url": "0",
+      "percent_with_url": "100.0"
+    },
+    {
+      "sourceType": "Bladen County",
+      "total": "13",
+      "with_url": "13",
+      "without_url": "0",
+      "percent_with_url": "100.0"
+    },
+    {
+      "sourceType": "alamance_county",
+      "total": "13",
+      "with_url": "1",
+      "without_url": "12",
+      "percent_with_url": "7.7"
+    },
+    {
+      "sourceType": "Rutherford County",
+      "total": "8",
+      "with_url": "0",
+      "without_url": "8",
+      "percent_with_url": "0.0"
+    },
+    {
+      "sourceType": "McDowell County",
+      "total": "6",
+      "with_url": "3",
+      "without_url": "3",
+      "percent_with_url": "50.0"
+    },
+    {
+      "sourceType": "Anson County",
+      "total": "4",
+      "with_url": "4",
+      "without_url": "0",
+      "percent_with_url": "100.0"
+    },
+    {
+      "sourceType": "Yadkin County",
+      "total": "3",
+      "with_url": "0",
+      "without_url": "3",
+      "percent_with_url": "0.0"
+    },
+    {
+      "sourceType": "gaston_county",
+      "total": "2",
+      "with_url": "2",
+      "without_url": "0",
+      "percent_with_url": "100.0"
+    },
+    {
+      "sourceType": "Cumberland County",
+      "total": "2",
+      "with_url": "2",
+      "without_url": "0",
+      "percent_with_url": "100.0"
+    }
+  ],
+  "messages": [],
+  "stdout": "sourceType\ttotal\twith_url\twithout_url\tpercent_with_url\nkania\t202\t0\t202\t0.0\nhutchens\t196\t194\t2\t99.0\nZLS\t149\t149\t0\t100.0\ncabarrus_county\t37\t37\t0\t100.0\nrbcwb\t25\t25\t0\t100.0\nEdgecombe County\t21\t21\t0\t100.0\nforsyth_county\t17\t17\t0\t100.0\nHoke County\t16\t16\t0\t100.0\nBladen County\t13\t13\t0\t100.0\nalamance_county\t13\t1\t12\t7.7\nRutherford County\t8\t0\t8\t0.0\nMcDowell County\t6\t3\t3\t50.0\nAnson County\t4\t4\t0\t100.0\nYadkin County\t3\t0\t3\t0.0\ngaston_county\t2\t2\t0\t100.0\nCumberland County\t2\t2\t0\t100.0\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

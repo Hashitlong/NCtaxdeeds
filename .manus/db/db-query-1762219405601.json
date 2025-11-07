@@ -1,0 +1,45 @@
+{
+  "query": "SELECT id, county, address, sourceType, sourceUrl FROM properties WHERE sourceType = 'kania' LIMIT 5",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT id, county, address, sourceType, sourceUrl FROM properties WHERE sourceType = 'kania' LIMIT 5",
+  "rows": [
+    {
+      "id": "1",
+      "county": "Alexander",
+      "address": "237 Ervin Ln., Ervin Ln.,",
+      "sourceType": "kania",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "2",
+      "county": "Alexander",
+      "address": "Wood Rd.,",
+      "sourceType": "kania",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "3",
+      "county": "Alexander",
+      "address": "1669 Millersville Road,",
+      "sourceType": "kania",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "4",
+      "county": "Alleghany",
+      "address": "103 Shadow Rock Rd, Sparta",
+      "sourceType": "kania",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "5",
+      "county": "Alleghany",
+      "address": "53 Duncan Ridge Road, Sparta",
+      "sourceType": "kania",
+      "sourceUrl": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcounty\taddress\tsourceType\tsourceUrl\n1\tAlexander\t237 Ervin Ln., Ervin Ln.,\tkania\tNULL\n2\tAlexander\tWood Rd.,\tkania\tNULL\n3\tAlexander\t1669 Millersville Road,\tkania\tNULL\n4\tAlleghany\t103 Shadow Rock Rd, Sparta\tkania\tNULL\n5\tAlleghany\t53 Duncan Ridge Road, Sparta\tkania\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 48
+}

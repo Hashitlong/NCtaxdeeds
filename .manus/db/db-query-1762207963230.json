@@ -1,0 +1,250 @@
+{
+  "query": "SELECT id, county, address, sourceType, saleDate, sourceUrl\nFROM properties \nWHERE sourceUrl IS NULL OR sourceUrl = ''\nORDER BY sourceType, county\nLIMIT 30;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT id, county, address, sourceType, saleDate, sourceUrl\nFROM properties \nWHERE sourceUrl IS NULL OR sourceUrl = ''\nORDER BY sourceType, county\nLIMIT 30;",
+  "rows": [
+    {
+      "id": "210002",
+      "county": "McDowell",
+      "address": "Parcel 1712-18-20-5044",
+      "sourceType": "McDowell County",
+      "saleDate": "2025-10-17 04:00:00",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "210001",
+      "county": "McDowell",
+      "address": "Parcel 0731-00-21-9654",
+      "sourceType": "McDowell County",
+      "saleDate": "2025-09-26 04:00:00",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "210003",
+      "county": "McDowell",
+      "address": "Parcel 1701-10-26-6613",
+      "sourceType": "McDowell County",
+      "saleDate": "2025-10-17 04:00:00",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60096",
+      "county": "Rutherford",
+      "address": "0 Silverplate Grill Rd, Rutherfordton",
+      "sourceType": "Rutherford County",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60097",
+      "county": "Rutherford",
+      "address": "0 Barkley Dr, Mooresboro",
+      "sourceType": "Rutherford County",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60098",
+      "county": "Rutherford",
+      "address": "0 Charlotte Rd, Rutherfordton",
+      "sourceType": "Rutherford County",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60095",
+      "county": "Rutherford",
+      "address": "0 Girl Scout Camp Rd, Mill",
+      "sourceType": "Rutherford County",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60091",
+      "county": "Rutherford",
+      "address": "1619403- 169 Boiler Rd, Mooresboro",
+      "sourceType": "Rutherford County",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60094",
+      "county": "Rutherford",
+      "address": "169 Condrey Rd, Mooresboro",
+      "sourceType": "Rutherford County",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60092",
+      "county": "Rutherford",
+      "address": "0 New Hope Rd, Rutherfordton",
+      "sourceType": "Rutherford County",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60093",
+      "county": "Rutherford",
+      "address": "481 Ferguson Ridge Rd, Union",
+      "sourceType": "Rutherford County",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "120001",
+      "county": "Yadkin",
+      "address": "Knobs Township",
+      "sourceType": "Yadkin County",
+      "saleDate": "2025-04-07 16:00:00",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "120002",
+      "county": "Yadkin",
+      "address": "Boonville Township",
+      "sourceType": "Yadkin County",
+      "saleDate": "2025-04-07 16:00:00",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "120003",
+      "county": "Yadkin",
+      "address": "Boonville Township",
+      "sourceType": "Yadkin County",
+      "saleDate": "2025-04-07 16:00:00",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60053",
+      "county": "Alamance",
+      "address": "NULL",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60052",
+      "county": "Alamance",
+      "address": "NULL",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60041",
+      "county": "Alamance",
+      "address": "A house located at 2327 Pennsylvania Ave., Burlington, NC-",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60050",
+      "county": "Alamance",
+      "address": "NULL",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60046",
+      "county": "Alamance",
+      "address": "vacant lot on Bennett St., Burlington, NC-",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60051",
+      "county": "Alamance",
+      "address": "NULL",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60047",
+      "county": "Alamance",
+      "address": "a vacant lot located on Wild Horse Canyon Rd., Snow Camp, NC-",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60043",
+      "county": "Alamance",
+      "address": "2 vacant lots; one located on Memorial Dr., Burlington, NC-",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60045",
+      "county": "Alamance",
+      "address": "Vac. lot on Cleveland and Kilroy St., Burlington, NC-",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60048",
+      "county": "Alamance",
+      "address": "1.20 vacant land located off of Anderson Road, Burlington, NC-",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60044",
+      "county": "Alamance",
+      "address": "2 vacant lots; one located on Memorial Dr., Burlington, NC-",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "60049",
+      "county": "Alamance",
+      "address": "vacant lot located at 117 E. Kime Street, Burlington, NC-",
+      "sourceType": "alamance_county",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "240004",
+      "county": "McDowell",
+      "address": "240 Riverbend Drive",
+      "sourceType": "hutchens",
+      "saleDate": "2025-12-08 05:00:00",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "240175",
+      "county": "McDowell",
+      "address": "110 Styles Drive",
+      "sourceType": "hutchens",
+      "saleDate": "2025-10-27 04:00:00",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "1",
+      "county": "Alexander",
+      "address": "237 Ervin Ln., Ervin Ln.,",
+      "sourceType": "kania",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "2",
+      "county": "Alexander",
+      "address": "Wood Rd.,",
+      "sourceType": "kania",
+      "saleDate": "NULL",
+      "sourceUrl": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcounty\taddress\tsourceType\tsaleDate\tsourceUrl\n210002\tMcDowell\tParcel 1712-18-20-5044\tMcDowell County\t2025-10-17 04:00:00\tNULL\n210001\tMcDowell\tParcel 0731-00-21-9654\tMcDowell County\t2025-09-26 04:00:00\tNULL\n210003\tMcDowell\tParcel 1701-10-26-6613\tMcDowell County\t2025-10-17 04:00:00\tNULL\n60096\tRutherford\t0 Silverplate Grill Rd, Rutherfordton\tRutherford County\tNULL\tNULL\n60097\tRutherford\t0 Barkley Dr, Mooresboro\tRutherford County\tNULL\tNULL\n60098\tRutherford\t0 Charlotte Rd, Rutherfordton\tRutherford County\tNULL\tNULL\n60095\tRutherford\t0 Girl Scout Camp Rd, Mill\tRutherford County\tNULL\tNULL\n60091\tRutherford\t1619403- 169 Boiler Rd, Mooresboro\tRutherford County\tNULL\tNULL\n60094\tRutherford\t169 Condrey Rd, Mooresboro\tRutherford County\tNULL\tNULL\n60092\tRutherford\t0 New Hope Rd, Rutherfordton\tRutherford County\tNULL\tNULL\n60093\tRutherford\t481 Ferguson Ridge Rd, Union\tRutherford County\tNULL\tNULL\n120001\tYadkin\tKnobs Township\tYadkin County\t2025-04-07 16:00:00\tNULL\n120002\tYadkin\tBoonville Township\tYadkin County\t2025-04-07 16:00:00\tNULL\n120003\tYadkin\tBoonville Township\tYadkin County\t2025-04-07 16:00:00\tNULL\n60053\tAlamance\tNULL\talamance_county\tNULL\tNULL\n60052\tAlamance\tNULL\talamance_county\tNULL\tNULL\n60041\tAlamance\tA house located at 2327 Pennsylvania Ave., Burlington, NC-\talamance_county\tNULL\tNULL\n60050\tAlamance\tNULL\talamance_county\tNULL\tNULL\n60046\tAlamance\tvacant lot on Bennett St., Burlington, NC-\talamance_county\tNULL\tNULL\n60051\tAlamance\tNULL\talamance_county\tNULL\tNULL\n60047\tAlamance\ta vacant lot located on Wild Horse Canyon Rd., Snow Camp, NC-\talamance_county\tNULL\tNULL\n60043\tAlamance\t2 vacant lots; one located on Memorial Dr., Burlington, NC-\talamance_county\tNULL\tNULL\n60045\tAlamance\tVac. lot on Cleveland and Kilroy St., Burlington, NC-\talamance_county\tNULL\tNULL\n60048\tAlamance\t1.20 vacant land located off of Anderson Road, Burlington, NC-\talamance_county\tNULL\tNULL\n60044\tAlamance\t2 vacant lots; one located on Memorial Dr., Burlington, NC-\talamance_county\tNULL\tNULL\n60049\tAlamance\tvacant lot located at 117 E. Kime Street, Burlington, NC-\talamance_county\tNULL\tNULL\n240004\tMcDowell\t240 Riverbend Drive\thutchens\t2025-12-08 05:00:00\tNULL\n240175\tMcDowell\t110 Styles Drive\thutchens\t2025-10-27 04:00:00\tNULL\n1\tAlexander\t237 Ervin Ln., Ervin Ln.,\tkania\tNULL\tNULL\n2\tAlexander\tWood Rd.,\tkania\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 59
+}

@@ -1,0 +1,34 @@
+{
+  "query": "SELECT id, county, address, parcelId, sourceType, sourceUrl FROM properties WHERE county = 'Alamance' AND (sourceUrl IS NULL OR sourceUrl = '') LIMIT 3",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT id, county, address, parcelId, sourceType, sourceUrl FROM properties WHERE county = 'Alamance' AND (sourceUrl IS NULL OR sourceUrl = '') LIMIT 3",
+  "rows": [
+    {
+      "id": "390445",
+      "county": "Alamance",
+      "address": "A house located at 2327 Pennsylvania Ave., Burlington, NC-",
+      "parcelId": "122928",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "390447",
+      "county": "Alamance",
+      "address": "2 vacant lots; one located on Memorial Dr., Burlington, NC-",
+      "parcelId": "#137352",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "390448",
+      "county": "Alamance",
+      "address": "2 vacant lots; one located on Memorial Dr., Burlington, NC-",
+      "parcelId": "136850",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcounty\taddress\tparcelId\tsourceType\tsourceUrl\n390445\tAlamance\tA house located at 2327 Pennsylvania Ave., Burlington, NC-\t122928\tcounty_website\tNULL\n390447\tAlamance\t2 vacant lots; one located on Memorial Dr., Burlington, NC-\t#137352\tcounty_website\tNULL\n390448\tAlamance\t2 vacant lots; one located on Memorial Dr., Burlington, NC-\t136850\tcounty_website\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 58
+}

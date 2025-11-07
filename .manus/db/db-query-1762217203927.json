@@ -1,0 +1,74 @@
+{
+  "query": "SELECT COUNT(*) as count, sourceType FROM properties GROUP BY sourceType ORDER BY count DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT COUNT(*) as count, sourceType FROM properties GROUP BY sourceType ORDER BY count DESC;",
+  "rows": [
+    {
+      "count": "202",
+      "sourceType": "kania"
+    },
+    {
+      "count": "199",
+      "sourceType": "hutchens"
+    },
+    {
+      "count": "149",
+      "sourceType": "ZLS"
+    },
+    {
+      "count": "37",
+      "sourceType": "cabarrus_county"
+    },
+    {
+      "count": "25",
+      "sourceType": "rbcwb"
+    },
+    {
+      "count": "21",
+      "sourceType": "Edgecombe County"
+    },
+    {
+      "count": "17",
+      "sourceType": "forsyth_county"
+    },
+    {
+      "count": "16",
+      "sourceType": "Hoke County"
+    },
+    {
+      "count": "13",
+      "sourceType": "Bladen County"
+    },
+    {
+      "count": "13",
+      "sourceType": "alamance_county"
+    },
+    {
+      "count": "8",
+      "sourceType": "Rutherford County"
+    },
+    {
+      "count": "6",
+      "sourceType": "McDowell County"
+    },
+    {
+      "count": "4",
+      "sourceType": "Anson County"
+    },
+    {
+      "count": "3",
+      "sourceType": "Yadkin County"
+    },
+    {
+      "count": "2",
+      "sourceType": "gaston_county"
+    },
+    {
+      "count": "2",
+      "sourceType": "Cumberland County"
+    }
+  ],
+  "messages": [],
+  "stdout": "count\tsourceType\n202\tkania\n199\thutchens\n149\tZLS\n37\tcabarrus_county\n25\trbcwb\n21\tEdgecombe County\n17\tforsyth_county\n16\tHoke County\n13\tBladen County\n13\talamance_county\n8\tRutherford County\n6\tMcDowell County\n4\tAnson County\n3\tYadkin County\n2\tgaston_county\n2\tCumberland County\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

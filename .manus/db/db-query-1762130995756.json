@@ -1,0 +1,35 @@
+{
+  "query": "SELECT county, COUNT(*) as count, SUM(COALESCE(openingBid, 0)) / 100 as totalBidAmount FROM properties WHERE isActive = 1 GROUP BY county ORDER BY COUNT(*) DESC LIMIT 5",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, COUNT(*) as count, SUM(COALESCE(openingBid, 0)) / 100 as totalBidAmount FROM properties WHERE isActive = 1 GROUP BY county ORDER BY COUNT(*) DESC LIMIT 5",
+  "rows": [
+    {
+      "county": "Cabarrus",
+      "count": "39",
+      "totalBidAmount": "4355.0400"
+    },
+    {
+      "county": "Forsyth",
+      "count": "38",
+      "totalBidAmount": "0.0000"
+    },
+    {
+      "county": "Mecklenburg",
+      "count": "25",
+      "totalBidAmount": "210000.0000"
+    },
+    {
+      "county": "Richmond",
+      "count": "24",
+      "totalBidAmount": "0.0000"
+    },
+    {
+      "county": "Edgecombe",
+      "count": "21",
+      "totalBidAmount": "0.0000"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\tcount\ttotalBidAmount\nCabarrus\t39\t4355.0400\nForsyth\t38\t0.0000\nMecklenburg\t25\t210000.0000\nRichmond\t24\t0.0000\nEdgecombe\t21\t0.0000\n",
+  "stderr": "",
+  "execution_time_ms": 56
+}

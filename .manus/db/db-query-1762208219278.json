@@ -1,0 +1,100 @@
+{
+  "query": "SELECT id, county, address, saleDate, saleStatus, currentBid, upsetBidCloseDate\nFROM properties \nWHERE saleStatus = 'in_upset_period'\n  AND (saleDate IS NULL OR saleDate > NOW())\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT id, county, address, saleDate, saleStatus, currentBid, upsetBidCloseDate\nFROM properties \nWHERE saleStatus = 'in_upset_period'\n  AND (saleDate IS NULL OR saleDate > NOW())\nLIMIT 10;",
+  "rows": [
+    {
+      "id": "60010",
+      "county": "Mecklenburg",
+      "address": "Landlocked Lot off Dawson Avenue in flood plain",
+      "saleDate": "NULL",
+      "saleStatus": "in_upset_period",
+      "currentBid": "925000",
+      "upsetBidCloseDate": "2025-11-10 05:00:00"
+    },
+    {
+      "id": "60011",
+      "county": "Mecklenburg",
+      "address": "7516 Carelock Circle",
+      "saleDate": "NULL",
+      "saleStatus": "in_upset_period",
+      "currentBid": "1550000",
+      "upsetBidCloseDate": "2025-11-10 05:00:00"
+    },
+    {
+      "id": "300033",
+      "county": "Cherokee",
+      "address": "0 Granny Squirrel Road, Andrews",
+      "saleDate": "2025-11-06 16:00:00",
+      "saleStatus": "in_upset_period",
+      "currentBid": "NULL",
+      "upsetBidCloseDate": "2025-11-17 00:00:00"
+    },
+    {
+      "id": "300034",
+      "county": "Cherokee",
+      "address": "Flowers Rd, Murphy",
+      "saleDate": "2025-11-06 16:00:00",
+      "saleStatus": "in_upset_period",
+      "currentBid": "NULL",
+      "upsetBidCloseDate": "2025-11-17 00:00:00"
+    },
+    {
+      "id": "300035",
+      "county": "Cherokee",
+      "address": "Sneed Branch Rd, Murphy",
+      "saleDate": "2025-11-06 16:00:00",
+      "saleStatus": "in_upset_period",
+      "currentBid": "NULL",
+      "upsetBidCloseDate": "2025-11-17 00:00:00"
+    },
+    {
+      "id": "300036",
+      "county": "Cherokee",
+      "address": "Harriet Tubman Trail,",
+      "saleDate": "2025-11-06 16:00:00",
+      "saleStatus": "in_upset_period",
+      "currentBid": "NULL",
+      "upsetBidCloseDate": "2025-11-17 00:00:00"
+    },
+    {
+      "id": "300049",
+      "county": "Clay",
+      "address": "184 Laurel Haven Rd, Hayesville",
+      "saleDate": "2025-11-06 18:30:00",
+      "saleStatus": "in_upset_period",
+      "currentBid": "NULL",
+      "upsetBidCloseDate": "2025-11-17 00:00:00"
+    },
+    {
+      "id": "300063",
+      "county": "Harnett",
+      "address": "4026 Nursery Road, Spring Lake",
+      "saleDate": "2025-11-25 17:00:00",
+      "saleStatus": "in_upset_period",
+      "currentBid": "NULL",
+      "upsetBidCloseDate": "2025-12-05 00:00:00"
+    },
+    {
+      "id": "300064",
+      "county": "Harnett",
+      "address": "3726 NC 55 E,",
+      "saleDate": "2025-11-25 17:00:00",
+      "saleStatus": "in_upset_period",
+      "currentBid": "NULL",
+      "upsetBidCloseDate": "2025-12-05 00:00:00"
+    },
+    {
+      "id": "300065",
+      "county": "Harnett",
+      "address": "1724 Rainey Drive, Spring Lake",
+      "saleDate": "2025-11-25 17:00:00",
+      "saleStatus": "in_upset_period",
+      "currentBid": "NULL",
+      "upsetBidCloseDate": "2025-12-05 00:00:00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcounty\taddress\tsaleDate\tsaleStatus\tcurrentBid\tupsetBidCloseDate\n60010\tMecklenburg\tLandlocked Lot off Dawson Avenue in flood plain\tNULL\tin_upset_period\t925000\t2025-11-10 05:00:00\n60011\tMecklenburg\t7516 Carelock Circle\tNULL\tin_upset_period\t1550000\t2025-11-10 05:00:00\n300033\tCherokee\t0 Granny Squirrel Road, Andrews\t2025-11-06 16:00:00\tin_upset_period\tNULL\t2025-11-17 00:00:00\n300034\tCherokee\tFlowers Rd, Murphy\t2025-11-06 16:00:00\tin_upset_period\tNULL\t2025-11-17 00:00:00\n300035\tCherokee\tSneed Branch Rd, Murphy\t2025-11-06 16:00:00\tin_upset_period\tNULL\t2025-11-17 00:00:00\n300036\tCherokee\tHarriet Tubman Trail,\t2025-11-06 16:00:00\tin_upset_period\tNULL\t2025-11-17 00:00:00\n300049\tClay\t184 Laurel Haven Rd, Hayesville\t2025-11-06 18:30:00\tin_upset_period\tNULL\t2025-11-17 00:00:00\n300063\tHarnett\t4026 Nursery Road, Spring Lake\t2025-11-25 17:00:00\tin_upset_period\tNULL\t2025-12-05 00:00:00\n300064\tHarnett\t3726 NC 55 E,\t2025-11-25 17:00:00\tin_upset_period\tNULL\t2025-12-05 00:00:00\n300065\tHarnett\t1724 Rainey Drive, Spring Lake\t2025-11-25 17:00:00\tin_upset_period\tNULL\t2025-12-05 00:00:00\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}

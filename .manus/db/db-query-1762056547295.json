@@ -1,0 +1,136 @@
+{
+  "query": "SELECT DISTINCT county FROM properties ORDER BY county",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT DISTINCT county FROM properties ORDER BY county",
+  "rows": [
+    {
+      "county": "Alamance"
+    },
+    {
+      "county": "Alexander"
+    },
+    {
+      "county": "Alleghany"
+    },
+    {
+      "county": "Anson"
+    },
+    {
+      "county": "Ashe"
+    },
+    {
+      "county": "Beaufort"
+    },
+    {
+      "county": "Bladen"
+    },
+    {
+      "county": "Cabarrus"
+    },
+    {
+      "county": "Catawba"
+    },
+    {
+      "county": "Chatham"
+    },
+    {
+      "county": "Chowan"
+    },
+    {
+      "county": "City of Laurinburg"
+    },
+    {
+      "county": "City of Lumberton"
+    },
+    {
+      "county": "Craven"
+    },
+    {
+      "county": "Cumberland"
+    },
+    {
+      "county": "Dare"
+    },
+    {
+      "county": "Edgecombe"
+    },
+    {
+      "county": "Forsyth"
+    },
+    {
+      "county": "Franklin"
+    },
+    {
+      "county": "Gaston"
+    },
+    {
+      "county": "Gates"
+    },
+    {
+      "county": "Guilford"
+    },
+    {
+      "county": "Hoke"
+    },
+    {
+      "county": "Iredell"
+    },
+    {
+      "county": "Jones"
+    },
+    {
+      "county": "Lenoir"
+    },
+    {
+      "county": "Mecklenburg"
+    },
+    {
+      "county": "Moore"
+    },
+    {
+      "county": "Northampton"
+    },
+    {
+      "county": "Onslow"
+    },
+    {
+      "county": "Pamlico"
+    },
+    {
+      "county": "Perquimans"
+    },
+    {
+      "county": "Richmond"
+    },
+    {
+      "county": "Robeson"
+    },
+    {
+      "county": "Rutherford"
+    },
+    {
+      "county": "Scotland"
+    },
+    {
+      "county": "Town of Maxton"
+    },
+    {
+      "county": "Town of Williamston"
+    },
+    {
+      "county": "Warren"
+    },
+    {
+      "county": "Washington"
+    },
+    {
+      "county": "Wilson"
+    },
+    {
+      "county": "Yadkin"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\nAlamance\nAlexander\nAlleghany\nAnson\nAshe\nBeaufort\nBladen\nCabarrus\nCatawba\nChatham\nChowan\nCity of Laurinburg\nCity of Lumberton\nCraven\nCumberland\nDare\nEdgecombe\nForsyth\nFranklin\nGaston\nGates\nGuilford\nHoke\nIredell\nJones\nLenoir\nMecklenburg\nMoore\nNorthampton\nOnslow\nPamlico\nPerquimans\nRichmond\nRobeson\nRutherford\nScotland\nTown of Maxton\nTown of Williamston\nWarren\nWashington\nWilson\nYadkin\n",
+  "stderr": "",
+  "execution_time_ms": 49
+}

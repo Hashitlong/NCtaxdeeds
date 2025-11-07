@@ -1,0 +1,8 @@
+{
+  "query": "SELECT county, address, sourceType, sourceUrl FROM properties WHERE source = 'hutchens' LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, address, sourceType, sourceUrl FROM properties WHERE source = 'hutchens' LIMIT 5;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'source' in 'where clause'"
+  ]
+}

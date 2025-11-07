@@ -1,0 +1,28 @@
+{
+  "query": "\nSELECT \n  sourceType,\n  county,\n  COUNT(*) as count,\n  GROUP_CONCAT(address SEPARATOR ' | ') as addresses\nFROM properties \nWHERE saleStatus = 'in_upset_period' \n  AND sourceType NOT IN ('kania', 'hutchens', 'rbcwb', 'zls')\nGROUP BY sourceType, county\nORDER BY count DESC\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute \nSELECT \n  sourceType,\n  county,\n  COUNT(*) as count,\n  GROUP_CONCAT(address SEPARATOR ' | ') as addresses\nFROM properties \nWHERE saleStatus = 'in_upset_period' \n  AND sourceType NOT IN ('kania', 'hutchens', 'rbcwb', 'zls')\nGROUP BY sourceType, county\nORDER BY count DESC\n",
+  "rows": [
+    {
+      "sourceType": "county_website",
+      "county": "Mcdowell",
+      "count": "2",
+      "addresses": "Parcel 0731-00-21-9654 | Parcel 1712-18-20-5044"
+    },
+    {
+      "sourceType": "county_website",
+      "county": "McDowell",
+      "count": "2",
+      "addresses": "Parcel 0731-00-21-9654 | Parcel 1712-18-20-5044"
+    },
+    {
+      "sourceType": "county_website",
+      "county": "Hoke",
+      "count": "2",
+      "addresses": "1732 JOHN RUSSELL RDJOHN RUSSELL RD | CARTER RD"
+    }
+  ],
+  "messages": [],
+  "stdout": "sourceType\tcounty\tcount\taddresses\ncounty_website\tMcdowell\t2\tParcel 0731-00-21-9654 | Parcel 1712-18-20-5044\ncounty_website\tMcDowell\t2\tParcel 0731-00-21-9654 | Parcel 1712-18-20-5044\ncounty_website\tHoke\t2\t1732 JOHN RUSSELL RDJOHN RUSSELL RD | CARTER RD\n",
+  "stderr": "",
+  "execution_time_ms": 63
+}

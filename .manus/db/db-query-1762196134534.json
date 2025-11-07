@@ -1,0 +1,88 @@
+{
+  "query": "SELECT address, parcelId, saleDate, openingBid FROM properties WHERE county = 'Scotland' ORDER BY address LIMIT 20",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT address, parcelId, saleDate, openingBid FROM properties WHERE county = 'Scotland' ORDER BY address LIMIT 20",
+  "rows": [
+    {
+      "address": "NULL",
+      "parcelId": "010029 04016 & 010029 04017",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "NULL",
+      "parcelId": "010228A01070",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "NULL",
+      "parcelId": "010071 04006",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "NULL",
+      "parcelId": "010031 01028",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "⚠️ 10781 McFarland Rd, Laurel Hill, NC 28351",
+      "parcelId": "040173 08024",
+      "saleDate": "2025-05-15 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "⚠️ 16961 Jackson St, Laurinburg, NC 28352",
+      "parcelId": "010206 02009",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "⚠️ 17600 Old Lumberton Rd, Laurinburg, NC 28352",
+      "parcelId": "010258 01002",
+      "saleDate": "2025-05-15 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "⚠️ 208 E Covington St, Laurinburg, NC 28352",
+      "parcelId": "010054 05011",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "⚠️ 408 Park Dr, Laurinburg, NC 28352",
+      "parcelId": "010064 10046",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "⚠️ 510 Raeford St, Laurinburg, NC 28352",
+      "parcelId": "010041 01009",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "⚠️ 520 S Main St, Laurinburg, NC 28352",
+      "parcelId": "010054 06004",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "address": "⚠️ 626 E Vance St, Laurinburg, NC 28352",
+      "parcelId": "010073 13012",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "address\tparcelId\tsaleDate\topeningBid\nNULL\t010029 04016 & 010029 04017\t2025-09-24 04:00:00\tNULL\nNULL\t010228A01070\t2025-09-24 04:00:00\tNULL\nNULL\t010071 04006\t2025-09-24 04:00:00\tNULL\nNULL\t010031 01028\t2025-09-24 04:00:00\tNULL\n⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\t2025-09-24 04:00:00\tNULL\n⚠️ 10781 McFarland Rd, Laurel Hill, NC 28351\t040173 08024\t2025-05-15 04:00:00\tNULL\n⚠️ 16961 Jackson St, Laurinburg, NC 28352\t010206 02009\t2025-09-24 04:00:00\tNULL\n⚠️ 17600 Old Lumberton Rd, Laurinburg, NC 28352\t010258 01002\t2025-05-15 04:00:00\tNULL\n⚠️ 208 E Covington St, Laurinburg, NC 28352\t010054 05011\t2025-09-24 04:00:00\tNULL\n⚠️ 408 Park Dr, Laurinburg, NC 28352\t010064 10046\t2025-09-24 04:00:00\tNULL\n⚠️ 510 Raeford St, Laurinburg, NC 28352\t010041 01009\t2025-09-24 04:00:00\tNULL\n⚠️ 520 S Main St, Laurinburg, NC 28352\t010054 06004\t2025-09-24 04:00:00\tNULL\n⚠️ 626 E Vance St, Laurinburg, NC 28352\t010073 13012\t2025-09-24 04:00:00\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 47
+}

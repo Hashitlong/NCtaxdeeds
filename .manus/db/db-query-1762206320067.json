@@ -1,0 +1,26 @@
+{
+  "query": "SELECT sourceName, errorMessage\nFROM scrapeHistory \nWHERE status = 'failed' \n  AND sourceName IN ('McDowell County', 'Cumberland County', 'Bladen County', 'Anson County')\n  AND scrapeStartedAt >= '2025-11-03 21:38:00'\nORDER BY sourceName;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT sourceName, errorMessage\nFROM scrapeHistory \nWHERE status = 'failed' \n  AND sourceName IN ('McDowell County', 'Cumberland County', 'Bladen County', 'Anson County')\n  AND scrapeStartedAt >= '2025-11-03 21:38:00'\nORDER BY sourceName;",
+  "rows": [
+    {
+      "sourceName": "Anson County",
+      "errorMessage": "standardizeCountyName is not defined"
+    },
+    {
+      "sourceName": "Bladen County",
+      "errorMessage": "standardizeCountyName is not defined"
+    },
+    {
+      "sourceName": "Cumberland County",
+      "errorMessage": "standardizeCountyName is not defined"
+    },
+    {
+      "sourceName": "McDowell County",
+      "errorMessage": "standardizeCountyName is not defined"
+    }
+  ],
+  "messages": [],
+  "stdout": "sourceName\terrorMessage\nAnson County\tstandardizeCountyName is not defined\nBladen County\tstandardizeCountyName is not defined\nCumberland County\tstandardizeCountyName is not defined\nMcDowell County\tstandardizeCountyName is not defined\n",
+  "stderr": "",
+  "execution_time_ms": 48
+}

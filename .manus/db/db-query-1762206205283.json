@@ -1,0 +1,61 @@
+{
+  "query": "SELECT sourceName, status, errorMessage, propertiesFound, scrapeStartedAt\nFROM scrapeHistory \nWHERE status = 'failed' \nORDER BY scrapeStartedAt DESC \nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT sourceName, status, errorMessage, propertiesFound, scrapeStartedAt\nFROM scrapeHistory \nWHERE status = 'failed' \nORDER BY scrapeStartedAt DESC \nLIMIT 10;",
+  "rows": [
+    {
+      "sourceName": "McDowell County",
+      "status": "failed",
+      "errorMessage": "standardizeCountyName is not defined",
+      "propertiesFound": "0",
+      "scrapeStartedAt": "2025-11-03 21:39:22"
+    },
+    {
+      "sourceName": "Bladen County",
+      "status": "failed",
+      "errorMessage": "standardizeCountyName is not defined",
+      "propertiesFound": "0",
+      "scrapeStartedAt": "2025-11-03 21:39:22"
+    },
+    {
+      "sourceName": "Cumberland County",
+      "status": "failed",
+      "errorMessage": "standardizeCountyName is not defined",
+      "propertiesFound": "0",
+      "scrapeStartedAt": "2025-11-03 21:39:22"
+    },
+    {
+      "sourceName": "Anson County",
+      "status": "failed",
+      "errorMessage": "standardizeCountyName is not defined",
+      "propertiesFound": "0",
+      "scrapeStartedAt": "2025-11-03 21:39:20"
+    },
+    {
+      "sourceName": "Forsyth County",
+      "status": "failed",
+      "errorMessage": "standardizeCountyName is not defined",
+      "propertiesFound": "0",
+      "scrapeStartedAt": "2025-11-03 21:39:03"
+    },
+    {
+      "sourceName": "Rutherford County",
+      "status": "failed",
+      "errorMessage": "socket hang up",
+      "propertiesFound": "0",
+      "scrapeStartedAt": "2025-11-03 21:04:04"
+    }
+  ],
+  "messages": [
+    "Alamance County\tfailed\tstandardizeCountyName is not defined",
+    "pptr:evaluate;scrapeAlamance%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Falamance_county_scraper.ts%3A1%3A652):1:677\t0\t2025-11-03 21:39:08",
+    "Gaston County\tfailed\tstandardizeCountyName is not defined",
+    "pptr:evaluate;scrapeGaston%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Fgaston_county_scraper.ts%3A1%3A629):1:308\t0\t2025-11-03 21:39:05",
+    "Alamance County\tfailed\tstandardizeCountyName is not defined",
+    "pptr:evaluate;scrapeAlamance%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Falamance_county_scraper.ts%3A1%3A652):1:677\t0\t2025-11-03 20:02:21",
+    "Gaston County\tfailed\tstandardizeCountyName is not defined",
+    "pptr:evaluate;scrapeGaston%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Fgaston_county_scraper.ts%3A1%3A629):1:308\t0\t2025-11-03 20:02:16"
+  ],
+  "stdout": "sourceName\tstatus\terrorMessage\tpropertiesFound\tscrapeStartedAt\nMcDowell County\tfailed\tstandardizeCountyName is not defined\t0\t2025-11-03 21:39:22\nBladen County\tfailed\tstandardizeCountyName is not defined\t0\t2025-11-03 21:39:22\nCumberland County\tfailed\tstandardizeCountyName is not defined\t0\t2025-11-03 21:39:22\nAnson County\tfailed\tstandardizeCountyName is not defined\t0\t2025-11-03 21:39:20\nAlamance County\tfailed\tstandardizeCountyName is not defined\npptr:evaluate;scrapeAlamance%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Falamance_county_scraper.ts%3A1%3A652):1:677\t0\t2025-11-03 21:39:08\nGaston County\tfailed\tstandardizeCountyName is not defined\npptr:evaluate;scrapeGaston%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Fgaston_county_scraper.ts%3A1%3A629):1:308\t0\t2025-11-03 21:39:05\nForsyth County\tfailed\tstandardizeCountyName is not defined\t0\t2025-11-03 21:39:03\nRutherford County\tfailed\tsocket hang up\t0\t2025-11-03 21:04:04\nAlamance County\tfailed\tstandardizeCountyName is not defined\npptr:evaluate;scrapeAlamance%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Falamance_county_scraper.ts%3A1%3A652):1:677\t0\t2025-11-03 20:02:21\nGaston County\tfailed\tstandardizeCountyName is not defined\npptr:evaluate;scrapeGaston%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Fgaston_county_scraper.ts%3A1%3A629):1:308\t0\t2025-11-03 20:02:16\n",
+  "stderr": "",
+  "execution_time_ms": 50
+}

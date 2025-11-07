@@ -1,0 +1,13 @@
+{
+  "query": "SELECT COUNT(DISTINCT county) as unique_counties FROM properties",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT COUNT(DISTINCT county) as unique_counties FROM properties",
+  "rows": [
+    {
+      "unique_counties": "146"
+    }
+  ],
+  "messages": [],
+  "stdout": "unique_counties\n146\n",
+  "stderr": "",
+  "execution_time_ms": 48
+}

@@ -1,0 +1,15 @@
+{
+  "query": "SELECT COUNT(*) as total, SUM(CASE WHEN openingBid IS NULL THEN 1 ELSE 0 END) as null_bids, SUM(CASE WHEN openingBid IS NOT NULL THEN 1 ELSE 0 END) as has_bids FROM properties WHERE isActive = 1",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT COUNT(*) as total, SUM(CASE WHEN openingBid IS NULL THEN 1 ELSE 0 END) as null_bids, SUM(CASE WHEN openingBid IS NOT NULL THEN 1 ELSE 0 END) as has_bids FROM properties WHERE isActive = 1",
+  "rows": [
+    {
+      "total": "533",
+      "null_bids": "427",
+      "has_bids": "106"
+    }
+  ],
+  "messages": [],
+  "stdout": "total\tnull_bids\thas_bids\n533\t427\t106\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

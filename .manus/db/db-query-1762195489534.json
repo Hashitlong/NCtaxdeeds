@@ -1,0 +1,250 @@
+{
+  "query": "SELECT id, county, address, parcelId, saleDate, openingBid FROM properties WHERE county = 'Scotland' ORDER BY address, parcelId LIMIT 30",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT id, county, address, parcelId, saleDate, openingBid FROM properties WHERE county = 'Scotland' ORDER BY address, parcelId LIMIT 30",
+  "rows": [
+    {
+      "id": "90007",
+      "county": "Scotland",
+      "address": "NULL",
+      "parcelId": "010029 04016 & 010029 04017",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90008",
+      "county": "Scotland",
+      "address": "NULL",
+      "parcelId": "010029 04016 & 010029 04017",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "270193",
+      "county": "Scotland",
+      "address": "NULL",
+      "parcelId": "010029 04016 & 010029 04017",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "270194",
+      "county": "Scotland",
+      "address": "NULL",
+      "parcelId": "010031 01028",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90010",
+      "county": "Scotland",
+      "address": "NULL",
+      "parcelId": "010031 01028",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90009",
+      "county": "Scotland",
+      "address": "NULL",
+      "parcelId": "010031 01028",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90021",
+      "county": "Scotland",
+      "address": "NULL",
+      "parcelId": "010071 04006",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90027",
+      "county": "Scotland",
+      "address": "NULL",
+      "parcelId": "010228A01070",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "270202",
+      "county": "Scotland",
+      "address": "NULL",
+      "parcelId": "010228A01070",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90026",
+      "county": "Scotland",
+      "address": "NULL",
+      "parcelId": "010228A01070",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90012",
+      "county": "Scotland",
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90011",
+      "county": "Scotland",
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "270195",
+      "county": "Scotland",
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90037",
+      "county": "Scotland",
+      "address": "⚠️ 10781 McFarland Rd, Laurel Hill, NC 28351",
+      "parcelId": "040173 08024",
+      "saleDate": "2025-05-15 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90025",
+      "county": "Scotland",
+      "address": "⚠️ 16961 Jackson St, Laurinburg, NC 28352",
+      "parcelId": "010206 02009",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90024",
+      "county": "Scotland",
+      "address": "⚠️ 16961 Jackson St, Laurinburg, NC 28352",
+      "parcelId": "010206 02009",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "270201",
+      "county": "Scotland",
+      "address": "⚠️ 16961 Jackson St, Laurinburg, NC 28352",
+      "parcelId": "010206 02009",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90028",
+      "county": "Scotland",
+      "address": "⚠️ 17600 Old Lumberton Rd, Laurinburg, NC 28352",
+      "parcelId": "010258 01002",
+      "saleDate": "2025-05-15 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90015",
+      "county": "Scotland",
+      "address": "⚠️ 208 E Covington St, Laurinburg, NC 28352",
+      "parcelId": "010054 05011",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90016",
+      "county": "Scotland",
+      "address": "⚠️ 208 E Covington St, Laurinburg, NC 28352",
+      "parcelId": "010054 05011",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "270197",
+      "county": "Scotland",
+      "address": "⚠️ 208 E Covington St, Laurinburg, NC 28352",
+      "parcelId": "010054 05011",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "270199",
+      "county": "Scotland",
+      "address": "⚠️ 408 Park Dr, Laurinburg, NC 28352",
+      "parcelId": "010064 10046",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90020",
+      "county": "Scotland",
+      "address": "⚠️ 408 Park Dr, Laurinburg, NC 28352",
+      "parcelId": "010064 10046",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90019",
+      "county": "Scotland",
+      "address": "⚠️ 408 Park Dr, Laurinburg, NC 28352",
+      "parcelId": "010064 10046",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90013",
+      "county": "Scotland",
+      "address": "⚠️ 510 Raeford St, Laurinburg, NC 28352",
+      "parcelId": "010041 01009",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "270196",
+      "county": "Scotland",
+      "address": "⚠️ 510 Raeford St, Laurinburg, NC 28352",
+      "parcelId": "010041 01009",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90014",
+      "county": "Scotland",
+      "address": "⚠️ 510 Raeford St, Laurinburg, NC 28352",
+      "parcelId": "010041 01009",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90017",
+      "county": "Scotland",
+      "address": "⚠️ 520 S Main St, Laurinburg, NC 28352",
+      "parcelId": "010054 06004",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "90018",
+      "county": "Scotland",
+      "address": "⚠️ 520 S Main St, Laurinburg, NC 28352",
+      "parcelId": "010054 06004",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    },
+    {
+      "id": "270198",
+      "county": "Scotland",
+      "address": "⚠️ 520 S Main St, Laurinburg, NC 28352",
+      "parcelId": "010054 06004",
+      "saleDate": "2025-09-24 04:00:00",
+      "openingBid": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcounty\taddress\tparcelId\tsaleDate\topeningBid\n90007\tScotland\tNULL\t010029 04016 & 010029 04017\t2025-09-24 04:00:00\tNULL\n90008\tScotland\tNULL\t010029 04016 & 010029 04017\t2025-09-24 04:00:00\tNULL\n270193\tScotland\tNULL\t010029 04016 & 010029 04017\t2025-09-24 04:00:00\tNULL\n270194\tScotland\tNULL\t010031 01028\t2025-09-24 04:00:00\tNULL\n90010\tScotland\tNULL\t010031 01028\t2025-09-24 04:00:00\tNULL\n90009\tScotland\tNULL\t010031 01028\t2025-09-24 04:00:00\tNULL\n90021\tScotland\tNULL\t010071 04006\t2025-09-24 04:00:00\tNULL\n90027\tScotland\tNULL\t010228A01070\t2025-09-24 04:00:00\tNULL\n270202\tScotland\tNULL\t010228A01070\t2025-09-24 04:00:00\tNULL\n90026\tScotland\tNULL\t010228A01070\t2025-09-24 04:00:00\tNULL\n90012\tScotland\t⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\t2025-09-24 04:00:00\tNULL\n90011\tScotland\t⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\t2025-09-24 04:00:00\tNULL\n270195\tScotland\t⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\t2025-09-24 04:00:00\tNULL\n90037\tScotland\t⚠️ 10781 McFarland Rd, Laurel Hill, NC 28351\t040173 08024\t2025-05-15 04:00:00\tNULL\n90025\tScotland\t⚠️ 16961 Jackson St, Laurinburg, NC 28352\t010206 02009\t2025-09-24 04:00:00\tNULL\n90024\tScotland\t⚠️ 16961 Jackson St, Laurinburg, NC 28352\t010206 02009\t2025-09-24 04:00:00\tNULL\n270201\tScotland\t⚠️ 16961 Jackson St, Laurinburg, NC 28352\t010206 02009\t2025-09-24 04:00:00\tNULL\n90028\tScotland\t⚠️ 17600 Old Lumberton Rd, Laurinburg, NC 28352\t010258 01002\t2025-05-15 04:00:00\tNULL\n90015\tScotland\t⚠️ 208 E Covington St, Laurinburg, NC 28352\t010054 05011\t2025-09-24 04:00:00\tNULL\n90016\tScotland\t⚠️ 208 E Covington St, Laurinburg, NC 28352\t010054 05011\t2025-09-24 04:00:00\tNULL\n270197\tScotland\t⚠️ 208 E Covington St, Laurinburg, NC 28352\t010054 05011\t2025-09-24 04:00:00\tNULL\n270199\tScotland\t⚠️ 408 Park Dr, Laurinburg, NC 28352\t010064 10046\t2025-09-24 04:00:00\tNULL\n90020\tScotland\t⚠️ 408 Park Dr, Laurinburg, NC 28352\t010064 10046\t2025-09-24 04:00:00\tNULL\n90019\tScotland\t⚠️ 408 Park Dr, Laurinburg, NC 28352\t010064 10046\t2025-09-24 04:00:00\tNULL\n90013\tScotland\t⚠️ 510 Raeford St, Laurinburg, NC 28352\t010041 01009\t2025-09-24 04:00:00\tNULL\n270196\tScotland\t⚠️ 510 Raeford St, Laurinburg, NC 28352\t010041 01009\t2025-09-24 04:00:00\tNULL\n90014\tScotland\t⚠️ 510 Raeford St, Laurinburg, NC 28352\t010041 01009\t2025-09-24 04:00:00\tNULL\n90017\tScotland\t⚠️ 520 S Main St, Laurinburg, NC 28352\t010054 06004\t2025-09-24 04:00:00\tNULL\n90018\tScotland\t⚠️ 520 S Main St, Laurinburg, NC 28352\t010054 06004\t2025-09-24 04:00:00\tNULL\n270198\tScotland\t⚠️ 520 S Main St, Laurinburg, NC 28352\t010054 06004\t2025-09-24 04:00:00\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 49
+}

@@ -1,0 +1,34 @@
+{
+  "query": "\nSELECT \n  sourceType,\n  COUNT(*) as total_upset,\n  SUM(CASE WHEN upsetBidCloseDate IS NOT NULL THEN 1 ELSE 0 END) as with_close_date,\n  ROUND(100.0 * SUM(CASE WHEN upsetBidCloseDate IS NOT NULL THEN 1 ELSE 0 END) / COUNT(*), 1) as coverage_pct\nFROM properties \nWHERE saleStatus = 'in_upset_period'\nGROUP BY sourceType\nORDER BY total_upset DESC\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute \nSELECT \n  sourceType,\n  COUNT(*) as total_upset,\n  SUM(CASE WHEN upsetBidCloseDate IS NOT NULL THEN 1 ELSE 0 END) as with_close_date,\n  ROUND(100.0 * SUM(CASE WHEN upsetBidCloseDate IS NOT NULL THEN 1 ELSE 0 END) / COUNT(*), 1) as coverage_pct\nFROM properties \nWHERE saleStatus = 'in_upset_period'\nGROUP BY sourceType\nORDER BY total_upset DESC\n",
+  "rows": [
+    {
+      "sourceType": "kania",
+      "total_upset": "66",
+      "with_close_date": "65",
+      "coverage_pct": "98.5"
+    },
+    {
+      "sourceType": "zls",
+      "total_upset": "30",
+      "with_close_date": "0",
+      "coverage_pct": "0.0"
+    },
+    {
+      "sourceType": "county_website",
+      "total_upset": "6",
+      "with_close_date": "0",
+      "coverage_pct": "0.0"
+    },
+    {
+      "sourceType": "rbcwb",
+      "total_upset": "2",
+      "with_close_date": "0",
+      "coverage_pct": "0.0"
+    }
+  ],
+  "messages": [],
+  "stdout": "sourceType\ttotal_upset\twith_close_date\tcoverage_pct\nkania\t66\t65\t98.5\nzls\t30\t0\t0.0\ncounty_website\t6\t0\t0.0\nrbcwb\t2\t0\t0.0\n",
+  "stderr": "",
+  "execution_time_ms": 483
+}

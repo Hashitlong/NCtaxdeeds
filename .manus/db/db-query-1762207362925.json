@@ -1,0 +1,160 @@
+{
+  "query": "SELECT county, \n  COUNT(*) as total,\n  SUM(CASE WHEN sourceUrl IS NOT NULL AND sourceUrl != '' THEN 1 ELSE 0 END) as with_url\nFROM properties \nGROUP BY county \nORDER BY with_url DESC, county\nLIMIT 30;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, \n  COUNT(*) as total,\n  SUM(CASE WHEN sourceUrl IS NOT NULL AND sourceUrl != '' THEN 1 ELSE 0 END) as with_url\nFROM properties \nGROUP BY county \nORDER BY with_url DESC, county\nLIMIT 30;",
+  "rows": [
+    {
+      "county": "Cabarrus",
+      "total": "42",
+      "with_url": "37"
+    },
+    {
+      "county": "Edgecombe",
+      "total": "23",
+      "with_url": "21"
+    },
+    {
+      "county": "Forsyth",
+      "total": "46",
+      "with_url": "17"
+    },
+    {
+      "county": "Hoke",
+      "total": "19",
+      "with_url": "16"
+    },
+    {
+      "county": "Bladen",
+      "total": "13",
+      "with_url": "13"
+    },
+    {
+      "county": "Anson",
+      "total": "9",
+      "with_url": "4"
+    },
+    {
+      "county": "Mcdowell",
+      "total": "5",
+      "with_url": "3"
+    },
+    {
+      "county": "Cumberland",
+      "total": "17",
+      "with_url": "2"
+    },
+    {
+      "county": "Gaston",
+      "total": "9",
+      "with_url": "2"
+    },
+    {
+      "county": "Alamance",
+      "total": "16",
+      "with_url": "1"
+    },
+    {
+      "county": "Alexander",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Alleghany",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Ashe",
+      "total": "9",
+      "with_url": "0"
+    },
+    {
+      "county": "Avery",
+      "total": "2",
+      "with_url": "0"
+    },
+    {
+      "county": "Beaufort",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Brunswick",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Buncombe",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Burke",
+      "total": "21",
+      "with_url": "0"
+    },
+    {
+      "county": "Caldwell",
+      "total": "13",
+      "with_url": "0"
+    },
+    {
+      "county": "Carteret",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Catawba",
+      "total": "9",
+      "with_url": "0"
+    },
+    {
+      "county": "Chatham",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Cherokee",
+      "total": "19",
+      "with_url": "0"
+    },
+    {
+      "county": "Chowan",
+      "total": "10",
+      "with_url": "0"
+    },
+    {
+      "county": "Clay",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Cleveland",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Columbus",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Craven",
+      "total": "7",
+      "with_url": "0"
+    },
+    {
+      "county": "Currituck",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Dare",
+      "total": "1",
+      "with_url": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\ttotal\twith_url\nCabarrus\t42\t37\nEdgecombe\t23\t21\nForsyth\t46\t17\nHoke\t19\t16\nBladen\t13\t13\nAnson\t9\t4\nMcdowell\t5\t3\nCumberland\t17\t2\nGaston\t9\t2\nAlamance\t16\t1\nAlexander\t4\t0\nAlleghany\t4\t0\nAshe\t9\t0\nAvery\t2\t0\nBeaufort\t3\t0\nBrunswick\t4\t0\nBuncombe\t3\t0\nBurke\t21\t0\nCaldwell\t13\t0\nCarteret\t1\t0\nCatawba\t9\t0\nChatham\t1\t0\nCherokee\t19\t0\nChowan\t10\t0\nClay\t3\t0\nCleveland\t4\t0\nColumbus\t1\t0\nCraven\t7\t0\nCurrituck\t1\t0\nDare\t1\t0\n",
+  "stderr": "",
+  "execution_time_ms": 64
+}

@@ -1,0 +1,55 @@
+{
+  "query": "\nSELECT \n  county,\n  address,\n  saleDate,\n  upsetBidCloseDate,\n  openingBid,\n  currentBid,\n  sourceUrl\nFROM properties \nWHERE saleStatus = 'in_upset_period' \n  AND sourceType = 'kania'\nLIMIT 5\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute \nSELECT \n  county,\n  address,\n  saleDate,\n  upsetBidCloseDate,\n  openingBid,\n  currentBid,\n  sourceUrl\nFROM properties \nWHERE saleStatus = 'in_upset_period' \n  AND sourceType = 'kania'\nLIMIT 5\n",
+  "rows": [
+    {
+      "county": "Burke",
+      "address": "708 Church St NW, Valdese",
+      "saleDate": "2025-10-14 15:00:00",
+      "upsetBidCloseDate": "NULL",
+      "openingBid": "1770000",
+      "currentBid": "4500000",
+      "sourceUrl": "https://kanialawfirm.com/tax-foreclosures/foreclosure-listings/"
+    },
+    {
+      "county": "Burke",
+      "address": "2575 US 70 W, Morganton",
+      "saleDate": "2025-10-28 15:00:00",
+      "upsetBidCloseDate": "NULL",
+      "openingBid": "780000",
+      "currentBid": "850000",
+      "sourceUrl": "https://kanialawfirm.com/tax-foreclosures/foreclosure-listings/"
+    },
+    {
+      "county": "Burke",
+      "address": "6101 Burke View Lane, Morganton",
+      "saleDate": "2025-10-28 15:00:00",
+      "upsetBidCloseDate": "NULL",
+      "openingBid": "780000",
+      "currentBid": "900000",
+      "sourceUrl": "https://kanialawfirm.com/tax-foreclosures/foreclosure-listings/"
+    },
+    {
+      "county": "Burke",
+      "address": "0 Carroll St, Hickory8805 Spring Meadow Dr, Hickory",
+      "saleDate": "2025-10-28 15:00:00",
+      "upsetBidCloseDate": "NULL",
+      "openingBid": "920000",
+      "currentBid": "925000",
+      "sourceUrl": "https://kanialawfirm.com/tax-foreclosures/foreclosure-listings/"
+    },
+    {
+      "county": "Cherokee",
+      "address": "Griffith Road, Murphy",
+      "saleDate": "2025-09-25 15:00:00",
+      "upsetBidCloseDate": "NULL",
+      "openingBid": "1340000",
+      "currentBid": "22050000",
+      "sourceUrl": "https://kanialawfirm.com/tax-foreclosures/foreclosure-listings/"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\taddress\tsaleDate\tupsetBidCloseDate\topeningBid\tcurrentBid\tsourceUrl\nBurke\t708 Church St NW, Valdese\t2025-10-14 15:00:00\tNULL\t1770000\t4500000\thttps://kanialawfirm.com/tax-foreclosures/foreclosure-listings/\nBurke\t2575 US 70 W, Morganton\t2025-10-28 15:00:00\tNULL\t780000\t850000\thttps://kanialawfirm.com/tax-foreclosures/foreclosure-listings/\nBurke\t6101 Burke View Lane, Morganton\t2025-10-28 15:00:00\tNULL\t780000\t900000\thttps://kanialawfirm.com/tax-foreclosures/foreclosure-listings/\nBurke\t0 Carroll St, Hickory8805 Spring Meadow Dr, Hickory\t2025-10-28 15:00:00\tNULL\t920000\t925000\thttps://kanialawfirm.com/tax-foreclosures/foreclosure-listings/\nCherokee\tGriffith Road, Murphy\t2025-09-25 15:00:00\tNULL\t1340000\t22050000\thttps://kanialawfirm.com/tax-foreclosures/foreclosure-listings/\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

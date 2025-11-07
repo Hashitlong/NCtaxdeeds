@@ -1,0 +1,178 @@
+{
+  "query": "SELECT county, COUNT(*) as property_count FROM properties GROUP BY county ORDER BY county",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, COUNT(*) as property_count FROM properties GROUP BY county ORDER BY county",
+  "rows": [
+    {
+      "county": "Alamance",
+      "property_count": "13"
+    },
+    {
+      "county": "Alexander",
+      "property_count": "3"
+    },
+    {
+      "county": "Alleghany",
+      "property_count": "4"
+    },
+    {
+      "county": "Anson",
+      "property_count": "9"
+    },
+    {
+      "county": "Ashe",
+      "property_count": "8"
+    },
+    {
+      "county": "Beaufort",
+      "property_count": "1"
+    },
+    {
+      "county": "Bladen",
+      "property_count": "13"
+    },
+    {
+      "county": "Cabarrus",
+      "property_count": "39"
+    },
+    {
+      "county": "Catawba",
+      "property_count": "2"
+    },
+    {
+      "county": "Chatham",
+      "property_count": "1"
+    },
+    {
+      "county": "Chowan",
+      "property_count": "10"
+    },
+    {
+      "county": "City of Laurinburg",
+      "property_count": "10"
+    },
+    {
+      "county": "City of Lumberton",
+      "property_count": "7"
+    },
+    {
+      "county": "Craven",
+      "property_count": "6"
+    },
+    {
+      "county": "Cumberland",
+      "property_count": "2"
+    },
+    {
+      "county": "Dare",
+      "property_count": "1"
+    },
+    {
+      "county": "Edgecombe",
+      "property_count": "21"
+    },
+    {
+      "county": "Forsyth",
+      "property_count": "38"
+    },
+    {
+      "county": "Franklin",
+      "property_count": "1"
+    },
+    {
+      "county": "Gaston",
+      "property_count": "2"
+    },
+    {
+      "county": "Gates",
+      "property_count": "1"
+    },
+    {
+      "county": "Guilford",
+      "property_count": "18"
+    },
+    {
+      "county": "Hoke",
+      "property_count": "16"
+    },
+    {
+      "county": "Iredell",
+      "property_count": "1"
+    },
+    {
+      "county": "Jones",
+      "property_count": "1"
+    },
+    {
+      "county": "Lenoir",
+      "property_count": "1"
+    },
+    {
+      "county": "Mecklenburg",
+      "property_count": "25"
+    },
+    {
+      "county": "Moore",
+      "property_count": "1"
+    },
+    {
+      "county": "Northampton",
+      "property_count": "5"
+    },
+    {
+      "county": "Onslow",
+      "property_count": "5"
+    },
+    {
+      "county": "Pamlico",
+      "property_count": "1"
+    },
+    {
+      "county": "Perquimans",
+      "property_count": "2"
+    },
+    {
+      "county": "Richmond",
+      "property_count": "24"
+    },
+    {
+      "county": "Robeson",
+      "property_count": "3"
+    },
+    {
+      "county": "Rutherford",
+      "property_count": "8"
+    },
+    {
+      "county": "Scotland",
+      "property_count": "13"
+    },
+    {
+      "county": "Town of Maxton",
+      "property_count": "1"
+    },
+    {
+      "county": "Town of Williamston",
+      "property_count": "6"
+    },
+    {
+      "county": "Warren",
+      "property_count": "8"
+    },
+    {
+      "county": "Washington",
+      "property_count": "1"
+    },
+    {
+      "county": "Wilson",
+      "property_count": "3"
+    },
+    {
+      "county": "Yadkin",
+      "property_count": "6"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\tproperty_count\nAlamance\t13\nAlexander\t3\nAlleghany\t4\nAnson\t9\nAshe\t8\nBeaufort\t1\nBladen\t13\nCabarrus\t39\nCatawba\t2\nChatham\t1\nChowan\t10\nCity of Laurinburg\t10\nCity of Lumberton\t7\nCraven\t6\nCumberland\t2\nDare\t1\nEdgecombe\t21\nForsyth\t38\nFranklin\t1\nGaston\t2\nGates\t1\nGuilford\t18\nHoke\t16\nIredell\t1\nJones\t1\nLenoir\t1\nMecklenburg\t25\nMoore\t1\nNorthampton\t5\nOnslow\t5\nPamlico\t1\nPerquimans\t2\nRichmond\t24\nRobeson\t3\nRutherford\t8\nScotland\t13\nTown of Maxton\t1\nTown of Williamston\t6\nWarren\t8\nWashington\t1\nWilson\t3\nYadkin\t6\n",
+  "stderr": "",
+  "execution_time_ms": 118
+}

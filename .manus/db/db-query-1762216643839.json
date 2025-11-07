@@ -1,0 +1,58 @@
+{
+  "query": "SELECT DISTINCT sourceType FROM properties WHERE sourceType IS NOT NULL ORDER BY sourceType;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT DISTINCT sourceType FROM properties WHERE sourceType IS NOT NULL ORDER BY sourceType;",
+  "rows": [
+    {
+      "sourceType": "Anson County"
+    },
+    {
+      "sourceType": "Bladen County"
+    },
+    {
+      "sourceType": "Cumberland County"
+    },
+    {
+      "sourceType": "Edgecombe County"
+    },
+    {
+      "sourceType": "Hoke County"
+    },
+    {
+      "sourceType": "McDowell County"
+    },
+    {
+      "sourceType": "Rutherford County"
+    },
+    {
+      "sourceType": "Yadkin County"
+    },
+    {
+      "sourceType": "ZLS"
+    },
+    {
+      "sourceType": "alamance_county"
+    },
+    {
+      "sourceType": "cabarrus_county"
+    },
+    {
+      "sourceType": "forsyth_county"
+    },
+    {
+      "sourceType": "gaston_county"
+    },
+    {
+      "sourceType": "hutchens"
+    },
+    {
+      "sourceType": "kania"
+    },
+    {
+      "sourceType": "rbcwb"
+    }
+  ],
+  "messages": [],
+  "stdout": "sourceType\nAnson County\nBladen County\nCumberland County\nEdgecombe County\nHoke County\nMcDowell County\nRutherford County\nYadkin County\nZLS\nalamance_county\ncabarrus_county\nforsyth_county\ngaston_county\nhutchens\nkania\nrbcwb\n",
+  "stderr": "",
+  "execution_time_ms": 50
+}

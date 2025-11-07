@@ -1,0 +1,37 @@
+{
+  "query": "SELECT county, address, saleDate, upsetBidCloseDate, openingBid, currentBid, saleStatus \nFROM properties \nWHERE county = 'Ashe' AND sourceType = 'kania' AND saleStatus = 'in_upset_period'\nORDER BY upsetBidCloseDate;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, address, saleDate, upsetBidCloseDate, openingBid, currentBid, saleStatus \nFROM properties \nWHERE county = 'Ashe' AND sourceType = 'kania' AND saleStatus = 'in_upset_period'\nORDER BY upsetBidCloseDate;",
+  "rows": [
+    {
+      "county": "Ashe",
+      "address": "291 Three Top Stream, West Jefferson",
+      "saleDate": "2025-10-23 18:00:00",
+      "upsetBidCloseDate": "2025-11-07 00:00:00",
+      "openingBid": "1300000",
+      "currentBid": "1150100",
+      "saleStatus": "in_upset_period"
+    },
+    {
+      "county": "Ashe",
+      "address": "Off Three Top Rd, Todd",
+      "saleDate": "2025-10-23 18:00:00",
+      "upsetBidCloseDate": "2025-11-13 00:00:00",
+      "openingBid": "2720000",
+      "currentBid": "3327500",
+      "saleStatus": "in_upset_period"
+    },
+    {
+      "county": "Ashe",
+      "address": "Flem Osborne Road, Lansing",
+      "saleDate": "2025-10-23 18:00:00",
+      "upsetBidCloseDate": "2025-11-14 00:00:00",
+      "openingBid": "3900000",
+      "currentBid": "3420375",
+      "saleStatus": "in_upset_period"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\taddress\tsaleDate\tupsetBidCloseDate\topeningBid\tcurrentBid\tsaleStatus\nAshe\t291 Three Top Stream, West Jefferson\t2025-10-23 18:00:00\t2025-11-07 00:00:00\t1300000\t1150100\tin_upset_period\nAshe\tOff Three Top Rd, Todd\t2025-10-23 18:00:00\t2025-11-13 00:00:00\t2720000\t3327500\tin_upset_period\nAshe\tFlem Osborne Road, Lansing\t2025-10-23 18:00:00\t2025-11-14 00:00:00\t3900000\t3420375\tin_upset_period\n",
+  "stderr": "",
+  "execution_time_ms": 149
+}

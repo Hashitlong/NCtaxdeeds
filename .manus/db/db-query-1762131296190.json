@@ -1,0 +1,328 @@
+{
+  "query": "SELECT DISTINCT county FROM properties WHERE isActive = 1 ORDER BY county",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT DISTINCT county FROM properties WHERE isActive = 1 ORDER BY county",
+  "rows": [
+    {
+      "county": "Alamance"
+    },
+    {
+      "county": "Alamance, NC"
+    },
+    {
+      "county": "Alexander"
+    },
+    {
+      "county": "Alexander, NC"
+    },
+    {
+      "county": "Alleghany"
+    },
+    {
+      "county": "Anson"
+    },
+    {
+      "county": "Ashe"
+    },
+    {
+      "county": "Avery, NC"
+    },
+    {
+      "county": "Beaufort"
+    },
+    {
+      "county": "Beaufort, NC"
+    },
+    {
+      "county": "Bladen"
+    },
+    {
+      "county": "Brunswick, NC"
+    },
+    {
+      "county": "Buncombe, NC"
+    },
+    {
+      "county": "Burke, NC"
+    },
+    {
+      "county": "Cabarrus"
+    },
+    {
+      "county": "Cabarrus, NC"
+    },
+    {
+      "county": "Caldwell, NC"
+    },
+    {
+      "county": "Carteret, NC"
+    },
+    {
+      "county": "Catawba"
+    },
+    {
+      "county": "Catawba, NC"
+    },
+    {
+      "county": "Chatham"
+    },
+    {
+      "county": "Cherokee, NC"
+    },
+    {
+      "county": "Chowan"
+    },
+    {
+      "county": "City of Laurinburg"
+    },
+    {
+      "county": "City of Lumberton"
+    },
+    {
+      "county": "Clay, NC"
+    },
+    {
+      "county": "Cleveland, NC"
+    },
+    {
+      "county": "Columbus, NC"
+    },
+    {
+      "county": "Craven"
+    },
+    {
+      "county": "Craven, NC"
+    },
+    {
+      "county": "Cumberland"
+    },
+    {
+      "county": "Cumberland, NC"
+    },
+    {
+      "county": "Currituck, NC"
+    },
+    {
+      "county": "Dare"
+    },
+    {
+      "county": "Davidson, NC"
+    },
+    {
+      "county": "Duplin, NC"
+    },
+    {
+      "county": "Durham, NC"
+    },
+    {
+      "county": "Edgecombe"
+    },
+    {
+      "county": "Edgecombe, NC"
+    },
+    {
+      "county": "Forsyth"
+    },
+    {
+      "county": "Forsyth, NC"
+    },
+    {
+      "county": "Franklin"
+    },
+    {
+      "county": "Gaston"
+    },
+    {
+      "county": "Gaston, NC"
+    },
+    {
+      "county": "Gates"
+    },
+    {
+      "county": "Gates, NC"
+    },
+    {
+      "county": "Granville, NC"
+    },
+    {
+      "county": "Guilford"
+    },
+    {
+      "county": "Guilford, NC"
+    },
+    {
+      "county": "Halifax, NC"
+    },
+    {
+      "county": "Harnett, NC"
+    },
+    {
+      "county": "Haywood, NC"
+    },
+    {
+      "county": "Henderson, NC"
+    },
+    {
+      "county": "Hertford, NC"
+    },
+    {
+      "county": "Hoke"
+    },
+    {
+      "county": "Hoke, NC"
+    },
+    {
+      "county": "Iredell"
+    },
+    {
+      "county": "Iredell, NC"
+    },
+    {
+      "county": "Johnston, NC"
+    },
+    {
+      "county": "Jones"
+    },
+    {
+      "county": "Lee, NC"
+    },
+    {
+      "county": "Lenoir"
+    },
+    {
+      "county": "Lenoir, NC"
+    },
+    {
+      "county": "Lincoln, NC"
+    },
+    {
+      "county": "Madison, NC"
+    },
+    {
+      "county": "Martin, NC"
+    },
+    {
+      "county": "McDowell"
+    },
+    {
+      "county": "McDowell, NC"
+    },
+    {
+      "county": "Mecklenburg"
+    },
+    {
+      "county": "Mecklenburg, NC"
+    },
+    {
+      "county": "Moore"
+    },
+    {
+      "county": "Moore, NC"
+    },
+    {
+      "county": "Nash, NC"
+    },
+    {
+      "county": "New Hanover, NC"
+    },
+    {
+      "county": "Northampton"
+    },
+    {
+      "county": "Northampton, NC"
+    },
+    {
+      "county": "Onslow"
+    },
+    {
+      "county": "Onslow, NC"
+    },
+    {
+      "county": "Orange, NC"
+    },
+    {
+      "county": "Pamlico"
+    },
+    {
+      "county": "Pasquotank, NC"
+    },
+    {
+      "county": "Pender, NC"
+    },
+    {
+      "county": "Perquimans"
+    },
+    {
+      "county": "Pitt, NC"
+    },
+    {
+      "county": "Randolph, NC"
+    },
+    {
+      "county": "Richmond"
+    },
+    {
+      "county": "Robeson"
+    },
+    {
+      "county": "Robeson, NC"
+    },
+    {
+      "county": "Rockingham, NC"
+    },
+    {
+      "county": "Rowan, NC"
+    },
+    {
+      "county": "Rutherford"
+    },
+    {
+      "county": "Rutherford, NC"
+    },
+    {
+      "county": "Scotland"
+    },
+    {
+      "county": "Stanly, NC"
+    },
+    {
+      "county": "Surry, NC"
+    },
+    {
+      "county": "Town of Maxton"
+    },
+    {
+      "county": "Town of Williamston"
+    },
+    {
+      "county": "Union, NC"
+    },
+    {
+      "county": "Wake, NC"
+    },
+    {
+      "county": "Warren"
+    },
+    {
+      "county": "Washington"
+    },
+    {
+      "county": "Wayne, NC"
+    },
+    {
+      "county": "Wilkes, NC"
+    },
+    {
+      "county": "Wilson"
+    },
+    {
+      "county": "Wilson, NC"
+    },
+    {
+      "county": "Yadkin"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\nAlamance\nAlamance, NC\nAlexander\nAlexander, NC\nAlleghany\nAnson\nAshe\nAvery, NC\nBeaufort\nBeaufort, NC\nBladen\nBrunswick, NC\nBuncombe, NC\nBurke, NC\nCabarrus\nCabarrus, NC\nCaldwell, NC\nCarteret, NC\nCatawba\nCatawba, NC\nChatham\nCherokee, NC\nChowan\nCity of Laurinburg\nCity of Lumberton\nClay, NC\nCleveland, NC\nColumbus, NC\nCraven\nCraven, NC\nCumberland\nCumberland, NC\nCurrituck, NC\nDare\nDavidson, NC\nDuplin, NC\nDurham, NC\nEdgecombe\nEdgecombe, NC\nForsyth\nForsyth, NC\nFranklin\nGaston\nGaston, NC\nGates\nGates, NC\nGranville, NC\nGuilford\nGuilford, NC\nHalifax, NC\nHarnett, NC\nHaywood, NC\nHenderson, NC\nHertford, NC\nHoke\nHoke, NC\nIredell\nIredell, NC\nJohnston, NC\nJones\nLee, NC\nLenoir\nLenoir, NC\nLincoln, NC\nMadison, NC\nMartin, NC\nMcDowell\nMcDowell, NC\nMecklenburg\nMecklenburg, NC\nMoore\nMoore, NC\nNash, NC\nNew Hanover, NC\nNorthampton\nNorthampton, NC\nOnslow\nOnslow, NC\nOrange, NC\nPamlico\nPasquotank, NC\nPender, NC\nPerquimans\nPitt, NC\nRandolph, NC\nRichmond\nRobeson\nRobeson, NC\nRockingham, NC\nRowan, NC\nRutherford\nRutherford, NC\nScotland\nStanly, NC\nSurry, NC\nTown of Maxton\nTown of Williamston\nUnion, NC\nWake, NC\nWarren\nWashington\nWayne, NC\nWilkes, NC\nWilson\nWilson, NC\nYadkin\n",
+  "stderr": "",
+  "execution_time_ms": 832
+}

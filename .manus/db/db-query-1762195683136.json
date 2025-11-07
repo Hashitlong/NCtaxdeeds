@@ -1,0 +1,31 @@
+{
+  "query": "SELECT id, address, parcelId, LENGTH(parcelId) as parcel_length, parcelId IS NULL as is_null FROM properties WHERE county = 'Scotland' AND address LIKE '%1023 N Main St%' LIMIT 5",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT id, address, parcelId, LENGTH(parcelId) as parcel_length, parcelId IS NULL as is_null FROM properties WHERE county = 'Scotland' AND address LIKE '%1023 N Main St%' LIMIT 5",
+  "rows": [
+    {
+      "id": "90011",
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "parcel_length": "12",
+      "is_null": "0"
+    },
+    {
+      "id": "90012",
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "parcel_length": "12",
+      "is_null": "0"
+    },
+    {
+      "id": "270195",
+      "address": "⚠️ 1023 N Main St, Laurinburg, NC 28352",
+      "parcelId": "010032 06037",
+      "parcel_length": "12",
+      "is_null": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\taddress\tparcelId\tparcel_length\tis_null\n90011\t⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\t12\t0\n90012\t⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\t12\t0\n270195\t⚠️ 1023 N Main St, Laurinburg, NC 28352\t010032 06037\t12\t0\n",
+  "stderr": "",
+  "execution_time_ms": 788
+}

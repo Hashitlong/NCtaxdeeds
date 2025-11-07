@@ -1,0 +1,80 @@
+{
+  "query": "SELECT county, address, openingBid, currentBid, sourceType FROM properties WHERE sourceType = 'hutchens' AND (openingBid IS NOT NULL OR currentBid IS NOT NULL) LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, address, openingBid, currentBid, sourceType FROM properties WHERE sourceType = 'hutchens' AND (openingBid IS NOT NULL OR currentBid IS NOT NULL) LIMIT 10;",
+  "rows": [
+    {
+      "county": "Surry",
+      "address": "375 Marshall Johnson Road",
+      "openingBid": "8186538",
+      "currentBid": "NULL",
+      "sourceType": "hutchens"
+    },
+    {
+      "county": "New Hanover",
+      "address": "2307 Princess Place Dr.",
+      "openingBid": "15750000",
+      "currentBid": "NULL",
+      "sourceType": "hutchens"
+    },
+    {
+      "county": "Guilford",
+      "address": "1507 Randolph Avenue",
+      "openingBid": "5303825",
+      "currentBid": "NULL",
+      "sourceType": "hutchens"
+    },
+    {
+      "county": "Cumberland",
+      "address": "189 Wolfpoint Drive",
+      "openingBid": "21853000",
+      "currentBid": "NULL",
+      "sourceType": "hutchens"
+    },
+    {
+      "county": "Brunswick",
+      "address": "576 Beach Veiw Dr. SE",
+      "openingBid": "NULL",
+      "currentBid": "3360000",
+      "sourceType": "hutchens"
+    },
+    {
+      "county": "Cabarrus",
+      "address": "521 Hyde Street",
+      "openingBid": "NULL",
+      "currentBid": "16537500",
+      "sourceType": "hutchens"
+    },
+    {
+      "county": "Forsyth",
+      "address": "165 River Crest Court",
+      "openingBid": "NULL",
+      "currentBid": "3000000",
+      "sourceType": "hutchens"
+    },
+    {
+      "county": "Guilford",
+      "address": "908 Ashe Street",
+      "openingBid": "15717400",
+      "currentBid": "NULL",
+      "sourceType": "hutchens"
+    },
+    {
+      "county": "Lee",
+      "address": "906 Amanda Drive",
+      "openingBid": "18650018",
+      "currentBid": "NULL",
+      "sourceType": "hutchens"
+    },
+    {
+      "county": "Rockingham",
+      "address": "214 Cedar Street",
+      "openingBid": "10722958",
+      "currentBid": "NULL",
+      "sourceType": "hutchens"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\taddress\topeningBid\tcurrentBid\tsourceType\nSurry\t375 Marshall Johnson Road\t8186538\tNULL\thutchens\nNew Hanover\t2307 Princess Place Dr.\t15750000\tNULL\thutchens\nGuilford\t1507 Randolph Avenue\t5303825\tNULL\thutchens\nCumberland\t189 Wolfpoint Drive\t21853000\tNULL\thutchens\nBrunswick\t576 Beach Veiw Dr. SE\tNULL\t3360000\thutchens\nCabarrus\t521 Hyde Street\tNULL\t16537500\thutchens\nForsyth\t165 River Crest Court\tNULL\t3000000\thutchens\nGuilford\t908 Ashe Street\t15717400\tNULL\thutchens\nLee\t906 Amanda Drive\t18650018\tNULL\thutchens\nRockingham\t214 Cedar Street\t10722958\tNULL\thutchens\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}

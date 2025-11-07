@@ -1,0 +1,37 @@
+{
+  "query": "SELECT county, address, parcelId, openingBid, saleDate, upsetBidCloseDate, saleStatus FROM properties WHERE county = 'McDowell' ORDER BY parcelId",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, address, parcelId, openingBid, saleDate, upsetBidCloseDate, saleStatus FROM properties WHERE county = 'McDowell' ORDER BY parcelId",
+  "rows": [
+    {
+      "county": "McDowell",
+      "address": "Parcel 0731-00-21-9654",
+      "parcelId": "0731-00-21-9654",
+      "openingBid": "14250",
+      "saleDate": "2025-09-26 04:00:00",
+      "upsetBidCloseDate": "2025-11-10 05:00:00",
+      "saleStatus": "in_upset_period"
+    },
+    {
+      "county": "McDowell",
+      "address": "Parcel 1701-10-26-6613",
+      "parcelId": "1701-10-26-6613",
+      "openingBid": "8250",
+      "saleDate": "2025-10-17 04:00:00",
+      "upsetBidCloseDate": "2025-11-03 05:00:00",
+      "saleStatus": "in_upset_period"
+    },
+    {
+      "county": "McDowell",
+      "address": "Parcel 1712-18-20-5044",
+      "parcelId": "1712-18-20-5044",
+      "openingBid": "50000",
+      "saleDate": "2025-10-17 04:00:00",
+      "upsetBidCloseDate": "2025-11-10 05:00:00",
+      "saleStatus": "in_upset_period"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\taddress\tparcelId\topeningBid\tsaleDate\tupsetBidCloseDate\tsaleStatus\nMcDowell\tParcel 0731-00-21-9654\t0731-00-21-9654\t14250\t2025-09-26 04:00:00\t2025-11-10 05:00:00\tin_upset_period\nMcDowell\tParcel 1701-10-26-6613\t1701-10-26-6613\t8250\t2025-10-17 04:00:00\t2025-11-03 05:00:00\tin_upset_period\nMcDowell\tParcel 1712-18-20-5044\t1712-18-20-5044\t50000\t2025-10-17 04:00:00\t2025-11-10 05:00:00\tin_upset_period\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}

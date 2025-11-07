@@ -1,0 +1,38 @@
+{
+  "query": "SELECT sourceType, COUNT(*) as count FROM properties GROUP BY sourceType ORDER BY count DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT sourceType, COUNT(*) as count FROM properties GROUP BY sourceType ORDER BY count DESC;",
+  "rows": [
+    {
+      "sourceType": "cabarrus_county",
+      "count": "37"
+    },
+    {
+      "sourceType": "rbcwb",
+      "count": "25"
+    },
+    {
+      "sourceType": "kania",
+      "count": "20"
+    },
+    {
+      "sourceType": "forsyth_county",
+      "count": "18"
+    },
+    {
+      "sourceType": "alamance_county",
+      "count": "13"
+    },
+    {
+      "sourceType": "Rutherford County",
+      "count": "8"
+    },
+    {
+      "sourceType": "gaston_county",
+      "count": "2"
+    }
+  ],
+  "messages": [],
+  "stdout": "sourceType\tcount\ncabarrus_county\t37\nrbcwb\t25\nkania\t20\nforsyth_county\t18\nalamance_county\t13\nRutherford County\t8\ngaston_county\t2\n",
+  "stderr": "",
+  "execution_time_ms": 589
+}

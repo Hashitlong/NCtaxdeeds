@@ -1,0 +1,70 @@
+{
+  "query": "SELECT county, address, openingBid, currentBid FROM properties WHERE openingBid IS NOT NULL LIMIT 10",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, address, openingBid, currentBid FROM properties WHERE openingBid IS NOT NULL LIMIT 10",
+  "rows": [
+    {
+      "county": "Alleghany",
+      "address": "103 Shadow Rock Rd, Sparta",
+      "openingBid": "340000",
+      "currentBid": "400000"
+    },
+    {
+      "county": "Alleghany",
+      "address": "53 Duncan Ridge Road, Sparta",
+      "openingBid": "760000",
+      "currentBid": "2500000"
+    },
+    {
+      "county": "Ashe",
+      "address": "Off Three Top Rd, Todd",
+      "openingBid": "2720000",
+      "currentBid": "2320000"
+    },
+    {
+      "county": "Ashe",
+      "address": "Flem Osborne Road, Lansing",
+      "openingBid": "3900000",
+      "currentBid": "2800100"
+    },
+    {
+      "county": "Ashe",
+      "address": "291 Three Top Stream, West Jefferson",
+      "openingBid": "1300000",
+      "currentBid": "1000100"
+    },
+    {
+      "county": "Ashe",
+      "address": "185 Hidden Pine Drive, Fleetwood",
+      "openingBid": "1425000",
+      "currentBid": "1425100"
+    },
+    {
+      "county": "Mecklenburg",
+      "address": "2608 Golf Course Lane",
+      "openingBid": "2500000",
+      "currentBid": "NULL"
+    },
+    {
+      "county": "Mecklenburg",
+      "address": "829 W. Craighead Road & 4322 Hancock Terrace",
+      "openingBid": "7000000",
+      "currentBid": "NULL"
+    },
+    {
+      "county": "Mecklenburg",
+      "address": "9703 Willilyn Lane",
+      "openingBid": "1500000",
+      "currentBid": "NULL"
+    },
+    {
+      "county": "Mecklenburg",
+      "address": "4533-A Sharon Chase Drive",
+      "openingBid": "1500000",
+      "currentBid": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\taddress\topeningBid\tcurrentBid\nAlleghany\t103 Shadow Rock Rd, Sparta\t340000\t400000\nAlleghany\t53 Duncan Ridge Road, Sparta\t760000\t2500000\nAshe\tOff Three Top Rd, Todd\t2720000\t2320000\nAshe\tFlem Osborne Road, Lansing\t3900000\t2800100\nAshe\t291 Three Top Stream, West Jefferson\t1300000\t1000100\nAshe\t185 Hidden Pine Drive, Fleetwood\t1425000\t1425100\nMecklenburg\t2608 Golf Course Lane\t2500000\tNULL\nMecklenburg\t829 W. Craighead Road & 4322 Hancock Terrace\t7000000\tNULL\nMecklenburg\t9703 Willilyn Lane\t1500000\tNULL\nMecklenburg\t4533-A Sharon Chase Drive\t1500000\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

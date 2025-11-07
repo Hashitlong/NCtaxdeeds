@@ -1,0 +1,26 @@
+{
+  "query": "SELECT county, address, parcelId, saleDate, saleStatus, owner FROM properties WHERE county = 'Cumberland' LIMIT 5",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, address, parcelId, saleDate, saleStatus, owner FROM properties WHERE county = 'Cumberland' LIMIT 5",
+  "rows": [
+    {
+      "county": "Cumberland",
+      "address": "IMP 229 W Jenkins Lt 1 Victory Hgts",
+      "parcelId": "0426929143000",
+      "saleDate": "2025-10-30 04:00:00",
+      "saleStatus": "in_upset_period",
+      "owner": "NULL"
+    },
+    {
+      "county": "Cumberland",
+      "address": "Arran Hills LO:4 SE:14PT3 PL:0052-0003",
+      "parcelId": "0406067341000",
+      "saleDate": "2025-11-20 05:00:00",
+      "saleStatus": "scheduled",
+      "owner": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\taddress\tparcelId\tsaleDate\tsaleStatus\towner\nCumberland\tIMP 229 W Jenkins Lt 1 Victory Hgts\t0426929143000\t2025-10-30 04:00:00\tin_upset_period\tNULL\nCumberland\tArran Hills LO:4 SE:14PT3 PL:0052-0003\t0406067341000\t2025-11-20 05:00:00\tscheduled\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

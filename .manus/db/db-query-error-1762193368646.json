@@ -1,0 +1,8 @@
+{
+  "query": "SELECT \n  COUNT(*) as total_properties,\n  COUNT(DISTINCT county) as unique_counties,\n  COUNT(CASE WHEN status = 'scheduled' THEN 1 END) as scheduled,\n  COUNT(CASE WHEN status = 'in_upset_period' THEN 1 END) as in_upset,\n  COUNT(CASE WHEN createdAt >= DATE_SUB(NOW(), INTERVAL 7 DAY) THEN 1 END) as new_last_7_days\nFROM properties;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT \n  COUNT(*) as total_properties,\n  COUNT(DISTINCT county) as unique_counties,\n  COUNT(CASE WHEN status = 'scheduled' THEN 1 END) as scheduled,\n  COUNT(CASE WHEN status = 'in_upset_period' THEN 1 END) as in_upset,\n  COUNT(CASE WHEN createdAt >= DATE_SUB(NOW(), INTERVAL 7 DAY) THEN 1 END) as new_last_7_days\nFROM properties;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'status' in ''"
+  ]
+}

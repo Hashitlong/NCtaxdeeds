@@ -1,0 +1,87 @@
+{
+  "query": "SELECT id, county, address, sourceType, sourceUrl \nFROM properties \nWHERE sourceUrl IS NULL OR sourceUrl = '' \nLIMIT 15",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT id, county, address, sourceType, sourceUrl \nFROM properties \nWHERE sourceUrl IS NULL OR sourceUrl = '' \nLIMIT 15",
+  "rows": [
+    {
+      "id": "420198",
+      "county": "Rutherford",
+      "address": "1619403- 169 Boiler Rd, Mooresboro",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "420199",
+      "county": "Rutherford",
+      "address": "0 New Hope Rd, Rutherfordton",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "420200",
+      "county": "Rutherford",
+      "address": "481 Ferguson Ridge Rd, Union",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "420201",
+      "county": "Rutherford",
+      "address": "169 Condrey Rd, Mooresboro",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "420202",
+      "county": "Rutherford",
+      "address": "0 Girl Scout Camp Rd, Mill",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "420203",
+      "county": "Rutherford",
+      "address": "0 Silverplate Grill Rd, Rutherfordton",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "420204",
+      "county": "Rutherford",
+      "address": "0 Barkley Dr, Mooresboro",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "420205",
+      "county": "Rutherford",
+      "address": "0 Charlotte Rd, Rutherfordton",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "420206",
+      "county": "Wayne",
+      "address": "308 Creech Street, Goldsboro, NC",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "420207",
+      "county": "Wayne",
+      "address": "720 E. Chestnut Street, Goldsboro, NC",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    },
+    {
+      "id": "420208",
+      "county": "Wayne",
+      "address": "254 Union Grove Church Road, Fremont, NC",
+      "sourceType": "county_website",
+      "sourceUrl": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcounty\taddress\tsourceType\tsourceUrl\n420198\tRutherford\t1619403- 169 Boiler Rd, Mooresboro\tcounty_website\tNULL\n420199\tRutherford\t0 New Hope Rd, Rutherfordton\tcounty_website\tNULL\n420200\tRutherford\t481 Ferguson Ridge Rd, Union\tcounty_website\tNULL\n420201\tRutherford\t169 Condrey Rd, Mooresboro\tcounty_website\tNULL\n420202\tRutherford\t0 Girl Scout Camp Rd, Mill\tcounty_website\tNULL\n420203\tRutherford\t0 Silverplate Grill Rd, Rutherfordton\tcounty_website\tNULL\n420204\tRutherford\t0 Barkley Dr, Mooresboro\tcounty_website\tNULL\n420205\tRutherford\t0 Charlotte Rd, Rutherfordton\tcounty_website\tNULL\n420206\tWayne\t308 Creech Street, Goldsboro, NC\tcounty_website\tNULL\n420207\tWayne\t720 E. Chestnut Street, Goldsboro, NC\tcounty_website\tNULL\n420208\tWayne\t254 Union Grove Church Road, Fremont, NC\tcounty_website\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

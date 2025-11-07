@@ -1,0 +1,440 @@
+{
+  "query": "SELECT county, COUNT(*) as total, \n  SUM(CASE WHEN sourceUrl IS NOT NULL THEN 1 ELSE 0 END) as with_url\nFROM properties \nGROUP BY county \nORDER BY county;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, COUNT(*) as total, \n  SUM(CASE WHEN sourceUrl IS NOT NULL THEN 1 ELSE 0 END) as with_url\nFROM properties \nGROUP BY county \nORDER BY county;",
+  "rows": [
+    {
+      "county": "Alamance",
+      "total": "16",
+      "with_url": "0"
+    },
+    {
+      "county": "Alexander",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Alleghany",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Anson",
+      "total": "9",
+      "with_url": "0"
+    },
+    {
+      "county": "Ashe",
+      "total": "9",
+      "with_url": "0"
+    },
+    {
+      "county": "Avery",
+      "total": "2",
+      "with_url": "0"
+    },
+    {
+      "county": "Beaufort",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Bladen",
+      "total": "13",
+      "with_url": "0"
+    },
+    {
+      "county": "Brunswick",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Buncombe",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Burke",
+      "total": "21",
+      "with_url": "0"
+    },
+    {
+      "county": "Cabarrus",
+      "total": "42",
+      "with_url": "37"
+    },
+    {
+      "county": "Caldwell",
+      "total": "13",
+      "with_url": "0"
+    },
+    {
+      "county": "Carteret",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Catawba",
+      "total": "9",
+      "with_url": "0"
+    },
+    {
+      "county": "Chatham",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Cherokee",
+      "total": "19",
+      "with_url": "0"
+    },
+    {
+      "county": "Chowan",
+      "total": "10",
+      "with_url": "0"
+    },
+    {
+      "county": "Clay",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Cleveland",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Columbus",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Craven",
+      "total": "7",
+      "with_url": "0"
+    },
+    {
+      "county": "Cumberland",
+      "total": "17",
+      "with_url": "0"
+    },
+    {
+      "county": "Currituck",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Dare",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Davidson",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Davie",
+      "total": "7",
+      "with_url": "0"
+    },
+    {
+      "county": "Duplin",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Durham",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Edgecombe",
+      "total": "23",
+      "with_url": "0"
+    },
+    {
+      "county": "Forsyth",
+      "total": "46",
+      "with_url": "0"
+    },
+    {
+      "county": "Franklin",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Gaston",
+      "total": "9",
+      "with_url": "0"
+    },
+    {
+      "county": "Gates",
+      "total": "2",
+      "with_url": "0"
+    },
+    {
+      "county": "Granville",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Guilford",
+      "total": "30",
+      "with_url": "0"
+    },
+    {
+      "county": "Halifax",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Harnett",
+      "total": "23",
+      "with_url": "0"
+    },
+    {
+      "county": "Haywood",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Henderson",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Hertford",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Hoke",
+      "total": "19",
+      "with_url": "0"
+    },
+    {
+      "county": "Iredell",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Johnston",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Jones",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Lee",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Lenoir",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Lincoln",
+      "total": "7",
+      "with_url": "0"
+    },
+    {
+      "county": "Madison",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Martin",
+      "total": "8",
+      "with_url": "0"
+    },
+    {
+      "county": "McDowell",
+      "total": "5",
+      "with_url": "0"
+    },
+    {
+      "county": "Mcdowell",
+      "total": "2",
+      "with_url": "0"
+    },
+    {
+      "county": "Mecklenburg",
+      "total": "51",
+      "with_url": "0"
+    },
+    {
+      "county": "Montgomery",
+      "total": "2",
+      "with_url": "0"
+    },
+    {
+      "county": "Moore",
+      "total": "2",
+      "with_url": "0"
+    },
+    {
+      "county": "Nash",
+      "total": "5",
+      "with_url": "0"
+    },
+    {
+      "county": "New Hanover",
+      "total": "5",
+      "with_url": "0"
+    },
+    {
+      "county": "Northampton",
+      "total": "6",
+      "with_url": "0"
+    },
+    {
+      "county": "Onslow",
+      "total": "13",
+      "with_url": "0"
+    },
+    {
+      "county": "Orange",
+      "total": "2",
+      "with_url": "0"
+    },
+    {
+      "county": "Pamlico",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Pasquotank",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Pender",
+      "total": "2",
+      "with_url": "0"
+    },
+    {
+      "county": "Perquimans",
+      "total": "2",
+      "with_url": "0"
+    },
+    {
+      "county": "Person",
+      "total": "6",
+      "with_url": "0"
+    },
+    {
+      "county": "Pitt",
+      "total": "5",
+      "with_url": "0"
+    },
+    {
+      "county": "Polk",
+      "total": "5",
+      "with_url": "0"
+    },
+    {
+      "county": "Randolph",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Richmond",
+      "total": "24",
+      "with_url": "0"
+    },
+    {
+      "county": "Robeson",
+      "total": "14",
+      "with_url": "0"
+    },
+    {
+      "county": "Rockingham",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Rowan",
+      "total": "23",
+      "with_url": "0"
+    },
+    {
+      "county": "Rutherford",
+      "total": "23",
+      "with_url": "0"
+    },
+    {
+      "county": "Scotland",
+      "total": "13",
+      "with_url": "0"
+    },
+    {
+      "county": "Stanly",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Stokes",
+      "total": "7",
+      "with_url": "0"
+    },
+    {
+      "county": "Surry",
+      "total": "13",
+      "with_url": "0"
+    },
+    {
+      "county": "Transylvania",
+      "total": "10",
+      "with_url": "0"
+    },
+    {
+      "county": "Union",
+      "total": "8",
+      "with_url": "0"
+    },
+    {
+      "county": "Wake",
+      "total": "8",
+      "with_url": "0"
+    },
+    {
+      "county": "Warren",
+      "total": "8",
+      "with_url": "0"
+    },
+    {
+      "county": "Washington",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Wayne",
+      "total": "3",
+      "with_url": "0"
+    },
+    {
+      "county": "Wilkes",
+      "total": "1",
+      "with_url": "0"
+    },
+    {
+      "county": "Wilson",
+      "total": "4",
+      "with_url": "0"
+    },
+    {
+      "county": "Yadkin",
+      "total": "6",
+      "with_url": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\ttotal\twith_url\nAlamance\t16\t0\nAlexander\t4\t0\nAlleghany\t4\t0\nAnson\t9\t0\nAshe\t9\t0\nAvery\t2\t0\nBeaufort\t3\t0\nBladen\t13\t0\nBrunswick\t4\t0\nBuncombe\t3\t0\nBurke\t21\t0\nCabarrus\t42\t37\nCaldwell\t13\t0\nCarteret\t1\t0\nCatawba\t9\t0\nChatham\t1\t0\nCherokee\t19\t0\nChowan\t10\t0\nClay\t3\t0\nCleveland\t4\t0\nColumbus\t1\t0\nCraven\t7\t0\nCumberland\t17\t0\nCurrituck\t1\t0\nDare\t1\t0\nDavidson\t3\t0\nDavie\t7\t0\nDuplin\t1\t0\nDurham\t1\t0\nEdgecombe\t23\t0\nForsyth\t46\t0\nFranklin\t1\t0\nGaston\t9\t0\nGates\t2\t0\nGranville\t1\t0\nGuilford\t30\t0\nHalifax\t1\t0\nHarnett\t23\t0\nHaywood\t4\t0\nHenderson\t3\t0\nHertford\t1\t0\nHoke\t19\t0\nIredell\t3\t0\nJohnston\t4\t0\nJones\t1\t0\nLee\t1\t0\nLenoir\t3\t0\nLincoln\t7\t0\nMadison\t4\t0\nMartin\t8\t0\nMcDowell\t5\t0\nMcdowell\t2\t0\nMecklenburg\t51\t0\nMontgomery\t2\t0\nMoore\t2\t0\nNash\t5\t0\nNew Hanover\t5\t0\nNorthampton\t6\t0\nOnslow\t13\t0\nOrange\t2\t0\nPamlico\t1\t0\nPasquotank\t3\t0\nPender\t2\t0\nPerquimans\t2\t0\nPerson\t6\t0\nPitt\t5\t0\nPolk\t5\t0\nRandolph\t1\t0\nRichmond\t24\t0\nRobeson\t14\t0\nRockingham\t3\t0\nRowan\t23\t0\nRutherford\t23\t0\nScotland\t13\t0\nStanly\t1\t0\nStokes\t7\t0\nSurry\t13\t0\nTransylvania\t10\t0\nUnion\t8\t0\nWake\t8\t0\nWarren\t8\t0\nWashington\t1\t0\nWayne\t3\t0\nWilkes\t1\t0\nWilson\t4\t0\nYadkin\t6\t0\n",
+  "stderr": "",
+  "execution_time_ms": 49
+}

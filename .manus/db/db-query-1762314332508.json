@@ -1,0 +1,30 @@
+{
+  "query": "\nSELECT \n  sourceType,\n  COUNT(*) as count,\n  SUM(CASE WHEN upsetBidCloseDate IS NOT NULL THEN 1 ELSE 0 END) as with_date\nFROM properties \nWHERE saleStatus = 'in_upset_period'\nGROUP BY sourceType\nORDER BY count DESC\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute \nSELECT \n  sourceType,\n  COUNT(*) as count,\n  SUM(CASE WHEN upsetBidCloseDate IS NOT NULL THEN 1 ELSE 0 END) as with_date\nFROM properties \nWHERE saleStatus = 'in_upset_period'\nGROUP BY sourceType\nORDER BY count DESC\n",
+  "rows": [
+    {
+      "sourceType": "kania",
+      "count": "59",
+      "with_date": "0"
+    },
+    {
+      "sourceType": "zls",
+      "count": "30",
+      "with_date": "0"
+    },
+    {
+      "sourceType": "county_website",
+      "count": "6",
+      "with_date": "0"
+    },
+    {
+      "sourceType": "rbcwb",
+      "count": "2",
+      "with_date": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "sourceType\tcount\twith_date\nkania\t59\t0\nzls\t30\t0\ncounty_website\t6\t0\nrbcwb\t2\t0\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

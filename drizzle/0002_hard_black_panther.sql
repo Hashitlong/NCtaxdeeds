@@ -1,0 +1,1 @@
+ALTER TABLE `properties` MODIFY COLUMN `saleStatus` enum('scheduled','in_upset_period','sold','cancelled','pending','postponed') DEFAULT 'scheduled';

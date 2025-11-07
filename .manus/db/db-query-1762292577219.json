@@ -1,0 +1,22 @@
+{
+  "query": "SELECT id, county, address, parcelId \nFROM properties \nWHERE county = 'McDowell' AND address IN ('240 Riverbend Drive', '110 Styles Drive')\nORDER BY address, id",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT id, county, address, parcelId \nFROM properties \nWHERE county = 'McDowell' AND address IN ('240 Riverbend Drive', '110 Styles Drive')\nORDER BY address, id",
+  "rows": [
+    {
+      "id": "391089",
+      "county": "McDowell",
+      "address": "110 Styles Drive",
+      "parcelId": "110 Styles Drive"
+    },
+    {
+      "id": "390912",
+      "county": "McDowell",
+      "address": "240 Riverbend Drive",
+      "parcelId": "240 Riverbend Drive"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcounty\taddress\tparcelId\n391089\tMcDowell\t110 Styles Drive\t110 Styles Drive\n390912\tMcDowell\t240 Riverbend Drive\t240 Riverbend Drive\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, county, address, sourceType FROM properties WHERE isActive = 1 LIMIT 10",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT id, county, address, sourceType FROM properties WHERE isActive = 1 LIMIT 10",
+  "rows": [
+    {
+      "id": "1",
+      "county": "Alexander",
+      "address": "237 Ervin Ln., Ervin Ln.,",
+      "sourceType": "kania"
+    },
+    {
+      "id": "2",
+      "county": "Alexander",
+      "address": "Wood Rd.,",
+      "sourceType": "kania"
+    },
+    {
+      "id": "3",
+      "county": "Alexander",
+      "address": "1669 Millersville Road,",
+      "sourceType": "kania"
+    },
+    {
+      "id": "4",
+      "county": "Alleghany",
+      "address": "103 Shadow Rock Rd, Sparta",
+      "sourceType": "kania"
+    },
+    {
+      "id": "5",
+      "county": "Alleghany",
+      "address": "53 Duncan Ridge Road, Sparta",
+      "sourceType": "kania"
+    },
+    {
+      "id": "6",
+      "county": "Alleghany",
+      "address": "Bobcat Lane, Sparta",
+      "sourceType": "kania"
+    },
+    {
+      "id": "7",
+      "county": "Alleghany",
+      "address": "Williams & Hayes I #6, Williams & Hayes I #7,",
+      "sourceType": "kania"
+    },
+    {
+      "id": "8",
+      "county": "Anson",
+      "address": "Cedar Street, Wadesboro",
+      "sourceType": "kania"
+    },
+    {
+      "id": "9",
+      "county": "Anson",
+      "address": "Off Pee Dee Rd,",
+      "sourceType": "kania"
+    },
+    {
+      "id": "10",
+      "county": "Anson",
+      "address": "1842 Off Pee Dee Dr, Lilesville",
+      "sourceType": "kania"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcounty\taddress\tsourceType\n1\tAlexander\t237 Ervin Ln., Ervin Ln.,\tkania\n2\tAlexander\tWood Rd.,\tkania\n3\tAlexander\t1669 Millersville Road,\tkania\n4\tAlleghany\t103 Shadow Rock Rd, Sparta\tkania\n5\tAlleghany\t53 Duncan Ridge Road, Sparta\tkania\n6\tAlleghany\tBobcat Lane, Sparta\tkania\n7\tAlleghany\tWilliams & Hayes I #6, Williams & Hayes I #7,\tkania\n8\tAnson\tCedar Street, Wadesboro\tkania\n9\tAnson\tOff Pee Dee Rd,\tkania\n10\tAnson\t1842 Off Pee Dee Dr, Lilesville\tkania\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

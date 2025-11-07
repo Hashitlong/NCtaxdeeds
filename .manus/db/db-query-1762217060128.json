@@ -1,0 +1,40 @@
+{
+  "query": "SELECT county, address, sourceType, sourceUrl FROM properties WHERE sourceType = 'hutchens' LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, address, sourceType, sourceUrl FROM properties WHERE sourceType = 'hutchens' LIMIT 5;",
+  "rows": [
+    {
+      "county": "Pasquotank",
+      "address": "105 Birdie Lane",
+      "sourceType": "hutchens",
+      "sourceUrl": "https://sales.hutchenslawfirm.com/NCfcSalesList.aspx"
+    },
+    {
+      "county": "Union",
+      "address": "1200 Memory Lane",
+      "sourceType": "hutchens",
+      "sourceUrl": "https://sales.hutchenslawfirm.com/NCfcSalesList.aspx"
+    },
+    {
+      "county": "Guilford",
+      "address": "703 Hickory Chapel Road and 2705 Central Avenue",
+      "sourceType": "hutchens",
+      "sourceUrl": "https://sales.hutchenslawfirm.com/NCfcSalesList.aspx"
+    },
+    {
+      "county": "McDowell",
+      "address": "240 Riverbend Drive",
+      "sourceType": "hutchens",
+      "sourceUrl": "NULL"
+    },
+    {
+      "county": "Surry",
+      "address": "375 Marshall Johnson Road",
+      "sourceType": "hutchens",
+      "sourceUrl": "https://sales.hutchenslawfirm.com/NCfcSalesList.aspx"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\taddress\tsourceType\tsourceUrl\nPasquotank\t105 Birdie Lane\thutchens\thttps://sales.hutchenslawfirm.com/NCfcSalesList.aspx\nUnion\t1200 Memory Lane\thutchens\thttps://sales.hutchenslawfirm.com/NCfcSalesList.aspx\nGuilford\t703 Hickory Chapel Road and 2705 Central Avenue\thutchens\thttps://sales.hutchenslawfirm.com/NCfcSalesList.aspx\nMcDowell\t240 Riverbend Drive\thutchens\tNULL\nSurry\t375 Marshall Johnson Road\thutchens\thttps://sales.hutchenslawfirm.com/NCfcSalesList.aspx\n",
+  "stderr": "",
+  "execution_time_ms": 49
+}

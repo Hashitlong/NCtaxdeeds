@@ -1,0 +1,14 @@
+{
+  "query": "SELECT \n  COUNT(*) as total_properties,\n  COUNT(DISTINCT county) as unique_counties\nFROM properties;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT \n  COUNT(*) as total_properties,\n  COUNT(DISTINCT county) as unique_counties\nFROM properties;",
+  "rows": [
+    {
+      "total_properties": "749",
+      "unique_counties": "146"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_properties\tunique_counties\n749\t146\n",
+  "stderr": "",
+  "execution_time_ms": 50
+}

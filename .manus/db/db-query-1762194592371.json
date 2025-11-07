@@ -1,0 +1,130 @@
+{
+  "query": "SELECT county, COUNT(*) as count FROM properties GROUP BY county ORDER BY count DESC LIMIT 30",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, COUNT(*) as count FROM properties GROUP BY county ORDER BY count DESC LIMIT 30",
+  "rows": [
+    {
+      "county": "Forsyth",
+      "count": "54"
+    },
+    {
+      "county": "Mecklenburg",
+      "count": "49"
+    },
+    {
+      "county": "Cabarrus",
+      "count": "45"
+    },
+    {
+      "county": "Guilford",
+      "count": "40"
+    },
+    {
+      "county": "Scotland",
+      "count": "33"
+    },
+    {
+      "county": "Cumberland",
+      "count": "31"
+    },
+    {
+      "county": "Robeson",
+      "count": "27"
+    },
+    {
+      "county": "Edgecombe",
+      "count": "25"
+    },
+    {
+      "county": "Richmond",
+      "count": "24"
+    },
+    {
+      "county": "Hoke",
+      "count": "22"
+    },
+    {
+      "county": "Onslow",
+      "count": "21"
+    },
+    {
+      "county": "Alamance",
+      "count": "19"
+    },
+    {
+      "county": "Martin",
+      "count": "16"
+    },
+    {
+      "county": "Gaston",
+      "count": "16"
+    },
+    {
+      "county": "Wake",
+      "count": "14"
+    },
+    {
+      "county": "Rutherford",
+      "count": "14"
+    },
+    {
+      "county": "Bladen",
+      "count": "13"
+    },
+    {
+      "county": "Pitt",
+      "count": "10"
+    },
+    {
+      "county": "Caldwell",
+      "count": "10"
+    },
+    {
+      "county": "Chowan",
+      "count": "10"
+    },
+    {
+      "county": "Nash",
+      "count": "10"
+    },
+    {
+      "county": "Anson",
+      "count": "9"
+    },
+    {
+      "county": "Brunswick",
+      "count": "8"
+    },
+    {
+      "county": "Warren",
+      "count": "8"
+    },
+    {
+      "county": "Cleveland",
+      "count": "8"
+    },
+    {
+      "county": "Ashe",
+      "count": "8"
+    },
+    {
+      "county": "Craven",
+      "count": "8"
+    },
+    {
+      "county": "Haywood",
+      "count": "8"
+    },
+    {
+      "county": "Catawba",
+      "count": "8"
+    },
+    {
+      "county": "Northampton",
+      "count": "7"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\tcount\nForsyth\t54\nMecklenburg\t49\nCabarrus\t45\nGuilford\t40\nScotland\t33\nCumberland\t31\nRobeson\t27\nEdgecombe\t25\nRichmond\t24\nHoke\t22\nOnslow\t21\nAlamance\t19\nMartin\t16\nGaston\t16\nWake\t14\nRutherford\t14\nBladen\t13\nPitt\t10\nCaldwell\t10\nChowan\t10\nNash\t10\nAnson\t9\nBrunswick\t8\nWarren\t8\nCleveland\t8\nAshe\t8\nCraven\t8\nHaywood\t8\nCatawba\t8\nNorthampton\t7\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}

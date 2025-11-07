@@ -1,0 +1,50 @@
+{
+  "query": "SELECT \n  f.id as fav_id,\n  f.propertyId as stored_property_id,\n  p.id as actual_property_id,\n  p.address,\n  p.county,\n  CASE WHEN p.id IS NULL THEN 'ORPHANED' ELSE 'MATCHED' END as status\nFROM favorites f\nLEFT JOIN properties p ON f.propertyId = p.id\nORDER BY f.id",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT \n  f.id as fav_id,\n  f.propertyId as stored_property_id,\n  p.id as actual_property_id,\n  p.address,\n  p.county,\n  CASE WHEN p.id IS NULL THEN 'ORPHANED' ELSE 'MATCHED' END as status\nFROM favorites f\nLEFT JOIN properties p ON f.propertyId = p.id\nORDER BY f.id",
+  "rows": [
+    {
+      "fav_id": "1",
+      "stored_property_id": "420149",
+      "actual_property_id": "NULL",
+      "address": "NULL",
+      "county": "NULL",
+      "status": "ORPHANED"
+    },
+    {
+      "fav_id": "2",
+      "stored_property_id": "420149",
+      "actual_property_id": "NULL",
+      "address": "NULL",
+      "county": "NULL",
+      "status": "ORPHANED"
+    },
+    {
+      "fav_id": "30002",
+      "stored_property_id": "390988",
+      "actual_property_id": "390988",
+      "address": "546 Woodlawn Avenue",
+      "county": "Randolph",
+      "status": "MATCHED"
+    },
+    {
+      "fav_id": "150002",
+      "stored_property_id": "390719",
+      "actual_property_id": "390719",
+      "address": "Flem Osborne Road, Lansing",
+      "county": "Ashe",
+      "status": "MATCHED"
+    },
+    {
+      "fav_id": "180004",
+      "stored_property_id": "390706",
+      "actual_property_id": "390706",
+      "address": "237 Ervin Ln., Ervin Ln.,",
+      "county": "Alexander",
+      "status": "MATCHED"
+    }
+  ],
+  "messages": [],
+  "stdout": "fav_id\tstored_property_id\tactual_property_id\taddress\tcounty\tstatus\n1\t420149\tNULL\tNULL\tNULL\tORPHANED\n2\t420149\tNULL\tNULL\tNULL\tORPHANED\n30002\t390988\t390988\t546 Woodlawn Avenue\tRandolph\tMATCHED\n150002\t390719\t390719\tFlem Osborne Road, Lansing\tAshe\tMATCHED\n180004\t390706\t390706\t237 Ervin Ln., Ervin Ln.,\tAlexander\tMATCHED\n",
+  "stderr": "",
+  "execution_time_ms": 92
+}

@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE properties \nSET sourceUrl = 'https://www.rutherfordcountync.gov/departments/revenue_department_tax_administrator/foreclosure_sale_dates.php' \nWHERE county = 'Rutherford' AND sourceType = 'county_website' AND (sourceUrl IS NULL OR sourceUrl = '')",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute UPDATE properties \nSET sourceUrl = 'https://www.rutherfordcountync.gov/departments/revenue_department_tax_administrator/foreclosure_sale_dates.php' \nWHERE county = 'Rutherford' AND sourceType = 'county_website' AND (sourceUrl IS NULL OR sourceUrl = '')",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 62
+}

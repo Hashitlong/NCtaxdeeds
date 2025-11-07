@@ -1,0 +1,50 @@
+{
+  "query": "SELECT f.id as favorite_id, f.propertyId, f.userId, u.name as user_name, p.address, p.county \nFROM favorites f \nLEFT JOIN users u ON f.userId = u.id \nLEFT JOIN properties p ON f.propertyId = p.id \nORDER BY f.createdAt DESC",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT f.id as favorite_id, f.propertyId, f.userId, u.name as user_name, p.address, p.county \nFROM favorites f \nLEFT JOIN users u ON f.userId = u.id \nLEFT JOIN properties p ON f.propertyId = p.id \nORDER BY f.createdAt DESC",
+  "rows": [
+    {
+      "favorite_id": "180004",
+      "propertyId": "390706",
+      "userId": "1",
+      "user_name": "Roger Johnson",
+      "address": "237 Ervin Ln., Ervin Ln.,",
+      "county": "Alexander"
+    },
+    {
+      "favorite_id": "150002",
+      "propertyId": "390719",
+      "userId": "4320007",
+      "user_name": "Trey Hamrick",
+      "address": "Flem Osborne Road, Lansing",
+      "county": "Ashe"
+    },
+    {
+      "favorite_id": "30002",
+      "propertyId": "390988",
+      "userId": "4320007",
+      "user_name": "Trey Hamrick",
+      "address": "546 Woodlawn Avenue",
+      "county": "Randolph"
+    },
+    {
+      "favorite_id": "2",
+      "propertyId": "420149",
+      "userId": "1",
+      "user_name": "Roger Johnson",
+      "address": "NULL",
+      "county": "NULL"
+    },
+    {
+      "favorite_id": "1",
+      "propertyId": "420149",
+      "userId": "1",
+      "user_name": "Roger Johnson",
+      "address": "NULL",
+      "county": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "favorite_id\tpropertyId\tuserId\tuser_name\taddress\tcounty\n180004\t390706\t1\tRoger Johnson\t237 Ervin Ln., Ervin Ln.,\tAlexander\n150002\t390719\t4320007\tTrey Hamrick\tFlem Osborne Road, Lansing\tAshe\n30002\t390988\t4320007\tTrey Hamrick\t546 Woodlawn Avenue\tRandolph\n2\t420149\t1\tRoger Johnson\tNULL\tNULL\n1\t420149\t1\tRoger Johnson\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 99
+}

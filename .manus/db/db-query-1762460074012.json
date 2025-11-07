@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE `properties` ADD `teamRating` enum('good','bad','watching');\nALTER TABLE `properties` ADD `ratedBy` int;\nALTER TABLE `properties` ADD `ratedAt` timestamp;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute ALTER TABLE `properties` ADD `teamRating` enum('good','bad','watching');\nALTER TABLE `properties` ADD `ratedBy` int;\nALTER TABLE `properties` ADD `ratedAt` timestamp;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2295
+}

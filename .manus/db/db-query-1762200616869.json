@@ -1,0 +1,16 @@
+{
+  "query": "SELECT \n  COUNT(*) as total_properties,\n  COUNT(DISTINCT county) as unique_counties,\n  COUNT(DISTINCT CONCAT(county, '-', parcelId)) as unique_county_parcel_combos,\n  COUNT(*) - COUNT(DISTINCT CONCAT(county, '-', parcelId)) as potential_duplicates\nFROM properties;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT \n  COUNT(*) as total_properties,\n  COUNT(DISTINCT county) as unique_counties,\n  COUNT(DISTINCT CONCAT(county, '-', parcelId)) as unique_county_parcel_combos,\n  COUNT(*) - COUNT(DISTINCT CONCAT(county, '-', parcelId)) as potential_duplicates\nFROM properties;",
+  "rows": [
+    {
+      "total_properties": "711",
+      "unique_counties": "86",
+      "unique_county_parcel_combos": "711",
+      "potential_duplicates": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_properties\tunique_counties\tunique_county_parcel_combos\tpotential_duplicates\n711\t86\t711\t0\n",
+  "stderr": "",
+  "execution_time_ms": 827
+}

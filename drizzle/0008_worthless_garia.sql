@@ -1,0 +1,1 @@
+ALTER TABLE `userPreferences` ADD `defaultSourceFilter` varchar(50);

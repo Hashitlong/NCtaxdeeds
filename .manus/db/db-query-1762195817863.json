@@ -1,0 +1,1075 @@
+{
+  "query": "SELECT county, parcelId, COUNT(*) as duplicate_count FROM properties WHERE parcelId IS NOT NULL AND parcelId != '' GROUP BY county, parcelId HAVING COUNT(*) > 1 ORDER BY duplicate_count DESC, county",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, parcelId, COUNT(*) as duplicate_count FROM properties WHERE parcelId IS NOT NULL AND parcelId != '' GROUP BY county, parcelId HAVING COUNT(*) > 1 ORDER BY duplicate_count DESC, county",
+  "rows": [
+    {
+      "county": "Robeson",
+      "parcelId": "323704018",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Scotland",
+      "parcelId": "010228A01070",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Scotland",
+      "parcelId": "010029 04016 & 010029 04017",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Scotland",
+      "parcelId": "010206 02009",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Scotland",
+      "parcelId": "010054 05011",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Scotland",
+      "parcelId": "010041 01009",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Scotland",
+      "parcelId": "010073 13012",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Scotland",
+      "parcelId": "010054 06004",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Scotland",
+      "parcelId": "010031 01028",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Scotland",
+      "parcelId": "010064 10046",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Scotland",
+      "parcelId": "010032 06037",
+      "duplicate_count": "3"
+    },
+    {
+      "county": "Alamance",
+      "parcelId": "5507 Eagles Nest Trail",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Alamance",
+      "parcelId": "1311 Lansdowne Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Alamance",
+      "parcelId": "1350 Pebble Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Alexander",
+      "parcelId": "55 Airport Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Avery",
+      "parcelId": "322 Locust Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Avery",
+      "parcelId": "196 Old Turnpike Road East",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Beaufort",
+      "parcelId": "575 Pearl Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Beaufort",
+      "parcelId": "6974 River Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Brunswick",
+      "parcelId": "179 Center Court Southeast",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Brunswick",
+      "parcelId": "2228 East Boiling Spring Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Brunswick",
+      "parcelId": "1681 East Navaho Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Brunswick",
+      "parcelId": "576 Beach Veiw Dr. SE",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Buncombe",
+      "parcelId": "42 Eller Hollow Rd.",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Buncombe",
+      "parcelId": "41 Blackstone Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Buncombe",
+      "parcelId": "308 Browntown Rd",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Burke",
+      "parcelId": "3734 North Lail Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Burke",
+      "parcelId": "414 London Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Burke",
+      "parcelId": "5032 Nunley Knolls",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cabarrus",
+      "parcelId": "521 Hyde Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cabarrus",
+      "parcelId": "637 Nannyberry Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cabarrus",
+      "parcelId": "422 Beacon Street Northwest",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Caldwell",
+      "parcelId": "155 Hayes Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Caldwell",
+      "parcelId": "4176 Grace Chapel Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Caldwell",
+      "parcelId": "1444 Conway Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Caldwell",
+      "parcelId": "1632 Cajah Mountain Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Caldwell",
+      "parcelId": "3888 Grandin Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Carteret",
+      "parcelId": "429 Sand Dollar Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Catawba",
+      "parcelId": "1746 Wooten Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Catawba",
+      "parcelId": "6622 Mountain Grove Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Catawba",
+      "parcelId": "2618 32nd Avenue NE",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cherokee",
+      "parcelId": "1711 Village Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cherokee",
+      "parcelId": "535 Vandora Suits Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Clay",
+      "parcelId": "69  Middle Valley Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cleveland",
+      "parcelId": "1335 North Lafayette Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cleveland",
+      "parcelId": "1779 McBrayer Springs Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cleveland",
+      "parcelId": "314 Firefly Path",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cleveland",
+      "parcelId": "2153 Calla Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Columbus",
+      "parcelId": "745 W Burkhead Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Craven",
+      "parcelId": "136 Leonard Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "6120 Santa Fe Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "623 Bedford Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "508 Cecil Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "6800 Woodmark Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "5723, 5725 and 5727 Five Sisters Court",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "3416 Green Valley Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "1999 Westcliff Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "6502 Kemper Court",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "5329 Lakeview Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "209 Riverdell Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "2521 Thorngrove Court",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "1296 North Forest Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "189 Wolfpoint Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Cumberland",
+      "parcelId": "4332 S. River School Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Currituck",
+      "parcelId": "106 Lighthouse View",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Davidson",
+      "parcelId": "471 Thurman Beck Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Davidson",
+      "parcelId": "108 Linden Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Davidson",
+      "parcelId": "1655 Sink Farm Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Duplin",
+      "parcelId": "2685 Sarecta Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Durham",
+      "parcelId": "1311 North Mineral Springs Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Edgecombe",
+      "parcelId": "210 Suggs Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Edgecombe",
+      "parcelId": "213 Southeast Railroad Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Forsyth",
+      "parcelId": "900 Brintonial Way",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Forsyth",
+      "parcelId": "135 Cross Gate Court",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Forsyth",
+      "parcelId": "165 River Crest Court",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Forsyth",
+      "parcelId": "4620 Leprechaun Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Forsyth",
+      "parcelId": "3836 Sawyer Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Forsyth",
+      "parcelId": "4605 Oak Park Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Forsyth",
+      "parcelId": "9885 Moore Farm Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Forsyth",
+      "parcelId": "6053 Timberwood Trail",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Gaston",
+      "parcelId": "3273  Yarmouth Lane #91",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Gaston",
+      "parcelId": "110 Bartlett Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Gaston",
+      "parcelId": "1610 Warren Circle",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Gaston",
+      "parcelId": "2831 Millstone Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Gaston",
+      "parcelId": "428 15th Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Gaston",
+      "parcelId": "2217 Pinnacle View Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Gaston",
+      "parcelId": "1615 York Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Gates",
+      "parcelId": "329 NC Highway 32 North",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Granville",
+      "parcelId": "1141 Mommies Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "1018 Highstone Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "502 Old Treybrooke Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "1507 Randolph Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "2300 Phoenix Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "703 Hickory Chapel Road and 2705 Central Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "1889 Mayfair Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "5516 Traders Way",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "908 Ashe Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "822 Holt Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "109 Lemon Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Guilford",
+      "parcelId": "360 -107 South Elm Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Halifax",
+      "parcelId": "11299 Old 125 Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Harnett",
+      "parcelId": "85 Falconridge Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Haywood",
+      "parcelId": "280 Lightning Bug Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Haywood",
+      "parcelId": "363 Killian Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Haywood",
+      "parcelId": "324 Brookside Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Haywood",
+      "parcelId": "2795 Old Henson Cove Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Henderson",
+      "parcelId": "69 Regal Knolls Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Henderson",
+      "parcelId": "176 Brickton Village Circle Unit 206",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Henderson",
+      "parcelId": "214 Dana Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Hertford",
+      "parcelId": "125 Fennell Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Hoke",
+      "parcelId": "387 Fountain Grove Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Hoke",
+      "parcelId": "225 Harris Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Hoke",
+      "parcelId": "113 Stacy Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Iredell",
+      "parcelId": "476 and 478 Gray Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Iredell",
+      "parcelId": "163 Sparrow Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Johnston",
+      "parcelId": "131 Hines Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Johnston",
+      "parcelId": "4212 Massey Holt Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Johnston",
+      "parcelId": "120 Hickory Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Lee",
+      "parcelId": "906 Amanda Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Lenoir",
+      "parcelId": "705 Rountree Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Lenoir",
+      "parcelId": "1313 Holman Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Lincoln",
+      "parcelId": "7892 Mariners Pointe Circle",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Lincoln",
+      "parcelId": "528 Sherrill Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Madison",
+      "parcelId": "157 Scarlett Ridge Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Martin",
+      "parcelId": "309 South Broad Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Martin",
+      "parcelId": "0503728",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Martin",
+      "parcelId": "0502591",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Martin",
+      "parcelId": "0501321",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Martin",
+      "parcelId": "0501323",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Martin",
+      "parcelId": "106 Carolina Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Martin",
+      "parcelId": "0503636",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Martin",
+      "parcelId": "0503548",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "McDowell",
+      "parcelId": "110 Styles Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "McDowell",
+      "parcelId": "240 Riverbend Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "3020 Gloryland Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "4511  Eaves Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "3005 Striped Maple Court",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "8939 Rockrose Way",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "6000 and 6100  Fairview Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "5401 Nations Ford Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "1227-E Scaleybark Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "10653 Hill Point Court",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "3214 Grandeur Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "2927 Lasalle Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "909 Carrington Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Mecklenburg",
+      "parcelId": "1212 Meadow Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Moore",
+      "parcelId": "263 Countryside Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Nash",
+      "parcelId": "1030 Red Oak Hills Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Nash",
+      "parcelId": "642 Chimney Hill Way",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Nash",
+      "parcelId": "4640 Duke Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Nash",
+      "parcelId": "3602 Harrison Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Nash",
+      "parcelId": "3708 Gloucester Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "New Hanover",
+      "parcelId": "2307 Princess Place Dr.",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "New Hanover",
+      "parcelId": "1508 Marsh Cove Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Northampton",
+      "parcelId": "3327 US Highway 301",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Onslow",
+      "parcelId": "133 Silver Leaf Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Onslow",
+      "parcelId": "105 Yorkshire Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Onslow",
+      "parcelId": "319 Lakewood Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Onslow",
+      "parcelId": "11 Barksdale Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Onslow",
+      "parcelId": "603 Calabash Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Onslow",
+      "parcelId": "8 Oxford Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Onslow",
+      "parcelId": "110 Hampton Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Onslow",
+      "parcelId": "115 East Ivybridge Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Orange",
+      "parcelId": "5510 Cabe Ford Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Pasquotank",
+      "parcelId": "105 Birdie Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Pasquotank",
+      "parcelId": "813 Cherry Glade Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Pasquotank",
+      "parcelId": "101  Mimosa Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Pender",
+      "parcelId": "4804 Blueberry Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Pender",
+      "parcelId": "195 Bellhammon Forest Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Pitt",
+      "parcelId": "1712 Brookhaven Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Pitt",
+      "parcelId": "1651 Voa Site C Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Pitt",
+      "parcelId": "3917 Sterling Pointe Drive Unit KK-9",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Pitt",
+      "parcelId": "3636 North Main Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Pitt",
+      "parcelId": "4229 West Prince Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Randolph",
+      "parcelId": "546 Woodlawn Avenue",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "2620 Shaw Mill Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "2082 Cabinet Shop Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "324401026",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "324403014",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "324303009",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "324501004",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "330401027",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "324902042",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "324604009",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "4396  NC Hwy 83",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Robeson",
+      "parcelId": "828 East 7th Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Rockingham",
+      "parcelId": "214 Cedar Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Rockingham",
+      "parcelId": "804 Church Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Rockingham",
+      "parcelId": "110 Vann Court",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Rowan",
+      "parcelId": "111 Pinecroft Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Rowan",
+      "parcelId": "390 Four Lakes Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Rowan",
+      "parcelId": "222 N Bostian Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Rutherford",
+      "parcelId": "2689 Harris Henrietta Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Rutherford",
+      "parcelId": "161 Baxter Way",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Rutherford",
+      "parcelId": "929 Old Hollis Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Stanly",
+      "parcelId": "710 Love Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Surry",
+      "parcelId": "270 Paynetown Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Surry",
+      "parcelId": "375 Marshall Johnson Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Union",
+      "parcelId": "1200 Memory Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Union",
+      "parcelId": "716 Raintree Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Union",
+      "parcelId": "2007 Magna Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wake",
+      "parcelId": "3117 Banks Road",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wake",
+      "parcelId": "628 Sage Oak Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wake",
+      "parcelId": "644 Jasmine Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wake",
+      "parcelId": "724 Glenville Lake Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wake",
+      "parcelId": "610 South Wakefield Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wake",
+      "parcelId": "3612 Wheaton Place",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wake",
+      "parcelId": "110 Harris Street",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wayne",
+      "parcelId": "109 Jessica Place",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wayne",
+      "parcelId": "105 Mill Stone Drive",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wayne",
+      "parcelId": "141 Martha South Lane",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wilkes",
+      "parcelId": "2583 Highway 16 South",
+      "duplicate_count": "2"
+    },
+    {
+      "county": "Wilson",
+      "parcelId": "4524 Sweet Williams Lane",
+      "duplicate_count": "2"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\tparcelId\tduplicate_count\nRobeson\t323704018\t3\nScotland\t010228A01070\t3\nScotland\t010029 04016 & 010029 04017\t3\nScotland\t010206 02009\t3\nScotland\t010054 05011\t3\nScotland\t010041 01009\t3\nScotland\t010073 13012\t3\nScotland\t010054 06004\t3\nScotland\t010031 01028\t3\nScotland\t010064 10046\t3\nScotland\t010032 06037\t3\nAlamance\t5507 Eagles Nest Trail\t2\nAlamance\t1311 Lansdowne Drive\t2\nAlamance\t1350 Pebble Drive\t2\nAlexander\t55 Airport Road\t2\nAvery\t322 Locust Road\t2\nAvery\t196 Old Turnpike Road East\t2\nBeaufort\t575 Pearl Street\t2\nBeaufort\t6974 River Road\t2\nBrunswick\t179 Center Court Southeast\t2\nBrunswick\t2228 East Boiling Spring Road\t2\nBrunswick\t1681 East Navaho Road\t2\nBrunswick\t576 Beach Veiw Dr. SE\t2\nBuncombe\t42 Eller Hollow Rd.\t2\nBuncombe\t41 Blackstone Avenue\t2\nBuncombe\t308 Browntown Rd\t2\nBurke\t3734 North Lail Avenue\t2\nBurke\t414 London Street\t2\nBurke\t5032 Nunley Knolls\t2\nCabarrus\t521 Hyde Street\t2\nCabarrus\t637 Nannyberry Lane\t2\nCabarrus\t422 Beacon Street Northwest\t2\nCaldwell\t155 Hayes Avenue\t2\nCaldwell\t4176 Grace Chapel Road\t2\nCaldwell\t1444 Conway Drive\t2\nCaldwell\t1632 Cajah Mountain Road\t2\nCaldwell\t3888 Grandin Road\t2\nCarteret\t429 Sand Dollar Drive\t2\nCatawba\t1746 Wooten Street\t2\nCatawba\t6622 Mountain Grove Road\t2\nCatawba\t2618 32nd Avenue NE\t2\nCherokee\t1711 Village Road\t2\nCherokee\t535 Vandora Suits Road\t2\nClay\t69  Middle Valley Drive\t2\nCleveland\t1335 North Lafayette Street\t2\nCleveland\t1779 McBrayer Springs Road\t2\nCleveland\t314 Firefly Path\t2\nCleveland\t2153 Calla Lane\t2\nColumbus\t745 W Burkhead Street\t2\nCraven\t136 Leonard Drive\t2\nCumberland\t6120 Santa Fe Drive\t2\nCumberland\t623 Bedford Road\t2\nCumberland\t508 Cecil Street\t2\nCumberland\t6800 Woodmark Drive\t2\nCumberland\t5723, 5725 and 5727 Five Sisters Court\t2\nCumberland\t3416 Green Valley Road\t2\nCumberland\t1999 Westcliff Road\t2\nCumberland\t6502 Kemper Court\t2\nCumberland\t5329 Lakeview Road\t2\nCumberland\t209 Riverdell Drive\t2\nCumberland\t2521 Thorngrove Court\t2\nCumberland\t1296 North Forest Drive\t2\nCumberland\t189 Wolfpoint Drive\t2\nCumberland\t4332 S. River School Road\t2\nCurrituck\t106 Lighthouse View\t2\nDavidson\t471 Thurman Beck Road\t2\nDavidson\t108 Linden Lane\t2\nDavidson\t1655 Sink Farm Road\t2\nDuplin\t2685 Sarecta Road\t2\nDurham\t1311 North Mineral Springs Road\t2\nEdgecombe\t210 Suggs Street\t2\nEdgecombe\t213 Southeast Railroad Street\t2\nForsyth\t900 Brintonial Way\t2\nForsyth\t135 Cross Gate Court\t2\nForsyth\t165 River Crest Court\t2\nForsyth\t4620 Leprechaun Lane\t2\nForsyth\t3836 Sawyer Street\t2\nForsyth\t4605 Oak Park Drive\t2\nForsyth\t9885 Moore Farm Drive\t2\nForsyth\t6053 Timberwood Trail\t2\nGaston\t3273  Yarmouth Lane #91\t2\nGaston\t110 Bartlett Street\t2\nGaston\t1610 Warren Circle\t2\nGaston\t2831 Millstone Drive\t2\nGaston\t428 15th Street\t2\nGaston\t2217 Pinnacle View Drive\t2\nGaston\t1615 York Road\t2\nGates\t329 NC Highway 32 North\t2\nGranville\t1141 Mommies Lane\t2\nGuilford\t1018 Highstone Drive\t2\nGuilford\t502 Old Treybrooke Drive\t2\nGuilford\t1507 Randolph Avenue\t2\nGuilford\t2300 Phoenix Drive\t2\nGuilford\t703 Hickory Chapel Road and 2705 Central Avenue\t2\nGuilford\t1889 Mayfair Avenue\t2\nGuilford\t5516 Traders Way\t2\nGuilford\t908 Ashe Street\t2\nGuilford\t822 Holt Avenue\t2\nGuilford\t109 Lemon Lane\t2\nGuilford\t360 -107 South Elm Street\t2\nHalifax\t11299 Old 125 Road\t2\nHarnett\t85 Falconridge Drive\t2\nHaywood\t280 Lightning Bug Lane\t2\nHaywood\t363 Killian Street\t2\nHaywood\t324 Brookside Drive\t2\nHaywood\t2795 Old Henson Cove Road\t2\nHenderson\t69 Regal Knolls Drive\t2\nHenderson\t176 Brickton Village Circle Unit 206\t2\nHenderson\t214 Dana Road\t2\nHertford\t125 Fennell Road\t2\nHoke\t387 Fountain Grove Drive\t2\nHoke\t225 Harris Avenue\t2\nHoke\t113 Stacy Lane\t2\nIredell\t476 and 478 Gray Street\t2\nIredell\t163 Sparrow Lane\t2\nJohnston\t131 Hines Drive\t2\nJohnston\t4212 Massey Holt Road\t2\nJohnston\t120 Hickory Drive\t2\nLee\t906 Amanda Drive\t2\nLenoir\t705 Rountree Street\t2\nLenoir\t1313 Holman Street\t2\nLincoln\t7892 Mariners Pointe Circle\t2\nLincoln\t528 Sherrill Avenue\t2\nMadison\t157 Scarlett Ridge Drive\t2\nMartin\t309 South Broad Street\t2\nMartin\t0503728\t2\nMartin\t0502591\t2\nMartin\t0501321\t2\nMartin\t0501323\t2\nMartin\t106 Carolina Avenue\t2\nMartin\t0503636\t2\nMartin\t0503548\t2\nMcDowell\t110 Styles Drive\t2\nMcDowell\t240 Riverbend Drive\t2\nMecklenburg\t3020 Gloryland Avenue\t2\nMecklenburg\t4511  Eaves Lane\t2\nMecklenburg\t3005 Striped Maple Court\t2\nMecklenburg\t8939 Rockrose Way\t2\nMecklenburg\t6000 and 6100  Fairview Road\t2\nMecklenburg\t5401 Nations Ford Road\t2\nMecklenburg\t1227-E Scaleybark Road\t2\nMecklenburg\t10653 Hill Point Court\t2\nMecklenburg\t3214 Grandeur Road\t2\nMecklenburg\t2927 Lasalle Street\t2\nMecklenburg\t909 Carrington Drive\t2\nMecklenburg\t1212 Meadow Lane\t2\nMoore\t263 Countryside Drive\t2\nNash\t1030 Red Oak Hills Road\t2\nNash\t642 Chimney Hill Way\t2\nNash\t4640 Duke Road\t2\nNash\t3602 Harrison Road\t2\nNash\t3708 Gloucester Road\t2\nNew Hanover\t2307 Princess Place Dr.\t2\nNew Hanover\t1508 Marsh Cove Lane\t2\nNorthampton\t3327 US Highway 301\t2\nOnslow\t133 Silver Leaf Drive\t2\nOnslow\t105 Yorkshire Drive\t2\nOnslow\t319 Lakewood Drive\t2\nOnslow\t11 Barksdale Drive\t2\nOnslow\t603 Calabash Drive\t2\nOnslow\t8 Oxford Drive\t2\nOnslow\t110 Hampton Drive\t2\nOnslow\t115 East Ivybridge Drive\t2\nOrange\t5510 Cabe Ford Road\t2\nPasquotank\t105 Birdie Lane\t2\nPasquotank\t813 Cherry Glade Road\t2\nPasquotank\t101  Mimosa Lane\t2\nPender\t4804 Blueberry Road\t2\nPender\t195 Bellhammon Forest Drive\t2\nPitt\t1712 Brookhaven Drive\t2\nPitt\t1651 Voa Site C Road\t2\nPitt\t3917 Sterling Pointe Drive Unit KK-9\t2\nPitt\t3636 North Main Street\t2\nPitt\t4229 West Prince Road\t2\nRandolph\t546 Woodlawn Avenue\t2\nRobeson\t2620 Shaw Mill Road\t2\nRobeson\t2082 Cabinet Shop Road\t2\nRobeson\t324401026\t2\nRobeson\t324403014\t2\nRobeson\t324303009\t2\nRobeson\t324501004\t2\nRobeson\t330401027\t2\nRobeson\t324902042\t2\nRobeson\t324604009\t2\nRobeson\t4396  NC Hwy 83\t2\nRobeson\t828 East 7th Street\t2\nRockingham\t214 Cedar Street\t2\nRockingham\t804 Church Street\t2\nRockingham\t110 Vann Court\t2\nRowan\t111 Pinecroft Lane\t2\nRowan\t390 Four Lakes Drive\t2\nRowan\t222 N Bostian Street\t2\nRutherford\t2689 Harris Henrietta Road\t2\nRutherford\t161 Baxter Way\t2\nRutherford\t929 Old Hollis Road\t2\nStanly\t710 Love Street\t2\nSurry\t270 Paynetown Road\t2\nSurry\t375 Marshall Johnson Road\t2\nUnion\t1200 Memory Lane\t2\nUnion\t716 Raintree Drive\t2\nUnion\t2007 Magna Lane\t2\nWake\t3117 Banks Road\t2\nWake\t628 Sage Oak Lane\t2\nWake\t644 Jasmine Street\t2\nWake\t724 Glenville Lake Drive\t2\nWake\t610 South Wakefield Street\t2\nWake\t3612 Wheaton Place\t2\nWake\t110 Harris Street\t2\nWayne\t109 Jessica Place\t2\nWayne\t105 Mill Stone Drive\t2\nWayne\t141 Martha South Lane\t2\nWilkes\t2583 Highway 16 South\t2\nWilson\t4524 Sweet Williams Lane\t2\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

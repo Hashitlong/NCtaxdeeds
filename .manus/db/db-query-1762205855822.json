@@ -1,0 +1,15 @@
+{
+  "query": "SELECT COUNT(*) as total, \n       COUNT(sourceUrl) as with_url,\n       COUNT(*) - COUNT(sourceUrl) as null_url\nFROM properties \nLIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT COUNT(*) as total, \n       COUNT(sourceUrl) as with_url,\n       COUNT(*) - COUNT(sourceUrl) as null_url\nFROM properties \nLIMIT 1;",
+  "rows": [
+    {
+      "total": "711",
+      "with_url": "0",
+      "null_url": "711"
+    }
+  ],
+  "messages": [],
+  "stdout": "total\twith_url\tnull_url\n711\t0\t711\n",
+  "stderr": "",
+  "execution_time_ms": 58
+}

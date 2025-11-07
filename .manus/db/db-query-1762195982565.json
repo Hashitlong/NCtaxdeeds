@@ -1,0 +1,13 @@
+{
+  "query": "SELECT COUNT(*) as records_to_delete FROM properties p1 WHERE p1.parcelId IS NOT NULL AND p1.parcelId != '' AND EXISTS (SELECT 1 FROM properties p2 WHERE p2.county = p1.county AND p2.parcelId = p1.parcelId AND p2.id < p1.id)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT COUNT(*) as records_to_delete FROM properties p1 WHERE p1.parcelId IS NOT NULL AND p1.parcelId != '' AND EXISTS (SELECT 1 FROM properties p2 WHERE p2.county = p1.county AND p2.parcelId = p1.parcelId AND p2.id < p1.id)",
+  "rows": [
+    {
+      "records_to_delete": "224"
+    }
+  ],
+  "messages": [],
+  "stdout": "records_to_delete\n224\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

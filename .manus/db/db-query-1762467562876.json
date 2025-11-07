@@ -1,0 +1,60 @@
+{
+  "query": "SELECT f.id, f.propertyId, f.userId, u.name, p.id as actual_property_id, p.address, p.county, p.parcelId \nFROM favorites f \nJOIN users u ON f.userId = u.id \nLEFT JOIN properties p ON f.propertyId = p.id",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT f.id, f.propertyId, f.userId, u.name, p.id as actual_property_id, p.address, p.county, p.parcelId \nFROM favorites f \nJOIN users u ON f.userId = u.id \nLEFT JOIN properties p ON f.propertyId = p.id",
+  "rows": [
+    {
+      "id": "180004",
+      "propertyId": "390706",
+      "userId": "1",
+      "name": "Roger Johnson",
+      "actual_property_id": "390706",
+      "address": "237 Ervin Ln., Ervin Ln.,",
+      "county": "Alexander",
+      "parcelId": "00260870026086"
+    },
+    {
+      "id": "150002",
+      "propertyId": "390719",
+      "userId": "4320007",
+      "name": "Trey Hamrick",
+      "actual_property_id": "390719",
+      "address": "Flem Osborne Road, Lansing",
+      "county": "Ashe",
+      "parcelId": "07178006"
+    },
+    {
+      "id": "30002",
+      "propertyId": "390988",
+      "userId": "4320007",
+      "name": "Trey Hamrick",
+      "actual_property_id": "390988",
+      "address": "546 Woodlawn Avenue",
+      "county": "Randolph",
+      "parcelId": "546 Woodlawn Avenue"
+    },
+    {
+      "id": "1",
+      "propertyId": "420149",
+      "userId": "1",
+      "name": "Roger Johnson",
+      "actual_property_id": "NULL",
+      "address": "NULL",
+      "county": "NULL",
+      "parcelId": "NULL"
+    },
+    {
+      "id": "2",
+      "propertyId": "420149",
+      "userId": "1",
+      "name": "Roger Johnson",
+      "actual_property_id": "NULL",
+      "address": "NULL",
+      "county": "NULL",
+      "parcelId": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tpropertyId\tuserId\tname\tactual_property_id\taddress\tcounty\tparcelId\n180004\t390706\t1\tRoger Johnson\t390706\t237 Ervin Ln., Ervin Ln.,\tAlexander\t00260870026086\n150002\t390719\t4320007\tTrey Hamrick\t390719\tFlem Osborne Road, Lansing\tAshe\t07178006\n30002\t390988\t4320007\tTrey Hamrick\t390988\t546 Woodlawn Avenue\tRandolph\t546 Woodlawn Avenue\n1\t420149\t1\tRoger Johnson\tNULL\tNULL\tNULL\tNULL\n2\t420149\t1\tRoger Johnson\tNULL\tNULL\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

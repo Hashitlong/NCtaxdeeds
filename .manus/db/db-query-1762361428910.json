@@ -1,0 +1,50 @@
+{
+  "query": "\nSELECT \n  county,\n  address,\n  saleDate,\n  upsetBidCloseDate,\n  openingBid,\n  currentBid\nFROM properties \nWHERE saleStatus = 'in_upset_period' \n  AND sourceType = 'kania'\n  AND upsetBidCloseDate IS NOT NULL\nLIMIT 5\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute \nSELECT \n  county,\n  address,\n  saleDate,\n  upsetBidCloseDate,\n  openingBid,\n  currentBid\nFROM properties \nWHERE saleStatus = 'in_upset_period' \n  AND sourceType = 'kania'\n  AND upsetBidCloseDate IS NOT NULL\nLIMIT 5\n",
+  "rows": [
+    {
+      "county": "Alleghany",
+      "address": "53 Duncan Ridge Road, Sparta",
+      "saleDate": "2025-10-23 15:00:00",
+      "upsetBidCloseDate": "2025-11-10 00:00:00",
+      "openingBid": "760000",
+      "currentBid": "5402250"
+    },
+    {
+      "county": "Ashe",
+      "address": "Off Three Top Rd, Todd",
+      "saleDate": "2025-10-23 18:00:00",
+      "upsetBidCloseDate": "2025-11-13 00:00:00",
+      "openingBid": "2720000",
+      "currentBid": "3327500"
+    },
+    {
+      "county": "Ashe",
+      "address": "Flem Osborne Road, Lansing",
+      "saleDate": "2025-10-23 18:00:00",
+      "upsetBidCloseDate": "2025-11-14 00:00:00",
+      "openingBid": "3900000",
+      "currentBid": "3420375"
+    },
+    {
+      "county": "Ashe",
+      "address": "291 Three Top Stream, West Jefferson",
+      "saleDate": "2025-10-23 18:00:00",
+      "upsetBidCloseDate": "2025-11-07 00:00:00",
+      "openingBid": "1300000",
+      "currentBid": "1150100"
+    },
+    {
+      "county": "Burke",
+      "address": "708 Church St NW, Valdese",
+      "saleDate": "2025-10-14 15:00:00",
+      "upsetBidCloseDate": "2025-11-07 00:00:00",
+      "openingBid": "1770000",
+      "currentBid": "4500000"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\taddress\tsaleDate\tupsetBidCloseDate\topeningBid\tcurrentBid\nAlleghany\t53 Duncan Ridge Road, Sparta\t2025-10-23 15:00:00\t2025-11-10 00:00:00\t760000\t5402250\nAshe\tOff Three Top Rd, Todd\t2025-10-23 18:00:00\t2025-11-13 00:00:00\t2720000\t3327500\nAshe\tFlem Osborne Road, Lansing\t2025-10-23 18:00:00\t2025-11-14 00:00:00\t3900000\t3420375\nAshe\t291 Three Top Stream, West Jefferson\t2025-10-23 18:00:00\t2025-11-07 00:00:00\t1300000\t1150100\nBurke\t708 Church St NW, Valdese\t2025-10-14 15:00:00\t2025-11-07 00:00:00\t1770000\t4500000\n",
+  "stderr": "",
+  "execution_time_ms": 48
+}

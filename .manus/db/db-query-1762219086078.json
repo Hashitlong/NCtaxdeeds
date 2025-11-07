@@ -1,0 +1,15 @@
+{
+  "query": "SELECT \n  COUNT(*) as total_properties,\n  SUM(CASE WHEN sourceUrl IS NULL OR sourceUrl = '' THEN 1 ELSE 0 END) as no_url,\n  SUM(CASE WHEN sourceUrl IS NOT NULL AND sourceUrl != '' THEN 1 ELSE 0 END) as has_url\nFROM properties",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT \n  COUNT(*) as total_properties,\n  SUM(CASE WHEN sourceUrl IS NULL OR sourceUrl = '' THEN 1 ELSE 0 END) as no_url,\n  SUM(CASE WHEN sourceUrl IS NOT NULL AND sourceUrl != '' THEN 1 ELSE 0 END) as has_url\nFROM properties",
+  "rows": [
+    {
+      "total_properties": "718",
+      "no_url": "230",
+      "has_url": "488"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_properties\tno_url\thas_url\n718\t230\t488\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

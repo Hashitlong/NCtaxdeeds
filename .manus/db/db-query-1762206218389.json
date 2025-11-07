@@ -1,0 +1,45 @@
+{
+  "query": "SELECT DISTINCT sourceName, LEFT(errorMessage, 200) as error\nFROM scrapeHistory \nWHERE status = 'failed' AND scrapeStartedAt > '2025-11-03'\nORDER BY sourceName;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT DISTINCT sourceName, LEFT(errorMessage, 200) as error\nFROM scrapeHistory \nWHERE status = 'failed' AND scrapeStartedAt > '2025-11-03'\nORDER BY sourceName;",
+  "rows": [
+    {
+      "sourceName": "Alamance County",
+      "error": "standardizeCountyName is not defined"
+    },
+    {
+      "sourceName": "Anson County",
+      "error": "standardizeCountyName is not defined"
+    },
+    {
+      "sourceName": "Bladen County",
+      "error": "standardizeCountyName is not defined"
+    },
+    {
+      "sourceName": "Cumberland County",
+      "error": "standardizeCountyName is not defined"
+    },
+    {
+      "sourceName": "Forsyth County",
+      "error": "standardizeCountyName is not defined"
+    },
+    {
+      "sourceName": "Gaston County",
+      "error": "standardizeCountyName is not defined"
+    },
+    {
+      "sourceName": "McDowell County",
+      "error": "standardizeCountyName is not defined"
+    },
+    {
+      "sourceName": "Rutherford County",
+      "error": "socket hang up"
+    }
+  ],
+  "messages": [
+    "pptr:evaluate;scrapeAlamance%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Falamance_county_scraper.ts%3A1%3A652):1:677",
+    "pptr:evaluate;scrapeGaston%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Fgaston_county_scraper.ts%3A1%3A629):1:308"
+  ],
+  "stdout": "sourceName\terror\nAlamance County\tstandardizeCountyName is not defined\npptr:evaluate;scrapeAlamance%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Falamance_county_scraper.ts%3A1%3A652):1:677\nAnson County\tstandardizeCountyName is not defined\nBladen County\tstandardizeCountyName is not defined\nCumberland County\tstandardizeCountyName is not defined\nForsyth County\tstandardizeCountyName is not defined\nGaston County\tstandardizeCountyName is not defined\npptr:evaluate;scrapeGaston%20(file%3A%2F%2F%2Fhome%2Fubuntu%2Fnc-tax-deed-scraper%2Fscrapers%2Fgaston_county_scraper.ts%3A1%3A629):1:308\nMcDowell County\tstandardizeCountyName is not defined\nRutherford County\tsocket hang up\n",
+  "stderr": "",
+  "execution_time_ms": 50
+}

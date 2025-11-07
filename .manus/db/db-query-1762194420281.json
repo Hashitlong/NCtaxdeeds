@@ -1,0 +1,90 @@
+{
+  "query": "SELECT county, COUNT(*) as count FROM properties GROUP BY county ORDER BY count DESC LIMIT 20",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT county, COUNT(*) as count FROM properties GROUP BY county ORDER BY count DESC LIMIT 20",
+  "rows": [
+    {
+      "county": "Forsyth",
+      "count": "46"
+    },
+    {
+      "county": "Cabarrus",
+      "count": "42"
+    },
+    {
+      "county": "Mecklenburg",
+      "count": "37"
+    },
+    {
+      "county": "Guilford",
+      "count": "29"
+    },
+    {
+      "county": "Richmond",
+      "count": "24"
+    },
+    {
+      "county": "Scotland",
+      "count": "23"
+    },
+    {
+      "county": "Edgecombe",
+      "count": "23"
+    },
+    {
+      "county": "Hoke",
+      "count": "19"
+    },
+    {
+      "county": "Alamance",
+      "count": "16"
+    },
+    {
+      "county": "Cumberland",
+      "count": "16"
+    },
+    {
+      "county": "Robeson",
+      "count": "15"
+    },
+    {
+      "county": "Cumberland, NC",
+      "count": "15"
+    },
+    {
+      "county": "Onslow",
+      "count": "13"
+    },
+    {
+      "county": "Bladen",
+      "count": "13"
+    },
+    {
+      "county": "Mecklenburg, NC",
+      "count": "12"
+    },
+    {
+      "county": "Guilford, NC",
+      "count": "11"
+    },
+    {
+      "county": "Rutherford",
+      "count": "11"
+    },
+    {
+      "county": "Chowan",
+      "count": "10"
+    },
+    {
+      "county": "City of Laurinburg",
+      "count": "10"
+    },
+    {
+      "county": "Gaston",
+      "count": "9"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\tcount\nForsyth\t46\nCabarrus\t42\nMecklenburg\t37\nGuilford\t29\nRichmond\t24\nScotland\t23\nEdgecombe\t23\nHoke\t19\nAlamance\t16\nCumberland\t16\nRobeson\t15\nCumberland, NC\t15\nOnslow\t13\nBladen\t13\nMecklenburg, NC\t12\nGuilford, NC\t11\nRutherford\t11\nChowan\t10\nCity of Laurinburg\t10\nGaston\t9\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

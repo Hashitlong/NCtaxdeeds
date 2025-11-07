@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE properties SET county = CASE \n  WHEN county = 'City of Laurinburg' THEN 'Scotland'\n  WHEN county = 'City of Lumberton' THEN 'Robeson'\n  WHEN county = 'Town of Maxton' THEN 'Robeson'\n  WHEN county = 'Town of Williamston' THEN 'Martin'\n  WHEN county = 'City of Roanoke Rapids' THEN 'Halifax'\n  WHEN county = 'Town of Tarboro' THEN 'Edgecombe'\n  ELSE county\nEND\nWHERE county IN ('City of Laurinburg', 'City of Lumberton', 'Town of Maxton', 'Town of Williamston', 'City of Roanoke Rapids', 'Town of Tarboro')",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute UPDATE properties SET county = CASE \n  WHEN county = 'City of Laurinburg' THEN 'Scotland'\n  WHEN county = 'City of Lumberton' THEN 'Robeson'\n  WHEN county = 'Town of Maxton' THEN 'Robeson'\n  WHEN county = 'Town of Williamston' THEN 'Martin'\n  WHEN county = 'City of Roanoke Rapids' THEN 'Halifax'\n  WHEN county = 'Town of Tarboro' THEN 'Edgecombe'\n  ELSE county\nEND\nWHERE county IN ('City of Laurinburg', 'City of Lumberton', 'Town of Maxton', 'Town of Williamston', 'City of Roanoke Rapids', 'Town of Tarboro')",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 61
+}

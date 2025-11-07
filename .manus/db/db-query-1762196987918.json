@@ -1,0 +1,247 @@
+{
+  "query": "SELECT DISTINCT county FROM properties ORDER BY county",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2KJFRQFNzrdeDiR.root --database ZqyxcVbHtpmzeQq8unDcjn --execute SELECT DISTINCT county FROM properties ORDER BY county",
+  "rows": [
+    {
+      "county": "Alamance"
+    },
+    {
+      "county": "Alexander"
+    },
+    {
+      "county": "Alleghany"
+    },
+    {
+      "county": "Anson"
+    },
+    {
+      "county": "Ashe"
+    },
+    {
+      "county": "Avery"
+    },
+    {
+      "county": "Beaufort"
+    },
+    {
+      "county": "Bladen"
+    },
+    {
+      "county": "Brunswick"
+    },
+    {
+      "county": "Buncombe"
+    },
+    {
+      "county": "Burke"
+    },
+    {
+      "county": "Cabarrus"
+    },
+    {
+      "county": "Caldwell"
+    },
+    {
+      "county": "Carteret"
+    },
+    {
+      "county": "Catawba"
+    },
+    {
+      "county": "Chatham"
+    },
+    {
+      "county": "Cherokee"
+    },
+    {
+      "county": "Chowan"
+    },
+    {
+      "county": "Clay"
+    },
+    {
+      "county": "Cleveland"
+    },
+    {
+      "county": "Columbus"
+    },
+    {
+      "county": "Craven"
+    },
+    {
+      "county": "Cumberland"
+    },
+    {
+      "county": "Currituck"
+    },
+    {
+      "county": "Dare"
+    },
+    {
+      "county": "Davidson"
+    },
+    {
+      "county": "Duplin"
+    },
+    {
+      "county": "Durham"
+    },
+    {
+      "county": "Edgecombe"
+    },
+    {
+      "county": "Forsyth"
+    },
+    {
+      "county": "Franklin"
+    },
+    {
+      "county": "Gaston"
+    },
+    {
+      "county": "Gates"
+    },
+    {
+      "county": "Granville"
+    },
+    {
+      "county": "Guilford"
+    },
+    {
+      "county": "Halifax"
+    },
+    {
+      "county": "Harnett"
+    },
+    {
+      "county": "Haywood"
+    },
+    {
+      "county": "Henderson"
+    },
+    {
+      "county": "Hertford"
+    },
+    {
+      "county": "Hoke"
+    },
+    {
+      "county": "Iredell"
+    },
+    {
+      "county": "Johnston"
+    },
+    {
+      "county": "Jones"
+    },
+    {
+      "county": "Lee"
+    },
+    {
+      "county": "Lenoir"
+    },
+    {
+      "county": "Lincoln"
+    },
+    {
+      "county": "Madison"
+    },
+    {
+      "county": "Martin"
+    },
+    {
+      "county": "McDowell"
+    },
+    {
+      "county": "Mecklenburg"
+    },
+    {
+      "county": "Moore"
+    },
+    {
+      "county": "Nash"
+    },
+    {
+      "county": "New Hanover"
+    },
+    {
+      "county": "Northampton"
+    },
+    {
+      "county": "Onslow"
+    },
+    {
+      "county": "Orange"
+    },
+    {
+      "county": "Pamlico"
+    },
+    {
+      "county": "Pasquotank"
+    },
+    {
+      "county": "Pender"
+    },
+    {
+      "county": "Perquimans"
+    },
+    {
+      "county": "Pitt"
+    },
+    {
+      "county": "Randolph"
+    },
+    {
+      "county": "Richmond"
+    },
+    {
+      "county": "Robeson"
+    },
+    {
+      "county": "Rockingham"
+    },
+    {
+      "county": "Rowan"
+    },
+    {
+      "county": "Rutherford"
+    },
+    {
+      "county": "Scotland"
+    },
+    {
+      "county": "Stanly"
+    },
+    {
+      "county": "Surry"
+    },
+    {
+      "county": "Union"
+    },
+    {
+      "county": "Wake"
+    },
+    {
+      "county": "Warren"
+    },
+    {
+      "county": "Washington"
+    },
+    {
+      "county": "Wayne"
+    },
+    {
+      "county": "Wilkes"
+    },
+    {
+      "county": "Wilson"
+    },
+    {
+      "county": "Yadkin"
+    }
+  ],
+  "messages": [],
+  "stdout": "county\nAlamance\nAlexander\nAlleghany\nAnson\nAshe\nAvery\nBeaufort\nBladen\nBrunswick\nBuncombe\nBurke\nCabarrus\nCaldwell\nCarteret\nCatawba\nChatham\nCherokee\nChowan\nClay\nCleveland\nColumbus\nCraven\nCumberland\nCurrituck\nDare\nDavidson\nDuplin\nDurham\nEdgecombe\nForsyth\nFranklin\nGaston\nGates\nGranville\nGuilford\nHalifax\nHarnett\nHaywood\nHenderson\nHertford\nHoke\nIredell\nJohnston\nJones\nLee\nLenoir\nLincoln\nMadison\nMartin\nMcDowell\nMecklenburg\nMoore\nNash\nNew Hanover\nNorthampton\nOnslow\nOrange\nPamlico\nPasquotank\nPender\nPerquimans\nPitt\nRandolph\nRichmond\nRobeson\nRockingham\nRowan\nRutherford\nScotland\nStanly\nSurry\nUnion\nWake\nWarren\nWashington\nWayne\nWilkes\nWilson\nYadkin\n",
+  "stderr": "",
+  "execution_time_ms": 59
+}
