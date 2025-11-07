@@ -83,9 +83,9 @@ async function startServer() {
 
   const port = parseInt(process.env.PORT || "3000");
   
-  // In production (Railway), use the exact PORT provided
+  // In production (Railway), use the exact PORT provided and bind to all interfaces
   if (process.env.NODE_ENV === "production") {
-    server.listen(port, () => {
+    server.listen(port, "0.0.0.0", () => {
       console.log(`Server running on port ${port}`);
     });
   } else {
