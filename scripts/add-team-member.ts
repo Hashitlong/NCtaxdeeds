@@ -86,7 +86,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     email: "trey@titanrealty.com",
     name: "Trey Hamrick",
-    password: "password123",
+    password: "taxliens123",
     role: "user"
   }
 ];
