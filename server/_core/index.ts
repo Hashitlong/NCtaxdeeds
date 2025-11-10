@@ -7,6 +7,7 @@ import { registerOAuthRoutes } from "./oauth";
 import { registerAuthRoutes } from "./auth";
 import { registerDebugLoginRoutes } from "./debug-login"; // Temporary debug route
 import { registerSetupRoute } from "./setup-users"; // Temporary - remove after setup
+import { registerDirectInsertRoute } from "./direct-insert-users"; // Temporary - remove after setup
 // import { registerSetupRoutes } from "./setup-team"; // Temporary - removed after setup
 // import { registerDebugRoutes } from "./debug-auth"; // Temporary - removed after setup
 import { appRouter } from "../routers";
@@ -65,6 +66,10 @@ async function startServer() {
     // Setup route for user creation (temporary - remove after setup)
     console.log("[Server] Registering setup route...");
     registerSetupRoute(app);
+    
+    // Direct SQL insert route (temporary - remove after setup)
+    console.log("[Server] Registering direct insert route...");
+    registerDirectInsertRoute(app);
     
     // Setup routes for team member creation (removed after initial setup)
     // registerSetupRoutes(app);
