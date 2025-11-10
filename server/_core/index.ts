@@ -8,6 +8,7 @@ import { registerAuthRoutes } from "./auth";
 import { registerDebugLoginRoutes } from "./debug-login"; // Temporary debug route
 import { registerSetupRoute } from "./setup-users"; // Temporary - remove after setup
 import { registerDirectInsertRoute } from "./direct-insert-users"; // Temporary - remove after setup
+import { registerWhitelistRoute } from "./add-whitelist"; // Temporary - remove after setup
 // import { registerSetupRoutes } from "./setup-team"; // Temporary - removed after setup
 // import { registerDebugRoutes } from "./debug-auth"; // Temporary - removed after setup
 import { appRouter } from "../routers";
@@ -70,6 +71,10 @@ async function startServer() {
     // Direct SQL insert route (temporary - remove after setup)
     console.log("[Server] Registering direct insert route...");
     registerDirectInsertRoute(app);
+    
+    // Whitelist route (temporary - remove after setup)
+    console.log("[Server] Registering whitelist route...");
+    registerWhitelistRoute(app);
     
     // Setup routes for team member creation (removed after initial setup)
     // registerSetupRoutes(app);
