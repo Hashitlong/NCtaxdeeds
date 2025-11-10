@@ -63,9 +63,13 @@ export async function scrapeCatawba(): Promise<PropertyData[]> {
       let saleDate: Date | undefined;
       if (prop.auctionDate && prop.auctionDate !== 'PENDING') {
         try {
-          saleDate = new Date(prop.auctionDate);
+          const parsed = new Date(prop.auctionDate);
+          // Validate the date is actually valid
+          if (!isNaN(parsed.getTime())) {
+            saleDate = parsed;
+          }
         } catch (e) {
-          // Invalid date
+          // Invalid date - leave undefined
         }
       }
 

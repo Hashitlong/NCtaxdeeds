@@ -75,8 +75,8 @@ export async function scrapeRutherford(): Promise<PropertyData[]> {
         // Extract last day to upset bid (this is the upset deadline)
         const upsetBidCloseDateMatch = section.match(/Last\s+day\s+to\s+upset\s+bid\s*:\s*(\d{1,2}\/\d{1,2}\/\d{4})/i);
         if (upsetBidCloseDateMatch) {
-          const [month, day, year] = upsetBidCloseDateMatch[1].split('/').map(Number);
-          property.upsetBidCloseDate = new Date(year, month - 1, day);
+          // Return as string to be parsed in Node.js context (Date objects don't serialize properly from page.evaluate)
+          property.upsetBidCloseDateString = upsetBidCloseDateMatch[1];
           property.saleStatus = 'upset_period';
         }
 
@@ -100,8 +100,18 @@ export async function scrapeRutherford(): Promise<PropertyData[]> {
       return results;
     });
 
-    console.log(`Rutherford County: Found ${properties.length} properties`);
-    return properties;
+    // Parse date strings into Date objects (can't create Date objects in page.evaluate context)
+    const processedProperties = properties.map(prop => {
+      if (prop.upsetBidCloseDateString) {
+        const [month, day, year] = prop.upsetBidCloseDateString.split('/').map(Number);
+        prop.upsetBidCloseDate = new Date(year, month - 1, day);
+        delete prop.upsetBidCloseDateString;
+      }
+      return prop;
+    });
+
+    console.log(`Rutherford County: Found ${processedProperties.length} properties`);
+    return processedProperties;
 
   } catch (error) {
     console.error('Error scraping Rutherford County:', error);
