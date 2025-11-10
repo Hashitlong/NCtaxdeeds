@@ -21,7 +21,10 @@ aptPkgs = [
 ]
 
 [phases.install]
-cmds = ["pnpm install --no-frozen-lockfile"]
+cmds = [
+  "pnpm install --no-frozen-lockfile",
+  "npx puppeteer browsers install chrome"
+]
 
 [phases.build]
 cmds = ["pnpm build"]
