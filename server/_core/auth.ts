@@ -26,14 +26,18 @@ export function registerAuthRoutes(app: Express) {
       // Find user
       const user = await db.getUserByEmail(email);
       if (!user || !user.passwordHash) {
+        console.log(`[Auth] Login failed: User not found or no password hash for ${email}`);
         return res.status(401).json({ error: "Invalid email or password" });
       }
 
       // Verify password
       const isValidPassword = await bcrypt.compare(password, user.passwordHash);
       if (!isValidPassword) {
+        console.log(`[Auth] Login failed: Invalid password for ${email}`);
         return res.status(401).json({ error: "Invalid email or password" });
       }
+
+      console.log(`[Auth] Login successful for ${email}, openId: ${user.openId}`);
 
       // Update last signed in
       await db.upsertUser({
@@ -50,13 +54,15 @@ export function registerAuthRoutes(app: Express) {
       const cookieOptions = getSessionCookieOptions(req);
       res.cookie(COOKIE_NAME, sessionToken, { ...cookieOptions, maxAge: ONE_YEAR_MS });
 
-      res.json({ 
-        success: true, 
-        user: { 
-          email: user.email, 
+      console.log(`[Auth] Session token created and cookie set for ${email}`);
+
+      res.json({
+        success: true,
+        user: {
+          email: user.email,
           name: user.name || user.email,
-          role: user.role 
-        } 
+          role: user.role
+        }
       });
     } catch (error) {
       console.error("[Auth] Login failed:", error);

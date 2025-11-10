@@ -2,6 +2,7 @@ import type { CreateExpressContextOptions } from "@trpc/server/adapters/express"
 import type { User } from "../../drizzle/schema";
 import { sdk } from "./sdk";
 import { isEmailAllowed } from "../db";
+import { ENV } from "./env";
 
 export type TrpcContext = {
   req: CreateExpressContextOptions["req"];
@@ -17,20 +18,31 @@ export async function createContext(
   try {
     user = await sdk.authenticateRequest(opts.req);
     
+    if (user) {
+      console.log(`[Context] User authenticated: ${user.email} (openId: ${user.openId})`);
+    }
+    
     // Access control: Check if user email is in whitelist
     if (user && user.email) {
-      const allowed = await isEmailAllowed(user.email);
-      if (!allowed) {
-        // User is authenticated but not in whitelist
-        // Redirect to access denied page
-        if (!opts.req.path?.includes('/api/')) {
-          opts.res.redirect('/access-denied');
+      const isOwner = Boolean(ENV.ownerOpenId && user.openId === ENV.ownerOpenId);
+      const isAdmin = user.role === "admin";
+      const shouldCheckWhitelist = !isOwner && !isAdmin;
+
+      if (shouldCheckWhitelist) {
+        const allowed = await isEmailAllowed(user.email);
+        if (!allowed) {
+          console.log(`[Context] User ${user.email} not in whitelist, access denied`);
+          // User is authenticated but not in whitelist
+          if (!opts.req.path?.includes('/api/')) {
+            opts.res.redirect('/access-denied');
+          }
+          user = null;
         }
-        user = null;
       }
     }
   } catch (error) {
     // Authentication is optional for public procedures.
+    console.log(`[Context] Authentication failed: ${error instanceof Error ? error.message : String(error)}`);
     user = null;
   }
 
