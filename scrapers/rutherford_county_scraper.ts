@@ -16,7 +16,7 @@ export async function scrapeRutherford(): Promise<PropertyData[]> {
     });
 
     const properties = await page.evaluate(() => {
-      const results: PropertyData[] = [];
+      const results: any[] = [];
       const content = document.body.innerText;
       
       // Split by the asterisk separator lines
@@ -27,8 +27,8 @@ export async function scrapeRutherford(): Promise<PropertyData[]> {
           continue;
         }
 
-        const property: Partial<PropertyData> = {
-          county: standardizeCountyName('Rutherford'),
+        const property: any = {
+          county: 'Rutherford',
           source: 'Rutherford County',
           sourceType: 'county_website',
           sourceUrl: 'https://www.rutherfordcountync.gov/departments/revenue_department_tax_administrator/foreclosure_sale_dates.php',
