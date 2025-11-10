@@ -98,18 +98,73 @@ export async function scrapeZLS(options?: { extractNotices?: boolean; maxNotices
     await page.waitForSelector('table', { timeout: 30000 });
     console.log('[ZLS] Table loaded');
     
-    // Note: Attempted to use "All" page size option but DevExpress Blazor ComboBox
-    // doesn't render options properly in headless Puppeteer. Using pagination instead.
+    // Try to set page size to "All" to get all properties at once
+    console.log('[ZLS] Attempting to set page size to All...');
+    try {
+      // Look for page size dropdown/combobox (usually in bottom right corner)
+      const pageSizeChanged = await page.evaluate(() => {
+        // Find elements that might be the page size selector
+        const selectors = Array.from(document.querySelectorAll('select, button, div[role="combobox"], div[role="button"]'));
+        
+        // Look for one that contains page size text like "10", "25", "50", "All"
+        for (const elem of selectors) {
+          const text = elem.textContent || '';
+          const ariaLabel = elem.getAttribute('aria-label') || '';
+          
+          // Check if this looks like a page size control
+          if (text.match(/^\d+$/) || text.includes('items per page') ||
+              ariaLabel.toLowerCase().includes('page size') ||
+              ariaLabel.toLowerCase().includes('items per page')) {
+            
+            // Try to click it to open dropdown
+            if (elem instanceof HTMLElement) {
+              elem.click();
+              return { clicked: true, element: 'found' };
+            }
+          }
+        }
+        return { clicked: false };
+      });
+      
+      if (pageSizeChanged.clicked) {
+        console.log('[ZLS] Clicked page size dropdown, waiting for options...');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Now try to click "All" option
+        const allSelected = await page.evaluate(() => {
+          // Look for "All" option in dropdown
+          const options = Array.from(document.querySelectorAll('div[role="option"], li, button, a'));
+          const allOption = options.find(opt => {
+            const text = opt.textContent?.trim().toLowerCase();
+            return text === 'all' || text === 'show all';
+          });
+          
+          if (allOption && allOption instanceof HTMLElement) {
+            allOption.click();
+            return true;
+          }
+          return false;
+        });
+        
+        if (allSelected) {
+          console.log('[ZLS] Selected "All" page size, waiting for table to reload...');
+          await new Promise(resolve => setTimeout(resolve, 5000));
+        } else {
+          console.log('[ZLS] Could not find "All" option, will use pagination');
+        }
+      } else {
+        console.log('[ZLS] Could not find page size dropdown, will use pagination');
+      }
+    } catch (e) {
+      console.log('[ZLS] Error setting page size:', e instanceof Error ? e.message : String(e));
+      console.log('[ZLS] Will use pagination instead');
+    }
 
     const allProperties: ScrapedProperty[] = [];
-    let currentPage = 1;
-    let hasMorePages = true;
 
-    while (hasMorePages && currentPage <= 100) { // Increased from 23 to 100 to handle more pages
-      console.log(`[ZLS] Scraping page ${currentPage}...`);
-
-      // Extract data from current page
-      const pageProperties = await page.evaluate(() => {
+    // Extract all data from the current page (which should now show all properties if "All" was selected)
+    console.log('[ZLS] Extracting property data...');
+    const pageProperties = await page.evaluate(() => {
         const properties: any[] = [];
         const rows = document.querySelectorAll('table tbody tr');
 
@@ -144,8 +199,8 @@ export async function scrapeZLS(options?: { extractNotices?: boolean; maxNotices
         return properties;
       });
 
-      // Process extracted data
-      for (const prop of pageProperties) {
+    // Process extracted data
+    for (const prop of pageProperties) {
         // Extract county from tax office name
         const county = prop.taxOffice.replace(/Tax Office$/i, '').replace(/County/i, '').trim();
         
@@ -223,61 +278,9 @@ export async function scrapeZLS(options?: { extractNotices?: boolean; maxNotices
           sourceUrl: 'https://www.zls-nc.com/listings',
           rawData: JSON.stringify(prop)
         });
-      }
-
-      console.log(`[ZLS] Found ${pageProperties.length} properties on page ${currentPage}`);
-
-      // Check if there's a next page button and click it
-      try {
-        // Find the Next button using page.evaluate to search by aria-label
-        const nextButtonFound = await page.evaluate(() => {
-          // Look for button with aria-label containing "Next" or "next"
-          const buttons = Array.from(document.querySelectorAll('button'));
-          const nextBtn = buttons.find(btn => {
-            const label = btn.getAttribute('aria-label');
-            return label && label.toLowerCase().includes('next');
-          });
-          
-          if (!nextBtn) return { found: false };
-          
-          // Check if disabled
-          const isDisabled = nextBtn.hasAttribute('disabled') || 
-                           nextBtn.classList.contains('disabled') ||
-                           nextBtn.classList.contains('dxbl-disabled');
-          
-          if (isDisabled) return { found: true, disabled: true };
-          
-          // Click the button
-          nextBtn.click();
-          return { found: true, disabled: false, clicked: true };
-        });
-        
-        if (nextButtonFound.found && !nextButtonFound.disabled && nextButtonFound.clicked) {
-          console.log('[ZLS] Clicked Next button, waiting for page to load...');
-          await new Promise(resolve => setTimeout(resolve, 5000)); // Increased wait time for Blazor
-          
-          // Verify page actually changed by checking if table is still present
-          try {
-            await page.waitForSelector('table tbody tr', { timeout: 10000 });
-            currentPage++;
-          } catch (e) {
-            console.log('[ZLS] Table did not reload after clicking Next, stopping pagination');
-            hasMorePages = false;
-          }
-        } else if (nextButtonFound.disabled) {
-          console.log('[ZLS] Next button is disabled, reached last page');
-          hasMorePages = false;
-        } else {
-          console.log('[ZLS] Next button not found, reached end of listings');
-          hasMorePages = false;
-        }
-      } catch (e) {
-        console.log('[ZLS] Pagination error:', e instanceof Error ? e.message : String(e));
-        hasMorePages = false;
-      }
     }
 
-    console.log(`[ZLS] Scraping complete. Found ${allProperties.length} total properties across ${currentPage} pages`);
+    console.log(`[ZLS] Scraping complete. Found ${allProperties.length} total properties`);
     
     // Optionally extract detailed notice information for each property
     if (extractNotices) {
