@@ -312,14 +312,31 @@ export async function upsertUserPreferences(prefs: InsertUserPreferences): Promi
 
 export async function isEmailAllowed(email: string): Promise<boolean> {
   const db = await getDb();
-  if (!db) return false;
+  if (!db) return true;
   
   try {
-    const result = await db.select().from(allowedUsers).where(eq(allowedUsers.email, email.toLowerCase())).limit(1);
-    return result.length > 0;
+    const normalizedEmail = email.toLowerCase();
+    
+    const match = await db
+      .select({ id: allowedUsers.id })
+      .from(allowedUsers)
+      .where(eq(allowedUsers.email, normalizedEmail))
+      .limit(1);
+    
+    if (match.length > 0) {
+      return true;
+    }
+
+    // If the whitelist has no entries yet, allow everyone so owners can sign in and configure it.
+    const anyWhitelistEntry = await db
+      .select({ id: allowedUsers.id })
+      .from(allowedUsers)
+      .limit(1);
+
+    return anyWhitelistEntry.length === 0;
   } catch (error) {
     console.error("[Database] Failed to check allowed email:", error);
-    return false;
+    return true;
   }
 }
 

@@ -22,7 +22,7 @@ import { scrapeMcDowellCounty } from '../scrapers/mcdowell_county_scraper';
 import { scrapeZLS } from '../scrapers/zls_scraper';
 import { getDb } from './db';
 import { properties, scrapeHistory, InsertProperty, InsertScrapeHistory } from '../drizzle/schema';
-import { eq, and } from 'drizzle-orm';
+import { eq, and, sql } from 'drizzle-orm';
 
 export type ScraperName = 'kania' | 'hutchens' | 'wake_county' | 'rbcwb' | 'forsyth' | 'gaston' | 'alamance' | 'catawba' | 'cabarrus' | 'rutherford' | 'edgecombe' | 'hoke' | 'yadkin' | 'anson' | 'bladen' | 'cumberland' | 'mcdowell' | 'zls' | 'all';
 
@@ -50,11 +50,40 @@ interface PropertyData {
 
 export class ScraperService {
   /**
+   * Check if database is available and healthy
+   */
+  private async checkDatabaseHealth(): Promise<{ healthy: boolean; error?: string }> {
+    try {
+      const db = await getDb();
+      if (!db) {
+        return { healthy: false, error: 'Database connection not available. Check DATABASE_URL environment variable.' };
+      }
+      
+      // Test the connection with a simple query
+      await db.execute(sql`SELECT 1`);
+      return { healthy: true };
+    } catch (error: any) {
+      return {
+        healthy: false,
+        error: `Database health check failed: ${error.message || String(error)}`
+      };
+    }
+  }
+
+  /**
    * Run a specific scraper
    */
   async runScraper(scraperName: ScraperName): Promise<{ success: boolean; count: number; error?: string }> {
     if (scraperName === 'all') {
       return this.scrapeAll();
+    }
+
+    // Check database health before running scraper
+    const dbHealth = await this.checkDatabaseHealth();
+    if (!dbHealth.healthy) {
+      const errorMsg = `Cannot run scraper: ${dbHealth.error}`;
+      console.error(`[ScraperService] ${errorMsg}`);
+      return { success: false, count: 0, error: errorMsg };
     }
 
     const startTime = new Date();
@@ -95,6 +124,7 @@ export class ScraperService {
 
     try {
       console.log(`[ScraperService] Running ${scraperName} scraper...`);
+      console.log(`[ScraperService] Database connection: OK`);
       
       let properties: PropertyData[] = [];
 
@@ -160,10 +190,11 @@ export class ScraperService {
           throw new Error(`Unknown scraper: ${scraperName}`);
       }
 
-      console.log(`[ScraperService] Scraped ${properties.length} properties`);
+      console.log(`[ScraperService] Scraped ${properties.length} properties from ${scraperName}`);
       historyRecord.propertiesFound = properties.length;
 
       // Import into database
+      console.log(`[ScraperService] Importing properties into database...`);
       const { newCount, updatedCount } = await this.importProperties(properties);
 
       historyRecord.propertiesNew = newCount;
@@ -171,24 +202,33 @@ export class ScraperService {
       historyRecord.status = 'success';
       historyRecord.scrapeCompletedAt = new Date();
 
+      console.log(`[ScraperService] Import complete: ${newCount} new, ${updatedCount} updated`);
+
       // Save history
       const db = await getDb();
       if (db) {
         await db.insert(scrapeHistory).values(historyRecord);
+        console.log(`[ScraperService] Scrape history saved`);
       }
 
       return { success: true, count: properties.length };
 
     } catch (error: any) {
-      console.error('[ScraperService] Error:', error);
+      console.error(`[ScraperService] Error in ${scraperName} scraper:`, error);
+      console.error(`[ScraperService] Error stack:`, error.stack);
       
       historyRecord.errorMessage = error.message || String(error);
       historyRecord.scrapeCompletedAt = new Date();
       
       // Save error history
-      const db = await getDb();
-      if (db) {
-        await db.insert(scrapeHistory).values(historyRecord);
+      try {
+        const db = await getDb();
+        if (db) {
+          await db.insert(scrapeHistory).values(historyRecord);
+          console.log(`[ScraperService] Error history saved`);
+        }
+      } catch (historyError) {
+        console.error(`[ScraperService] Failed to save error history:`, historyError);
       }
 
       return { success: false, count: 0, error: error.message };

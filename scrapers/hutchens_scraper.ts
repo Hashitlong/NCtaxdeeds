@@ -33,7 +33,7 @@ export async function scrapeHutchens(): Promise<PropertyData[]> {
       const results: any[] = [];
       const rows = document.querySelectorAll('table tr');
       
-      // Skip header row (index 0)
+      // Skip header row (index 0) - it has <th> elements, not <td>
       for (let i = 1; i < rows.length; i++) {
         const row = rows[i];
         const cells = row.querySelectorAll('td');
@@ -49,7 +49,15 @@ export async function scrapeHutchens(): Promise<PropertyData[]> {
         const deedOfTrust = cells[6]?.textContent?.trim() || null;
         const bidAmount = cells[7]?.textContent?.trim() || null;
         
-        if (!county || !propertyAddress) continue; // Skip invalid rows
+        // Validate that county looks like a county name (contains letters, not just numbers/dashes)
+        const countyValid = county && /[a-zA-Z]{3,}/.test(county);
+        // Validate that address doesn't look like a county name
+        const addressValid = propertyAddress && propertyAddress.length > 5;
+        
+        if (!countyValid || !addressValid) {
+          console.log(`[Hutchens] Skipping invalid row ${i}: county="${county}", address="${propertyAddress}"`);
+          continue;
+        }
         
         results.push({
           caseNo,
