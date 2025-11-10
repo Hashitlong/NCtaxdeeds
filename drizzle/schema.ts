@@ -82,7 +82,7 @@ export const properties = mysqlTable("properties", {
   // Sale Information
   saleDate: timestamp("saleDate"),
   saleTime: varchar("saleTime", { length: 20 }),
-  saleStatus: mysqlEnum("saleStatus", ["scheduled", "in_upset_period", "sold", "cancelled", "pending", "postponed"]).default("scheduled"),
+  saleStatus: mysqlEnum("saleStatus", ["scheduled", "in_upset_period", "upset_period", "sold", "cancelled", "pending", "postponed"]).default("scheduled"),
   saleLocation: text("saleLocation"),
   
   // Bidding Information
