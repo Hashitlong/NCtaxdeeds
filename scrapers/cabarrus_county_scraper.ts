@@ -31,83 +31,41 @@ export async function scrapeCabarrus(): Promise<PropertyData[]> {
     const properties = await page.evaluate(() => {
       const results: any[] = [];
       
-      // Try multiple parsing strategies
+      // Get all text content and parse it
+      const textContent = document.body.innerText;
       
-      // Strategy 1: Look for property cards/containers
-      const cards = document.querySelectorAll('.card, [class*="property"], [class*="listing"]');
-      if (cards.length > 0) {
-        console.log(`[Cabarrus] Found ${cards.length} property cards`);
-        cards.forEach(card => {
-          const text = card.textContent || '';
-          const prop: any = {};
-          
-          // Extract data using regex patterns
-          const realIdMatch = text.match(/Real ID[:\s]+([^\n]+)/i);
-          const statusMatch = text.match(/Status[:\s]+([^\n]+)/i);
-          const caseMatch = text.match(/Case Number[:\s]+([^\n]+)/i);
-          const taxMatch = text.match(/Tax Value[:\s]+([^\n]+)/i);
-          const minBidMatch = text.match(/Min Bid[:\s]+([^\n]+)/i);
-          const saleDateMatch = text.match(/Sale Date[:\s]+([^\n]+)/i);
-          const saleTimeMatch = text.match(/Sale Time[:\s]+([^\n]+)/i);
-          const ownerMatch = text.match(/Owner[:\s]+([^\n]+)/i);
-          const attorneyMatch = text.match(/Attorney[:\s]+([^\n]+)/i);
-          
-          if (realIdMatch) {
-            prop.realId = realIdMatch[1].trim();
-            prop.status = statusMatch ? statusMatch[1].trim() : '';
-            prop.caseNumber = caseMatch ? caseMatch[1].trim() : '';
-            prop.taxValue = taxMatch ? taxMatch[1].trim() : '';
-            prop.minBid = minBidMatch ? minBidMatch[1].trim() : '';
-            prop.saleDate = saleDateMatch ? saleDateMatch[1].trim() : '';
-            prop.saleTime = saleTimeMatch ? saleTimeMatch[1].trim() : '';
-            prop.owner = ownerMatch ? ownerMatch[1].trim() : '';
-            prop.attorney = attorneyMatch ? attorneyMatch[1].trim() : '';
-            results.push(prop);
-          }
-        });
-      }
+      // Split by "Real ID" to get individual properties
+      const propertyBlocks = textContent.split(/(?=Real ID)/i).filter(block => block.trim().length > 0);
       
-      // Strategy 2: Fallback to line-by-line parsing if no cards found
-      if (results.length === 0) {
-        console.log('[Cabarrus] No cards found, trying line-by-line parsing');
-        const textContent = document.body.innerText;
-        const lines = textContent.split('\n');
+      console.log(`[Cabarrus] Found ${propertyBlocks.length} property blocks`);
+      
+      propertyBlocks.forEach(block => {
+        // Extract each field using regex with word boundaries
+        const realIdMatch = block.match(/Real ID[:\s]+([^\s]+)/i);
+        const statusMatch = block.match(/Status[:\s]+([A-Z\s]+?)(?=\s+Case Number|\s+Tax Value|$)/i);
+        const caseMatch = block.match(/Case Number[:\s]+([^\s]+)/i);
+        const taxMatch = block.match(/Tax Value[:\s]+\$?([\d,]+)/i);
+        const minBidMatch = block.match(/Min Bid[:\s]+\$?([\d,]+)/i);
+        const saleDateMatch = block.match(/Sale Date[:\s]+(\d{1,2}\/\d{1,2}\/\d{4}|PENDING)/i);
+        const saleTimeMatch = block.match(/Sale Time[:\s]+(\d{1,2}:\d{2}\s*[AP]M|PENDING)/i);
+        const ownerMatch = block.match(/Owner[:\s]+([^\n]+?)(?=\s+Attorney|$)/i);
+        const attorneyMatch = block.match(/Attorney[:\s]+([^\n]+?)$/i);
         
-        let currentProperty: any = {};
-        
-        for (let i = 0; i < lines.length; i++) {
-          const line = lines[i].trim();
-          
-          if (line.startsWith('Real ID:')) {
-            if (currentProperty.realId) {
-              results.push({ ...currentProperty });
-            }
-            currentProperty = {
-              realId: line.replace('Real ID:', '').trim(),
-            };
-          } else if (line.startsWith('Status:')) {
-            currentProperty.status = line.replace('Status:', '').trim();
-          } else if (line.startsWith('Case Number:')) {
-            currentProperty.caseNumber = line.replace('Case Number:', '').trim();
-          } else if (line.startsWith('Tax Value:')) {
-            currentProperty.taxValue = line.replace('Tax Value:', '').trim();
-          } else if (line.startsWith('Min Bid:')) {
-            currentProperty.minBid = line.replace('Min Bid:', '').trim();
-          } else if (line.startsWith('Sale Date:')) {
-            currentProperty.saleDate = line.replace('Sale Date:', '').trim();
-          } else if (line.startsWith('Sale Time:')) {
-            currentProperty.saleTime = line.replace('Sale Time:', '').trim();
-          } else if (line.startsWith('Owner:')) {
-            currentProperty.owner = line.replace('Owner:', '').trim();
-          } else if (line.startsWith('Attorney:')) {
-            currentProperty.attorney = line.replace('Attorney:', '').trim();
-          }
+        if (realIdMatch) {
+          const prop: any = {
+            realId: realIdMatch[1].trim(),
+            status: statusMatch ? statusMatch[1].trim() : '',
+            caseNumber: caseMatch ? caseMatch[1].trim() : '',
+            taxValue: taxMatch ? taxMatch[1].replace(/,/g, '') : '',
+            minBid: minBidMatch ? minBidMatch[1].replace(/,/g, '') : '',
+            saleDate: saleDateMatch ? saleDateMatch[1].trim() : '',
+            saleTime: saleTimeMatch ? saleTimeMatch[1].trim() : '',
+            owner: ownerMatch ? ownerMatch[1].trim() : '',
+            attorney: attorneyMatch ? attorneyMatch[1].trim() : ''
+          };
+          results.push(prop);
         }
-        
-        if (currentProperty.realId) {
-          results.push(currentProperty);
-        }
-      }
+      });
       
       console.log(`[Cabarrus] Extracted ${results.length} properties`);
       return results;
