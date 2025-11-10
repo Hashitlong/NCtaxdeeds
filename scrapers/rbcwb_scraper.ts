@@ -22,16 +22,37 @@ export async function scrapeRBCWB(): Promise<PropertyData[]> {
       timeout: 60000,
     });
 
-    console.log('Page loaded, extracting property data...');
+    console.log('[RBCWB] Page loaded, waiting for content...');
     
-    // Wait for table to load
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // Wait for table to load with multiple strategies
+    await Promise.race([
+      page.waitForSelector('table', { timeout: 10000 }),
+      page.waitForSelector('table tr', { timeout: 10000 }),
+      new Promise(resolve => setTimeout(resolve, 5000))
+    ]).catch(() => {
+      console.log('[RBCWB] Table selector timeout, continuing anyway');
+    });
+    
+    // Give extra time for dynamic content
+    await new Promise(resolve => setTimeout(resolve, 3000));
 
     const properties = await page.evaluate(() => {
       const results: any[] = [];
       
-      // Find the main table with property listings
+      // Find ALL tables and try each one
+      const tables = document.querySelectorAll('table');
+      console.log(`[RBCWB] Found ${tables.length} tables on page`);
+      
+      let rowsFound = 0;
+      tables.forEach((table, tableIndex) => {
+        const rows = table.querySelectorAll('tr');
+        console.log(`[RBCWB] Table ${tableIndex + 1} has ${rows.length} rows`);
+        rowsFound += rows.length;
+      });
+      
+      // Use the table with the most rows (likely the data table)
       const rows = document.querySelectorAll('table tr');
+      console.log(`[RBCWB] Processing ${rows.length} total rows`);
       
       rows.forEach((row, index) => {
         // Skip header row
@@ -111,10 +132,11 @@ export async function scrapeRBCWB(): Promise<PropertyData[]> {
         });
       });
       
+      console.log(`[RBCWB] Extracted ${results.length} properties from page`);
       return results;
     });
 
-    console.log(`Found ${properties.length} properties from RBCWB`);
+    console.log(`[RBCWB] Found ${properties.length} properties total`);
 
     // Convert to PropertyData format
     const propertyData: PropertyData[] = properties.map((prop: any) => ({
@@ -126,8 +148,8 @@ export async function scrapeRBCWB(): Promise<PropertyData[]> {
       saleTime: null,
       saleStatus: prop.status,
       saleLocation: 'Mecklenburg County Courthouse, 832 East 4th Street, Charlotte, NC',
-      openingBid: prop.openingBid ? parseFloat(prop.openingBid) * 100 : null, // Convert to cents
-      currentBid: prop.currentBid ? parseFloat(prop.currentBid) * 100 : null,
+      openingBid: prop.openingBid ? parseFloat(prop.openingBid) : null, // Already in dollars
+      currentBid: prop.currentBid ? parseFloat(prop.currentBid) : null,
       upsetBidCloseDate: prop.upsetBidCloseDate ? new Date(prop.upsetBidCloseDate) : null,
       propertyType: null,
       legalDescription: null,

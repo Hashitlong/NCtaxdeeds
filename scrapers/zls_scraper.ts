@@ -105,7 +105,7 @@ export async function scrapeZLS(options?: { extractNotices?: boolean; maxNotices
     let currentPage = 1;
     let hasMorePages = true;
 
-    while (hasMorePages && currentPage <= 23) {
+    while (hasMorePages && currentPage <= 100) { // Increased from 23 to 100 to handle more pages
       console.log(`[ZLS] Scraping page ${currentPage}...`);
 
       // Extract data from current page
@@ -253,14 +253,22 @@ export async function scrapeZLS(options?: { extractNotices?: boolean; maxNotices
         });
         
         if (nextButtonFound.found && !nextButtonFound.disabled && nextButtonFound.clicked) {
-          console.log('[ZLS] Clicked Next button');
-          await new Promise(resolve => setTimeout(resolve, 3000)); // Wait for Blazor to reload
-          currentPage++;
+          console.log('[ZLS] Clicked Next button, waiting for page to load...');
+          await new Promise(resolve => setTimeout(resolve, 5000)); // Increased wait time for Blazor
+          
+          // Verify page actually changed by checking if table is still present
+          try {
+            await page.waitForSelector('table tbody tr', { timeout: 10000 });
+            currentPage++;
+          } catch (e) {
+            console.log('[ZLS] Table did not reload after clicking Next, stopping pagination');
+            hasMorePages = false;
+          }
         } else if (nextButtonFound.disabled) {
           console.log('[ZLS] Next button is disabled, reached last page');
           hasMorePages = false;
         } else {
-          console.log('[ZLS] Next button not found');
+          console.log('[ZLS] Next button not found, reached end of listings');
           hasMorePages = false;
         }
       } catch (e) {
