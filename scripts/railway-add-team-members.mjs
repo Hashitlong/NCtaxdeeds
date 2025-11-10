@@ -17,7 +17,7 @@ const TEAM_MEMBERS = [
   {
     email: "trey@titanrealty.com",
     name: "Trey Hamrick",
-    password: "password123",
+    password: "taxliens123",
     role: "user"
   }
 ];
