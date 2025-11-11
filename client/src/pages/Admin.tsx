@@ -38,7 +38,12 @@ export default function Admin() {
         toast.error(`Scraper failed: ${result.error || 'Unknown error'}`);
       }
     } catch (error: any) {
-      toast.error(`Error running scraper: ${error.message}`);
+      // Check if it's an authorization error
+      if (error.message?.includes('Only administrators')) {
+        toast.error('Access denied: Only administrators can run scrapers');
+      } else {
+        toast.error(`Error running scraper: ${error.message}`);
+      }
     } finally {
       setIsRunning(false);
     }

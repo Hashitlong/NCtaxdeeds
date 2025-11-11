@@ -540,7 +540,12 @@ export const appRouter = router({
       .input(z.object({
         scraperName: z.enum(['kania', 'hutchens', 'wake_county', 'rbcwb', 'forsyth', 'gaston', 'alamance', 'catawba', 'cabarrus', 'rutherford', 'edgecombe', 'hoke', 'yadkin', 'anson', 'bladen', 'cumberland', 'mcdowell', 'zls', 'all'])
       }))
-      .mutation(async ({ input }) => {
+      .mutation(async ({ input, ctx }) => {
+        // Only allow admin users to run scrapers
+        if (ctx.user?.role !== 'admin') {
+          throw new Error('Only administrators can run scrapers');
+        }
+        
         const { ScraperService } = await import('./scraperService');
         const service = new ScraperService();
         return await service.runScraper(input.scraperName);
