@@ -178,7 +178,7 @@ export const appRouter = router({
     setRating: protectedProcedure
       .input(z.object({
         propertyId: z.number(),
-        rating: z.enum(["good", "bad", "watching"]).nullable(),
+        rating: z.enum(["good", "bad", "watching", "needs_viewed", "viewed"]).nullable(),
       }))
       .mutation(async ({ input, ctx }) => {
         const { getDb } = await import('./db');

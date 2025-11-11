@@ -3,7 +3,7 @@ import { trpc } from "@/lib/trpc";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, ExternalLink, Download, Users, ThumbsUp, ThumbsDown, Eye, Database } from "lucide-react";
+import { Star, ExternalLink, Download, Users, ThumbsUp, ThumbsDown, Eye, EyeOff, CheckCircle, Database } from "lucide-react";
 import { toast } from "sonner";
 import { format } from "date-fns";
 import { PropertyDetailDialog } from "@/components/PropertyDetailDialog";
@@ -205,6 +205,10 @@ export default function Favorites() {
                         <ThumbsDown className="h-4 w-4 text-red-600" />
                       ) : property.teamRating === 'watching' ? (
                         <Eye className="h-4 w-4 text-blue-600" />
+                      ) : property.teamRating === 'needs_viewed' ? (
+                        <EyeOff className="h-4 w-4 text-orange-600" />
+                      ) : property.teamRating === 'viewed' ? (
+                        <CheckCircle className="h-4 w-4 text-purple-600" />
                       ) : (
                         <span className="font-medium">—</span>
                       )}

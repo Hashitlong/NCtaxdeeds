@@ -131,8 +131,8 @@ export const properties = mysqlTable("properties", {
   arvAddedBy: int("arvAddedBy"), // user ID who added ARV
   arvAddedAt: timestamp("arvAddedAt"), // when ARV was added
   
-  // Team rating - good/bad/watching
-  teamRating: mysqlEnum("teamRating", ["good", "bad", "watching"]), // team's assessment of property
+  // Team rating - good/bad/watching/needs_viewed/viewed
+  teamRating: mysqlEnum("teamRating", ["good", "bad", "watching", "needs_viewed", "viewed"]), // team's assessment of property
   ratedBy: int("ratedBy"), // user ID who rated this property
   ratedAt: timestamp("ratedAt"), // when rating was added
 });

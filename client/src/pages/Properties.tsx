@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Search, RefreshCw, Download, X, Star, Save, Bookmark, History, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Home, Map, BarChart3, Settings, ThumbsUp, ThumbsDown, Eye } from "lucide-react";
+import { Search, RefreshCw, Download, X, Star, Save, Bookmark, History, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Home, Map, BarChart3, Settings, ThumbsUp, ThumbsDown, Eye, EyeOff, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
@@ -38,7 +38,7 @@ function RatingCell({ property }: { property: any }) {
     },
   });
 
-  const handleRatingClick = (e: React.MouseEvent, rating: "good" | "bad" | "watching" | null) => {
+  const handleRatingClick = (e: React.MouseEvent, rating: "good" | "bad" | "watching" | "needs_viewed" | "viewed" | null) => {
     e.stopPropagation();
     setRatingMutation.mutate({
       propertyId: property.id,
@@ -76,6 +76,24 @@ function RatingCell({ property }: { property: any }) {
         title="Bad property"
       >
         <ThumbsDown className="h-4 w-4 text-red-600" />
+      </button>
+      <button
+        onClick={(e) => handleRatingClick(e, currentRating === "needs_viewed" ? null : "needs_viewed")}
+        className={`hover:scale-125 transition-transform ${
+          currentRating === "needs_viewed" ? "opacity-100" : "opacity-30 hover:opacity-70"
+        }`}
+        title="Needs Viewed"
+      >
+        <EyeOff className="h-4 w-4 text-orange-600" />
+      </button>
+      <button
+        onClick={(e) => handleRatingClick(e, currentRating === "viewed" ? null : "viewed")}
+        className={`hover:scale-125 transition-transform ${
+          currentRating === "viewed" ? "opacity-100" : "opacity-30 hover:opacity-70"
+        }`}
+        title="Viewed"
+      >
+        <CheckCircle className="h-4 w-4 text-purple-600" />
       </button>
     </div>
   );

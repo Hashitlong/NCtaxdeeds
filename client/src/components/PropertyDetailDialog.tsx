@@ -8,7 +8,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { ExternalLink, MapPin, Calendar, DollarSign, FileText, User, Lock, Unlock, MessageSquare, Trash2 } from "lucide-react";
+import { ExternalLink, MapPin, Calendar, DollarSign, FileText, User, Lock, Unlock, MessageSquare, Trash2, ThumbsUp, ThumbsDown, Eye, EyeOff, CheckCircle, Star } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useState } from "react";
@@ -387,6 +387,118 @@ export function PropertyDetailDialog({ property, open, onOpenChange }: PropertyD
                 </div>
               </div>
             )}
+          </div>
+
+          <Separator />
+
+          {/* Team Rating */}
+          <div>
+            <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+              <Star className="h-5 w-5" />
+              Team Rating
+            </h3>
+            <div className="flex items-center gap-2">
+              <Button
+                variant={(property as any).teamRating === "good" ? "default" : "outline"}
+                size="sm"
+                onClick={() => {
+                  const utils = trpc.useUtils();
+                  trpc.properties.setRating.useMutation({
+                    onSuccess: () => {
+                      utils.properties.list.invalidate();
+                      toast.success("Rating updated");
+                    },
+                  }).mutate({
+                    propertyId: property.id,
+                    rating: (property as any).teamRating === "good" ? null : "good",
+                  });
+                }}
+                className="gap-2"
+              >
+                <ThumbsUp className="h-4 w-4" />
+                Good
+              </Button>
+              <Button
+                variant={(property as any).teamRating === "watching" ? "default" : "outline"}
+                size="sm"
+                onClick={() => {
+                  const utils = trpc.useUtils();
+                  trpc.properties.setRating.useMutation({
+                    onSuccess: () => {
+                      utils.properties.list.invalidate();
+                      toast.success("Rating updated");
+                    },
+                  }).mutate({
+                    propertyId: property.id,
+                    rating: (property as any).teamRating === "watching" ? null : "watching",
+                  });
+                }}
+                className="gap-2"
+              >
+                <Eye className="h-4 w-4" />
+                Watching
+              </Button>
+              <Button
+                variant={(property as any).teamRating === "bad" ? "default" : "outline"}
+                size="sm"
+                onClick={() => {
+                  const utils = trpc.useUtils();
+                  trpc.properties.setRating.useMutation({
+                    onSuccess: () => {
+                      utils.properties.list.invalidate();
+                      toast.success("Rating updated");
+                    },
+                  }).mutate({
+                    propertyId: property.id,
+                    rating: (property as any).teamRating === "bad" ? null : "bad",
+                  });
+                }}
+                className="gap-2"
+              >
+                <ThumbsDown className="h-4 w-4" />
+                Bad
+              </Button>
+              <Button
+                variant={(property as any).teamRating === "needs_viewed" ? "default" : "outline"}
+                size="sm"
+                onClick={() => {
+                  const utils = trpc.useUtils();
+                  trpc.properties.setRating.useMutation({
+                    onSuccess: () => {
+                      utils.properties.list.invalidate();
+                      toast.success("Rating updated");
+                    },
+                  }).mutate({
+                    propertyId: property.id,
+                    rating: (property as any).teamRating === "needs_viewed" ? null : "needs_viewed",
+                  });
+                }}
+                className="gap-2"
+              >
+                <EyeOff className="h-4 w-4" />
+                Needs Viewed
+              </Button>
+              <Button
+                variant={(property as any).teamRating === "viewed" ? "default" : "outline"}
+                size="sm"
+                onClick={() => {
+                  const utils = trpc.useUtils();
+                  trpc.properties.setRating.useMutation({
+                    onSuccess: () => {
+                      utils.properties.list.invalidate();
+                      toast.success("Rating updated");
+                    },
+                  }).mutate({
+                    propertyId: property.id,
+                    rating: (property as any).teamRating === "viewed" ? null : "viewed",
+                  });
+                }}
+                className="gap-2"
+              >
+                <CheckCircle className="h-4 w-4" />
+                Viewed
+              </Button>
+            </div>
           </div>
 
           <Separator />

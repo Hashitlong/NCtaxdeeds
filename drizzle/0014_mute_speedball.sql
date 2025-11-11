@@ -1,0 +1,1 @@
+ALTER TABLE `properties` MODIFY COLUMN `teamRating` enum('good','bad','watching','needs_viewed','viewed');
