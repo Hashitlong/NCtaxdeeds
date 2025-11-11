@@ -955,13 +955,13 @@ export default function Properties() {
                           <RatingCell property={property} />
                         </TableCell>
                         <TableCell className="px-1 py-1 text-center">
-                          {(property as any).noteCount > 0 ? (
+                          {(property as any).noteCount && (property as any).noteCount > 0 ? (
                             <div className="flex items-center justify-center gap-1">
                               <MessageSquare className="h-3 w-3 text-blue-600" />
                               <span className="text-[9px] font-medium">{(property as any).noteCount}</span>
                             </div>
                           ) : (
-                            <span className="text-muted-foreground">—</span>
+                            <span className="text-muted-foreground text-[9px]">—</span>
                           )}
                         </TableCell>
                         <TableCell className="px-1 py-1">
