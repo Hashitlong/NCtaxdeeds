@@ -20,6 +20,7 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Search, RefreshCw, Download, X, Star, Save, Bookmark, History, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Home, Map, BarChart3, Settings, ThumbsUp, ThumbsDown, Eye, EyeOff, CheckCircle } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Link } from "wouter";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
@@ -47,55 +48,96 @@ function RatingCell({ property }: { property: any }) {
   };
 
   const currentRating = property.teamRating;
+  const isBadRating = currentRating === "bad";
 
   return (
-    <div className="flex items-center justify-center gap-1" onClick={(e) => e.stopPropagation()}>
-      <button
-        onClick={(e) => handleRatingClick(e, currentRating === "good" ? null : "good")}
-        className={`hover:scale-125 transition-transform ${
-          currentRating === "good" ? "opacity-100" : "opacity-30 hover:opacity-70"
-        }`}
-        title="Good property"
-      >
-        <ThumbsUp className="h-4 w-4 text-green-600" />
-      </button>
-      <button
-        onClick={(e) => handleRatingClick(e, currentRating === "watching" ? null : "watching")}
-        className={`hover:scale-125 transition-transform ${
-          currentRating === "watching" ? "opacity-100" : "opacity-30 hover:opacity-70"
-        }`}
-        title="Watching / Not sure"
-      >
-        <Eye className="h-4 w-4 text-blue-600" />
-      </button>
-      <button
-        onClick={(e) => handleRatingClick(e, currentRating === "bad" ? null : "bad")}
-        className={`hover:scale-125 transition-transform ${
-          currentRating === "bad" ? "opacity-100" : "opacity-30 hover:opacity-70"
-        }`}
-        title="Bad property"
-      >
-        <ThumbsDown className="h-4 w-4 text-red-600" />
-      </button>
-      <button
-        onClick={(e) => handleRatingClick(e, currentRating === "needs_viewed" ? null : "needs_viewed")}
-        className={`hover:scale-125 transition-transform ${
-          currentRating === "needs_viewed" ? "opacity-100" : "opacity-30 hover:opacity-70"
-        }`}
-        title="Needs Viewed"
-      >
-        <EyeOff className="h-4 w-4 text-orange-600" />
-      </button>
-      <button
-        onClick={(e) => handleRatingClick(e, currentRating === "viewed" ? null : "viewed")}
-        className={`hover:scale-125 transition-transform ${
-          currentRating === "viewed" ? "opacity-100" : "opacity-30 hover:opacity-70"
-        }`}
-        title="Viewed"
-      >
-        <CheckCircle className="h-4 w-4 text-purple-600" />
-      </button>
-    </div>
+    <TooltipProvider>
+      <div className="flex items-center justify-center gap-1" onClick={(e) => e.stopPropagation()}>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={(e) => handleRatingClick(e, currentRating === "good" ? null : "good")}
+              disabled={isBadRating && currentRating !== "good"}
+              className={`hover:scale-125 transition-transform ${
+                currentRating === "good" ? "opacity-100" : isBadRating ? "opacity-10 cursor-not-allowed" : "opacity-30 hover:opacity-70"
+              }`}
+            >
+              <ThumbsUp className="h-4 w-4 text-green-600" />
+            </button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Good property - Worth pursuing</p>
+          </TooltipContent>
+        </Tooltip>
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={(e) => handleRatingClick(e, currentRating === "watching" ? null : "watching")}
+              disabled={isBadRating && currentRating !== "watching"}
+              className={`hover:scale-125 transition-transform ${
+                currentRating === "watching" ? "opacity-100" : isBadRating ? "opacity-10 cursor-not-allowed" : "opacity-30 hover:opacity-70"
+              }`}
+            >
+              <Eye className="h-4 w-4 text-blue-600" />
+            </button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Watching - Monitoring this property</p>
+          </TooltipContent>
+        </Tooltip>
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={(e) => handleRatingClick(e, currentRating === "bad" ? null : "bad")}
+              className={`hover:scale-125 transition-transform ${
+                currentRating === "bad" ? "opacity-100" : "opacity-30 hover:opacity-70"
+              }`}
+            >
+              <ThumbsDown className="h-4 w-4 text-red-600" />
+            </button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Bad property - Not interested (blocks other ratings)</p>
+          </TooltipContent>
+        </Tooltip>
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={(e) => handleRatingClick(e, currentRating === "needs_viewed" ? null : "needs_viewed")}
+              disabled={isBadRating && currentRating !== "needs_viewed"}
+              className={`hover:scale-125 transition-transform ${
+                currentRating === "needs_viewed" ? "opacity-100" : isBadRating ? "opacity-10 cursor-not-allowed" : "opacity-30 hover:opacity-70"
+              }`}
+            >
+              <EyeOff className="h-4 w-4 text-orange-600" />
+            </button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Needs Viewed - Requires team review</p>
+          </TooltipContent>
+        </Tooltip>
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={(e) => handleRatingClick(e, currentRating === "viewed" ? null : "viewed")}
+              disabled={isBadRating && currentRating !== "viewed"}
+              className={`hover:scale-125 transition-transform ${
+                currentRating === "viewed" ? "opacity-100" : isBadRating ? "opacity-10 cursor-not-allowed" : "opacity-30 hover:opacity-70"
+              }`}
+            >
+              <CheckCircle className="h-4 w-4 text-purple-600" />
+            </button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Viewed - Has been reviewed by team</p>
+          </TooltipContent>
+        </Tooltip>
+      </div>
+    </TooltipProvider>
   );
 }
 

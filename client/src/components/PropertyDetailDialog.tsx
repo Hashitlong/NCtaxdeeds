@@ -15,6 +15,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface Property {
   id: number;
@@ -397,108 +398,153 @@ export function PropertyDetailDialog({ property, open, onOpenChange }: PropertyD
               <Star className="h-5 w-5" />
               Team Rating
             </h3>
-            <div className="flex items-center gap-2">
-              <Button
-                variant={(property as any).teamRating === "good" ? "default" : "outline"}
-                size="sm"
-                onClick={() => {
-                  const utils = trpc.useUtils();
-                  trpc.properties.setRating.useMutation({
-                    onSuccess: () => {
-                      utils.properties.list.invalidate();
-                      toast.success("Rating updated");
-                    },
-                  }).mutate({
-                    propertyId: property.id,
-                    rating: (property as any).teamRating === "good" ? null : "good",
-                  });
-                }}
-                className="gap-2"
-              >
-                <ThumbsUp className="h-4 w-4" />
-                Good
-              </Button>
-              <Button
-                variant={(property as any).teamRating === "watching" ? "default" : "outline"}
-                size="sm"
-                onClick={() => {
-                  const utils = trpc.useUtils();
-                  trpc.properties.setRating.useMutation({
-                    onSuccess: () => {
-                      utils.properties.list.invalidate();
-                      toast.success("Rating updated");
-                    },
-                  }).mutate({
-                    propertyId: property.id,
-                    rating: (property as any).teamRating === "watching" ? null : "watching",
-                  });
-                }}
-                className="gap-2"
-              >
-                <Eye className="h-4 w-4" />
-                Watching
-              </Button>
-              <Button
-                variant={(property as any).teamRating === "bad" ? "default" : "outline"}
-                size="sm"
-                onClick={() => {
-                  const utils = trpc.useUtils();
-                  trpc.properties.setRating.useMutation({
-                    onSuccess: () => {
-                      utils.properties.list.invalidate();
-                      toast.success("Rating updated");
-                    },
-                  }).mutate({
-                    propertyId: property.id,
-                    rating: (property as any).teamRating === "bad" ? null : "bad",
-                  });
-                }}
-                className="gap-2"
-              >
-                <ThumbsDown className="h-4 w-4" />
-                Bad
-              </Button>
-              <Button
-                variant={(property as any).teamRating === "needs_viewed" ? "default" : "outline"}
-                size="sm"
-                onClick={() => {
-                  const utils = trpc.useUtils();
-                  trpc.properties.setRating.useMutation({
-                    onSuccess: () => {
-                      utils.properties.list.invalidate();
-                      toast.success("Rating updated");
-                    },
-                  }).mutate({
-                    propertyId: property.id,
-                    rating: (property as any).teamRating === "needs_viewed" ? null : "needs_viewed",
-                  });
-                }}
-                className="gap-2"
-              >
-                <EyeOff className="h-4 w-4" />
-                Needs Viewed
-              </Button>
-              <Button
-                variant={(property as any).teamRating === "viewed" ? "default" : "outline"}
-                size="sm"
-                onClick={() => {
-                  const utils = trpc.useUtils();
-                  trpc.properties.setRating.useMutation({
-                    onSuccess: () => {
-                      utils.properties.list.invalidate();
-                      toast.success("Rating updated");
-                    },
-                  }).mutate({
-                    propertyId: property.id,
-                    rating: (property as any).teamRating === "viewed" ? null : "viewed",
-                  });
-                }}
-                className="gap-2"
-              >
-                <CheckCircle className="h-4 w-4" />
-                Viewed
-              </Button>
-            </div>
+            <TooltipProvider>
+              <div className="flex items-center gap-2 flex-wrap">
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant={(property as any).teamRating === "good" ? "default" : "outline"}
+                      size="sm"
+                      disabled={(property as any).teamRating === "bad" && (property as any).teamRating !== "good"}
+                      onClick={() => {
+                        const utils = trpc.useUtils();
+                        trpc.properties.setRating.useMutation({
+                          onSuccess: () => {
+                            utils.properties.list.invalidate();
+                            toast.success("Rating updated");
+                          },
+                        }).mutate({
+                          propertyId: property.id,
+                          rating: (property as any).teamRating === "good" ? null : "good",
+                        });
+                      }}
+                      className="gap-2"
+                    >
+                      <ThumbsUp className="h-4 w-4" />
+                      Good
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Good property - Worth pursuing</p>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant={(property as any).teamRating === "watching" ? "default" : "outline"}
+                      size="sm"
+                      disabled={(property as any).teamRating === "bad" && (property as any).teamRating !== "watching"}
+                      onClick={() => {
+                        const utils = trpc.useUtils();
+                        trpc.properties.setRating.useMutation({
+                          onSuccess: () => {
+                            utils.properties.list.invalidate();
+                            toast.success("Rating updated");
+                          },
+                        }).mutate({
+                          propertyId: property.id,
+                          rating: (property as any).teamRating === "watching" ? null : "watching",
+                        });
+                      }}
+                      className="gap-2"
+                    >
+                      <Eye className="h-4 w-4" />
+                      Watching
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Watching - Monitoring this property</p>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant={(property as any).teamRating === "bad" ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => {
+                        const utils = trpc.useUtils();
+                        trpc.properties.setRating.useMutation({
+                          onSuccess: () => {
+                            utils.properties.list.invalidate();
+                            toast.success("Rating updated");
+                          },
+                        }).mutate({
+                          propertyId: property.id,
+                          rating: (property as any).teamRating === "bad" ? null : "bad",
+                        });
+                      }}
+                      className="gap-2"
+                    >
+                      <ThumbsDown className="h-4 w-4" />
+                      Bad
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Bad property - Not interested (blocks other ratings)</p>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant={(property as any).teamRating === "needs_viewed" ? "default" : "outline"}
+                      size="sm"
+                      disabled={(property as any).teamRating === "bad" && (property as any).teamRating !== "needs_viewed"}
+                      onClick={() => {
+                        const utils = trpc.useUtils();
+                        trpc.properties.setRating.useMutation({
+                          onSuccess: () => {
+                            utils.properties.list.invalidate();
+                            toast.success("Rating updated");
+                          },
+                        }).mutate({
+                          propertyId: property.id,
+                          rating: (property as any).teamRating === "needs_viewed" ? null : "needs_viewed",
+                        });
+                      }}
+                      className="gap-2"
+                    >
+                      <EyeOff className="h-4 w-4" />
+                      Needs Viewed
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Needs Viewed - Requires team review</p>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant={(property as any).teamRating === "viewed" ? "default" : "outline"}
+                      size="sm"
+                      disabled={(property as any).teamRating === "bad" && (property as any).teamRating !== "viewed"}
+                      onClick={() => {
+                        const utils = trpc.useUtils();
+                        trpc.properties.setRating.useMutation({
+                          onSuccess: () => {
+                            utils.properties.list.invalidate();
+                            toast.success("Rating updated");
+                          },
+                        }).mutate({
+                          propertyId: property.id,
+                          rating: (property as any).teamRating === "viewed" ? null : "viewed",
+                        });
+                      }}
+                      className="gap-2"
+                    >
+                      <CheckCircle className="h-4 w-4" />
+                      Viewed
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Viewed - Has been reviewed by team</p>
+                  </TooltipContent>
+                </Tooltip>
+              </div>
+            </TooltipProvider>
           </div>
 
           <Separator />
