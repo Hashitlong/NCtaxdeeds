@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Search, RefreshCw, Download, X, Star, Save, Bookmark, History, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Home, Map, BarChart3, Settings, ThumbsUp, ThumbsDown, Eye, EyeOff, CheckCircle } from "lucide-react";
+import { Search, RefreshCw, Download, X, Star, Save, Bookmark, History, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Home, Map, BarChart3, Settings, ThumbsUp, ThumbsDown, Eye, EyeOff, CheckCircle, MessageSquare } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Link } from "wouter";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -893,6 +893,9 @@ export default function Properties() {
                       <TableHead className="px-1 py-1 text-center text-[10px]">
                         Rating
                       </TableHead>
+                      <TableHead className="px-1 py-1 text-center text-[10px]">
+                        Notes
+                      </TableHead>
                       <TableHead className="px-1 py-1 text-[10px]">
                         Link
                       </TableHead>
@@ -950,6 +953,16 @@ export default function Properties() {
                         </TableCell>
                         <TableCell className="px-1 py-1 text-center">
                           <RatingCell property={property} />
+                        </TableCell>
+                        <TableCell className="px-1 py-1 text-center">
+                          {(property as any).noteCount > 0 ? (
+                            <div className="flex items-center justify-center gap-1">
+                              <MessageSquare className="h-3 w-3 text-blue-600" />
+                              <span className="text-[9px] font-medium">{(property as any).noteCount}</span>
+                            </div>
+                          ) : (
+                            <span className="text-muted-foreground">—</span>
+                          )}
                         </TableCell>
                         <TableCell className="px-1 py-1">
                           {property.sourceUrl ? (

@@ -1,4 +1,4 @@
-import { eq, desc, sql } from "drizzle-orm";
+import { eq, desc, sql, getTableColumns } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import mysql from "mysql2";
 import {
@@ -8,7 +8,8 @@ import {
   scrapeHistory, InsertScrapeHistory,
   propertyHistory, InsertPropertyHistory,
   userPreferences, InsertUserPreferences, UserPreferences,
-  allowedUsers, AllowedUser, InsertAllowedUser
+  allowedUsers, AllowedUser, InsertAllowedUser,
+  propertyNotes
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -144,7 +145,13 @@ export async function getProperties(filters?: {
     conditions.push(eq(properties.propertyType, filters.propertyType));
   }
 
-  let query = db.select().from(properties);
+  // Select properties with note count
+  let query = db
+    .select({
+      ...getTableColumns(properties),
+      noteCount: sql<number>`(SELECT COUNT(*) FROM ${propertyNotes} WHERE ${propertyNotes.propertyId} = ${properties.id})`.as('noteCount')
+    })
+    .from(properties);
   
   if (conditions.length > 0) {
     query = query.where(conditions[0]) as any;
