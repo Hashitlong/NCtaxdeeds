@@ -193,7 +193,12 @@ export class ScraperService {
       console.log(`[ScraperService] Scraped ${properties.length} properties from ${scraperName}`);
       historyRecord.propertiesFound = properties.length;
 
-      // Import into database
+      // Mark existing properties from this source as inactive before importing
+      // This ensures only currently-found properties remain active
+      console.log(`[ScraperService] Marking existing properties from ${scraperName} as inactive...`);
+      await this.markSourcePropertiesInactive(scraperName);
+
+      // Import into database (will set found properties back to active)
       console.log(`[ScraperService] Importing properties into database...`);
       const { newCount, updatedCount } = await this.importProperties(properties);
 
@@ -232,6 +237,58 @@ export class ScraperService {
       }
 
       return { success: false, count: 0, error: error.message };
+    }
+  }
+
+  /**
+   * Mark all properties from a specific source as inactive
+   * This is called before importing to ensure only currently-found properties remain active
+   */
+  private async markSourcePropertiesInactive(scraperName: string): Promise<number> {
+    const db = await getDb();
+    if (!db) {
+      throw new Error('Database not available');
+    }
+
+    try {
+      // Map scraper names to their sourceType values
+      const sourceTypeMap: Record<string, string> = {
+        'kania': 'kania',
+        'hutchens': 'hutchens',
+        'wake_county': 'wake_county',
+        'rbcwb': 'rbcwb',
+        'forsyth': 'forsyth_county',
+        'gaston': 'gaston_county',
+        'alamance': 'alamance_county',
+        'catawba': 'catawba_county',
+        'cabarrus': 'cabarrus_county',
+        'rutherford': 'Rutherford County',
+        'edgecombe': 'edgecombe_county',
+        'hoke': 'hoke_county',
+        'yadkin': 'yadkin_county',
+        'anson': 'anson_county',
+        'bladen': 'bladen_county',
+        'cumberland': 'cumberland_county',
+        'mcdowell': 'mcdowell_county',
+        'wayne': 'wayne_county',
+        'zls': 'zls',
+      };
+
+      const sourceType = sourceTypeMap[scraperName] || scraperName;
+
+      // Mark all properties from this source as inactive
+      await db
+        .update(properties)
+        .set({ isActive: 0, lastUpdatedAt: new Date() })
+        .where(eq(properties.sourceType, sourceType));
+
+      console.log(`[ScraperService] Marked properties from ${scraperName} as inactive`);
+      
+      return 0; // Return value not critical, just for logging
+    } catch (error) {
+      console.error(`[ScraperService] Error marking properties inactive:`, error);
+      // Don't throw - we want to continue with import even if this fails
+      return 0;
     }
   }
 
