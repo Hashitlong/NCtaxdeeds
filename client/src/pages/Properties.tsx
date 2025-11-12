@@ -1071,7 +1071,7 @@ export default function Properties() {
                           )}
                         </TableCell>
                         <TableCell className="px-1 py-1 text-center">
-                          {property.address ? (
+                          {property.address && /\d/.test(property.address) && !/^\(.*\d.*\)/.test(property.address.trim()) ? (
                             <a
                               href={`https://www.zillow.com/homes/${encodeURIComponent(property.address + ', ' + property.county + ' County, NC')}_rb/`}
                               target="_blank"
