@@ -31,38 +31,69 @@ import { PropertyDetailDialog } from "@/components/PropertyDetailDialog";
 function CopyableCell({ text, className = "" }: { text: string; className?: string }) {
   const [showCopied, setShowCopied] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const copiedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
+      hideTimeoutRef.current = null;
+    }
+    setShowTooltip(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Add a delay before hiding to make it easier to move mouse to tooltip
+    hideTimeoutRef.current = setTimeout(() => {
+      setShowTooltip(false);
+    }, 300);
+  };
+
+  const handleTooltipMouseEnter = () => {
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
+      hideTimeoutRef.current = null;
+    }
+  };
+
+  const handleTooltipMouseLeave = () => {
+    setShowTooltip(false);
+  };
 
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
     await navigator.clipboard.writeText(text);
     setShowCopied(true);
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => setShowCopied(false), 2000);
+    if (copiedTimeoutRef.current) clearTimeout(copiedTimeoutRef.current);
+    copiedTimeoutRef.current = setTimeout(() => setShowCopied(false), 2000);
   };
 
   return (
     <div
       className="relative group"
-      onMouseEnter={() => setShowTooltip(true)}
-      onMouseLeave={() => setShowTooltip(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className={`truncate ${className}`}>
         {text}
       </div>
       {showTooltip && (
-        <div className="absolute z-50 left-0 top-full mt-1 bg-popover text-popover-foreground border rounded-md shadow-lg p-2 min-w-[200px] max-w-[400px]">
+        <div
+          className="absolute z-50 left-0 top-full mt-1 bg-popover text-popover-foreground border rounded-md shadow-lg p-3 min-w-[200px] max-w-[400px]"
+          onMouseEnter={handleTooltipMouseEnter}
+          onMouseLeave={handleTooltipMouseLeave}
+        >
           <div className="flex items-start gap-2">
-            <div className="flex-1 text-xs break-all">{text}</div>
+            <div className="flex-1 text-xs break-all select-all">{text}</div>
             <button
               onClick={handleCopy}
-              className="flex-shrink-0 p-1 hover:bg-muted rounded transition-colors"
+              className="flex-shrink-0 p-1.5 hover:bg-muted rounded transition-colors"
               title="Copy to clipboard"
             >
               {showCopied ? (
-                <Check className="h-3 w-3 text-green-600" />
+                <Check className="h-4 w-4 text-green-600" />
               ) : (
-                <Copy className="h-3 w-3" />
+                <Copy className="h-4 w-4" />
               )}
             </button>
           </div>
