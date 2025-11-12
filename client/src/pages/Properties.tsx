@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,13 +19,58 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Search, RefreshCw, Download, X, Star, Save, Bookmark, History, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Home, Map, BarChart3, Settings, ThumbsUp, ThumbsDown, Eye, EyeOff, CheckCircle, MessageSquare, Globe } from "lucide-react";
+import { Search, RefreshCw, Download, X, Star, Save, Bookmark, History, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Home, Map, BarChart3, Settings, ThumbsUp, ThumbsDown, Eye, EyeOff, CheckCircle, MessageSquare, Globe, Copy, Check } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Link } from "wouter";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
 import { PropertyDetailDialog } from "@/components/PropertyDetailDialog";
+
+// Copyable Cell Component with hover tooltip
+function CopyableCell({ text, className = "" }: { text: string; className?: string }) {
+  const [showCopied, setShowCopied] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleCopy = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    await navigator.clipboard.writeText(text);
+    setShowCopied(true);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => setShowCopied(false), 2000);
+  };
+
+  return (
+    <div
+      className="relative group"
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+    >
+      <div className={`truncate ${className}`}>
+        {text}
+      </div>
+      {showTooltip && (
+        <div className="absolute z-50 left-0 top-full mt-1 bg-popover text-popover-foreground border rounded-md shadow-lg p-2 min-w-[200px] max-w-[400px]">
+          <div className="flex items-start gap-2">
+            <div className="flex-1 text-xs break-all">{text}</div>
+            <button
+              onClick={handleCopy}
+              className="flex-shrink-0 p-1 hover:bg-muted rounded transition-colors"
+              title="Copy to clipboard"
+            >
+              {showCopied ? (
+                <Check className="h-3 w-3 text-green-600" />
+              ) : (
+                <Copy className="h-3 w-3" />
+              )}
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 // Rating Cell Component
 function RatingCell({ property }: { property: any }) {
@@ -939,8 +984,16 @@ export default function Properties() {
                 </button>
                         </TableCell>
                         <TableCell className="font-medium px-1 py-1 text-[10px]">{property.county}</TableCell>
-                        <TableCell className="px-1 py-1 truncate max-w-[120px] text-[10px]" title={property.address || "—"}>{property.address || "—"}</TableCell>
-                        <TableCell className="font-mono px-1 py-1 text-[9px] max-w-[80px] truncate" title={property.parcelId}>{property.parcelId}</TableCell>
+                        <TableCell className="px-1 py-1 max-w-[120px]">
+                          {property.address ? (
+                            <CopyableCell text={property.address} className="text-[10px]" />
+                          ) : (
+                            <span className="text-[10px]">—</span>
+                          )}
+                        </TableCell>
+                        <TableCell className="font-mono px-1 py-1 max-w-[80px]">
+                          <CopyableCell text={property.parcelId} className="text-[9px]" />
+                        </TableCell>
                         <TableCell className="px-1 py-1 truncate text-[9px]" title={property.propertyType || "—"}>{property.propertyType || "—"}</TableCell>
                         <TableCell className="px-1 py-1 whitespace-nowrap text-[9px]">{formatDate(property.saleDate)}</TableCell>
                         <TableCell className="text-right px-1 py-1 whitespace-nowrap text-[9px]">{formatCurrency(property.openingBid)}</TableCell>
