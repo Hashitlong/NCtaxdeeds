@@ -1,4 +1,4 @@
-import { eq, desc, sql, getTableColumns } from "drizzle-orm";
+import { eq, desc, sql, getTableColumns, count } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import mysql from "mysql2";
 import {
@@ -145,13 +145,15 @@ export async function getProperties(filters?: {
     conditions.push(eq(properties.propertyType, filters.propertyType));
   }
 
-  // Select properties with note count
+  // Select properties with note count using LEFT JOIN
   let query = db
     .select({
       ...getTableColumns(properties),
-      noteCount: sql<number>`(SELECT COUNT(*) FROM ${propertyNotes} WHERE ${propertyNotes.propertyId} = ${properties.id})`.as('noteCount')
+      noteCount: count(propertyNotes.id).as('noteCount')
     })
-    .from(properties);
+    .from(properties)
+    .leftJoin(propertyNotes, eq(properties.id, propertyNotes.propertyId))
+    .groupBy(properties.id);
   
   if (conditions.length > 0) {
     query = query.where(conditions[0]) as any;
