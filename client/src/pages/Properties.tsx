@@ -899,6 +899,9 @@ export default function Properties() {
                       <TableHead className="px-1 py-1 text-center text-[10px]">
                         Map
                       </TableHead>
+                      <TableHead className="px-1 py-1 text-center text-[10px]">
+                        Zillow
+                      </TableHead>
                       <TableHead className="px-1 py-1 text-[10px]">
                         Link
                       </TableHead>
@@ -970,14 +973,30 @@ export default function Properties() {
                         <TableCell className="px-1 py-1 text-center">
                           {property.address ? (
                             <a
-                              href={`https://earth.google.com/web/search/${encodeURIComponent(property.address + ', ' + property.county + ' County, North Carolina')}`}
+                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(property.address + ', ' + property.county + ' County, North Carolina')}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
                               className="text-blue-600 hover:text-blue-800 underline text-[9px]"
-                              title="View in Google Earth"
+                              title="View in Google Maps"
                             >
                               Map
+                            </a>
+                          ) : (
+                            <span className="text-muted-foreground text-[9px]">—</span>
+                          )}
+                        </TableCell>
+                        <TableCell className="px-1 py-1 text-center">
+                          {property.address ? (
+                            <a
+                              href={`https://www.zillow.com/homes/${encodeURIComponent(property.address + ', ' + property.county + ' County, NC')}_rb/`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-blue-600 hover:text-blue-800 underline text-[9px]"
+                              title="Search on Zillow"
+                            >
+                              Zillow
                             </a>
                           ) : (
                             <span className="text-muted-foreground text-[9px]">—</span>
