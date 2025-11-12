@@ -833,14 +833,14 @@ export default function Properties() {
                       >
                         County<SortIcon column="county" />
                       </TableHead>
-                      <TableHead 
-                        className="px-1 py-1 cursor-pointer hover:bg-muted/50 select-none text-[10px]"
+                      <TableHead
+                        className="px-1 py-1 cursor-pointer hover:bg-muted/50 select-none text-[10px] max-w-[120px]"
                         onClick={() => handleSort('address')}
                       >
                         Address<SortIcon column="address" />
                       </TableHead>
-                      <TableHead 
-                        className="px-1 py-1 cursor-pointer hover:bg-muted/50 select-none text-[10px]"
+                      <TableHead
+                        className="px-1 py-1 cursor-pointer hover:bg-muted/50 select-none text-[10px] max-w-[80px]"
                         onClick={() => handleSort('parcelId')}
                       >
                         Parcel<SortIcon column="parcelId" />
@@ -939,8 +939,8 @@ export default function Properties() {
                 </button>
                         </TableCell>
                         <TableCell className="font-medium px-1 py-1 text-[10px]">{property.county}</TableCell>
-                        <TableCell className="px-1 py-1 truncate text-[10px]" title={property.address || "—"}>{property.address || "—"}</TableCell>
-                        <TableCell className="font-mono px-1 py-1 text-[9px]">{property.parcelId}</TableCell>
+                        <TableCell className="px-1 py-1 truncate max-w-[120px] text-[10px]" title={property.address || "—"}>{property.address || "—"}</TableCell>
+                        <TableCell className="font-mono px-1 py-1 text-[9px] max-w-[80px] truncate" title={property.parcelId}>{property.parcelId}</TableCell>
                         <TableCell className="px-1 py-1 truncate text-[9px]" title={property.propertyType || "—"}>{property.propertyType || "—"}</TableCell>
                         <TableCell className="px-1 py-1 whitespace-nowrap text-[9px]">{formatDate(property.saleDate)}</TableCell>
                         <TableCell className="text-right px-1 py-1 whitespace-nowrap text-[9px]">{formatCurrency(property.openingBid)}</TableCell>
