@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Search, RefreshCw, Download, X, Star, Save, Bookmark, History, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Home, Map, BarChart3, Settings, ThumbsUp, ThumbsDown, Eye, EyeOff, CheckCircle, MessageSquare } from "lucide-react";
+import { Search, RefreshCw, Download, X, Star, Save, Bookmark, History, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Home, Map, BarChart3, Settings, ThumbsUp, ThumbsDown, Eye, EyeOff, CheckCircle, MessageSquare, Globe } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Link } from "wouter";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -896,6 +896,9 @@ export default function Properties() {
                       <TableHead className="px-1 py-1 text-center text-[10px]">
                         Notes
                       </TableHead>
+                      <TableHead className="px-1 py-1 text-center text-[10px]">
+                        Map
+                      </TableHead>
                       <TableHead className="px-1 py-1 text-[10px]">
                         Link
                       </TableHead>
@@ -960,6 +963,22 @@ export default function Properties() {
                               <MessageSquare className="h-3 w-3 text-blue-600" />
                               <span className="text-[9px] font-medium">{(property as any).noteCount}</span>
                             </div>
+                          ) : (
+                            <span className="text-muted-foreground text-[9px]">—</span>
+                          )}
+                        </TableCell>
+                        <TableCell className="px-1 py-1 text-center">
+                          {property.address ? (
+                            <a
+                              href={`https://earth.google.com/web/search/${encodeURIComponent(property.address + ', ' + property.county + ' County, North Carolina')}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-blue-600 hover:text-blue-800 underline text-[9px]"
+                              title="View in Google Earth"
+                            >
+                              Map
+                            </a>
                           ) : (
                             <span className="text-muted-foreground text-[9px]">—</span>
                           )}
